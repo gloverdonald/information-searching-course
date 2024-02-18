@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="ru" data-vue-meta="%7B%22lang%22:%7B%22ssr%22:%22ru%22%7D%7D">
+ <head>
+  <title>Про ГОСТовский шифр Кузнечик, его SBox и потерянные сиды / Хабр</title>
+ </head>
+ <body>
+  <div id="app" data-server-rendered="true" data-async-called="true">
+   <div class="tm-layout__wrapper">
+    <!---->
+    <div></div><!---->
+    <header class="tm-header">
+     <div class="tm-page-width">
+      <div class="tm-header__container">
+       <!----> <span class="tm-header__logo-wrap"> <span class="tm-header__beta-sign" style="display:none;">β</span></span>
+       <div class="tm-dropdown tm-header__projects">
+        <div class="tm-dropdown__head">
+         <button class="tm-header__dropdown-toggle"></button>
+        </div><!---->
+       </div>
+       <div class="tm-feature tm-header__feature tm-feature tm-feature_variant-inline">
+        <!---->
+       </div><!----> <!---->
+      </div>
+     </div>
+    </header>
+    <div class="tm-layout">
+     <div class="tm-page-progress-bar"></div>
+     <div data-menu-sticky="true" class="tm-base-layout__header tm-base-layout__header_is-sticky">
+      <div class="tm-page-width">
+       <div class="tm-base-layout__header-wrapper">
+        <div class="tm-main-menu">
+         <div class="tm-main-menu__section">
+          <nav class="tm-main-menu__section-content">
+          </nav>
+         </div>
+        </div>
+        <div class="tm-header-user-menu tm-base-layout__user-menu">
+         <!----> <!----> <!---->
+         <div class="tm-header-user-menu__item">
+          <button class="tm-header-user-menu__toggle"></button>
+         </div> <!---->
+         <div class="v-portal" style="display:none;"></div>
+        </div>
+       </div>
+      </div>
+     </div><!---->
+     <div class="tm-page-width"></div>
+     <main class="tm-layout__container">
+      <div hl="ru" companyname="virgilsecurity" data-async-called="true" class="tm-page">
+       <div class="tm-page-width">
+        <!---->
+        <div class="tm-page__wrapper">
+         <div class="tm-page__main tm-page__main_has-sidebar">
+          <div class="pull-down">
+           <!---->
+           <div class="pull-down__header" style="height:0px;">
+            <div class="pull-down__content" style="bottom:10px;"></div>
+           </div>
+           <div class="tm-article-presenter">
+            <!---->
+            <div class="tm-company-profile-card tm-company-article__profile-card">
+             <div class="tm-company-card tm-company-profile-card__info">
+              <div class="tm-company-card__header">
+               <!---->
+               <div class="tm-counter-container tm-company-card__rating">
+                <div class="tm-counter-container__header">
+                 <div class="tm-votes-lever tm-votes-lever tm-votes-lever_appearance-rating">
+                  <!---->
+                  <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-rating">
+                   <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 0 </span></span>
+                  </div><!---->
+                 </div>
+                </div>
+                <div class="tm-counter-container__footer">
+                 <span class="tm-rating__text tm-rating__text"> Рейтинг </span>
+                </div>
+               </div><!---->
+              </div>
+              <div class="tm-company-card__info">
+               <div class="tm-company-card__description">
+                Мы превращаем программистов в криптографов.
+               </div>
+              </div>
+             </div><!---->
+            </div><!---->
+            <div class="tm-article-presenter__body">
+             <div class="tm-misprint-area">
+              <div class="tm-misprint-area__wrapper">
+               <article class="tm-article-presenter__content tm-article-presenter__content_narrow">
+                <div class="tm-article-presenter__header">
+                 <div class="tm-article-snippet tm-article-presenter__snippet tm-article-snippet">
+                  <div class="tm-article-snippet__meta-container">
+                   <div class="tm-article-snippet__meta">
+                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2019-06-13T06:01:44.000Z" title="2019-06-13, 09:01">13 июн 2019 в 09:01</time></span></span></span>
+                   </div><!---->
+                  </div>
+                  <h1 lang="ru" class="tm-title tm-title_h1"><span>Про ГОСТовский шифр Кузнечик, его SBox и потерянные сиды</span></h1>
+                  <div class="tm-article-snippet__stats">
+                   <!---->
+                   <div class="tm-article-reading-time">
+                    <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 9 мин </span>
+                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">36K</span></span>
+                  </div>
+                  <div class="tm-publication-hubs__container">
+                   <div class="tm-publication-hubs">
+                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
+                   </div>
+                  </div><!----> <!----> <!---->
+                 </div>
+                </div><!---->
+                <div data-gallery-root="" lang="ru" class="tm-article-body">
+                 <div></div>
+                 <div id="post-content-body">
+                  <div>
+                   <div class="article-formatted-body article-formatted-body article-formatted-body_version-1">
+                    <div xmlns="http://www.w3.org/1999/xhtml">
+                     Привет, %username%!
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                      Недавно мы вернулись с конференции EuroCrypt 2019, где познакомились с чрезвычайно умными людьми и заодно узнали новые, чрезвычайно обидные факты о ГОСТовском SBox.
+                     <br>
+                     <br>
+                      Так что, это второй подход к снаряду. Исправленный и дополненный.
+                     <br>
+                     <br>
+                      В этот раз не будет непонятных красно-синих слайдов, зато будут оригинальные документы из комитета ISO c объяснениями авторов Кузнечика.
+                     <br>
+                     <br>
+                      И даже челлендж в конце!
+                     <br>
+                     <br>
+                      Поехали.
+                     <br>
+                     <br>
+                      Вначале ликбез. В предыдущей статье его не было, в этот раз исправляюсь.
+                     <br>
+                     <br>
+                     <h2>Chosen Plaintext Attack (CPA)</h2>
+                     <br>
+                      Начнем мы с базовой модели атаки на блочные шифры.
+                     <br>
+                     <br>
+                      В этой модели атакующий знает о криптосистеме всё кроме ключа шифрования. Он может создавать любые открытые тексты, получать соответствующие им шифротексты и его задачей является вычислить ключ, т.к. это единственная переменная.
+                     <br>
+                     <br>
+                      Блочный шифр в данной ситуации можно рассматривать как псевдослучайную подстановку. Функцию, которая блоку открытого текста сопоставляет блок шифротекста таким образом, что связь между ними определить невозможно. 
+                     <br>
+                     <br>
+                      Идеальный блочный шифр можно представить себе как большую таблицу, где по горизонтали будут все возможные ключи от 000...000 до 111...111, по вертикали — все возможные открытые тексты тоже от 000...000 до 111...111, а на месте их пересечения — случайным образом сгенерированные шифротексты, которые однозначно связывали бы пару «ключ — открытый текст». Создать такую таблицу в реальной жизни не представляется возможным из-за её размеров, поэтому её эмулируют с помощью различных алгоритмов блочного шифрования.
+                     <br>
+                     <br>
+                      Атаку на блочный шифр можно назвать успешной если мы можем определить «неслучайность», с которой алгоритм выбирает шифротексты, соответствующие открытым текстам. Эта неслучайность и позволяет в самых худших случаях вычислить ключ шифрования.
+                     <br>
+                     <br>
+                     <h2>(Не)линейность</h2>
+                     <br>
+                      Процесс шифрования в блочном шифре можно представить простой формулой 
+                     <br>
+                      C = M х K 
+                     <br>
+                      где C — шифротекст, M — открытый текст, K — ключ шифрования, а x — блочный шифр.
+                     <br>
+                     <br>
+                      Эта формула визуально похожа на школьную формулу линейного уравнения y = kx+b, графиком которой является прямая линия.
+                     <br>
+                     <br>
+                      Любую прямую линию можно восстановить всего по двум точкам. И в то же время <b>мы очень не хотим</b>, чтобы по двум парам открытый текст — шифротекст можно было восстановить ключ шифрования. Для этого в алгоритмы шифрования добавляют специальные прослойки, отвечающие за <b>не</b>линейность. Эти прослойки призваны не допустить возможность вычисления связи между открытым текстом, шифротекстом и ключом.
+                     <br>
+                     <br><b>Их качество критически важно для безопасности алгоритма.</b>
+                     <br>
+                     <br>
+                     <h2>Что такое SBox?</h2>
+                     <br>
+                      Это та самая нелинейная прослойка. Функция, которая в случае Кузнечика и некоторых других шифров однозначно сопоставляет одному байту другой байт. 
+                     <br>
+                     <br>
+                      Очень часто она задаётся простой таблицей соответствия, например такой:
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                      Потому что иначе её не описать. На первый взгляд.
+                     <br>
+                     <br>
+                     <h2>Почему SBox важен?</h2>
+                     <br>
+                      Потому что это <b>единственная</b> нелинейная функция во всём шифре. Без неё взломать шифр будет не просто, а очень просто, представив его в виде системы линейных уравнений. Поэтому к функции подстановки так много внимания. Есть даже  по взлому AES с линейным SBox.
+                     <br>
+                     <br>
+                     <h2>Почему нельзя создать один безопасный SBox на всех?</h2>
+                     <br>
+                      Проблема в том, что криптография не является точной наукой. Единственным доказуемо стойким алгоритмом шифрования является . Всё остальное — робкие попытки уместиться в диапазон доступных нам знаний, набор которых не так уж велик.
+                     <br>
+                      Мы точно не знаем, стоек ли RSA или AES или эллиптические кривые, но мы знаем, что такие-то и такие-то вещи делать <b>точно нельзя</b>. Всё что между — творчество.
+                     <br>
+                     <br>
+                      Отсюда и постоянная паранойя по поводу различных «магических констант» и прочих моментов, которые авторы алгоритмов преподносят как безопасные, но <b>не могут это доказать</b>.
+                     <br>
+                     <br>
+                     <h2>Как создают SBox?</h2>
+                     <br>
+                      Различных вариантов SBox — 256!, это примерно 2<sup>1684</sup>. Выбор большой и за годы криптоанализа были выработаны метрики и характеристики, которыми должен обладать SBox, стойкий к известным на сегодня атакам. Конечно, создатели таблиц думают на годы вперед и пытаются создать подстановки, которые были бы стойки даже к атакам, придуманными через 5-10 лет. Но это уже больше из разряда магии и шаманства.
+                     <br>
+                     <br>
+                      Есть два принципиально разных подхода к созданию SBox. 
+                     <br>
+                     <br>
+                      Первый — случайный поиск. Разработчики генерируют случайные таблицы, смотрят на их характеристики и отсеивают те, которые не подходят. Так продолжается до тех пор, пока разработчики не удовлетворятся найденным.
+                     <br>
+                     <br>
+                      В цивилизованном мире это происходит, например, следующим образом:
+                     <br>
+                     <br>
+                     <ol>
+                     </ol>
+                     <br>
+                      Так любой может воспроизвести этот процесс и убедиться, что были соблюдены хотя бы минимальные требования к псевдослучайному поиску.
+                     <br>
+                     <br>
+                      Знаете, куда делись сиды от главного симметричного алгоритма страны? <b>Потерялись</b>! Я думал их специально не выдают, секрет там или что, но российские коллеги на EuroCrypt рассказали, что во время разработки алгоритма в 2007м году никто почему-то не думал, что придётся обосновывать дизайн таблицы подстановок, и значения из которых она получилась, были навсегда утеряны. История красивая, вот только не стоит забывать, что алгоритм создавался не в школе на перемене, а в недрах ФСБ.
+                     <br>
+                     <br>
+                      Второй способ — создать SBox самим, руководствуясь доступным математическим аппаратом. Так  авторы AES и у них неплохо получилось. Если сравнить нелинейность SBox AES, SM4(китайский стандарт) и Кузнечика (он использует тот же SBox, что и хэш Стрибог), то результат будет не в пользу последнего
+                     <br>
+                     <blockquote>
+                      AES non-linearity (min, max) = (112.0, 112.0)
+                      <br>
+                       SM4 non-linearity (min, max) = (112.0, 112.0)
+                      <br>
+                       Streebog non-linearity (min, max) = (102.0, 110.0)
+                      <br>
+                     </blockquote> Код вычисления нелинейности использует Walsh Transform и доступен 
+                     <br>
+                     <br>
+                     <h2>Документы</h2>
+                     <br>
+                      В моё распоряжение попали два документа из ISO. В  дизайнеры Кузнечика объясняют как создавали SBox, в  комитет обсуждает их доводы.
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                      из первого документа нам интересны две цитаты:
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                      и
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                      Надеюсь, тема с «Лео Перрин сам придумал, что авторы искали SBox случайным образом» теперь закрыта.
+                     <br>
+                     <br>
+                      Из объяснений дизайнеров следует, что 
+                     <br>
+                     <br>
+                     <ol>
+                     </ol>
+                     <br>
+                      И вот в этом месте они капитально облажались.
+                     <br>
+                     <br>
+                     <h2>Что такое структура?</h2>
+                     <br>
+                      Структура, применительно к таблице подстановки — некий алгоритм, который эту таблицу описывает.
+                     <br>
+                     <br>
+                      В документе был упомянут AES. Но таблица подстановки для AES была изначально создана не случайным поиском, а с помощью нескольких математических приёмов, позволивших описать нелинейный слой . В этом, кстати, уникальность AES.
+                     <br>
+                     <br>
+                      Напротив, если вы ищите SBox случайным образом, то таких структур в нём быть <b>не должно</b> и проблема с SBox Кузнечика в том, что слова дизайнеров алгоритма очень сильно расходятся с фактами. Про саму структуру кузнечика под названием TKLog я писал в , в этот раз поговорим о структурах вообще.
+                     <br>
+                     <br>
+                     <h2>Колмогоровская сложность</h2>
+                     <br>
+                      Это результат исследований из  Лео Перрина на тему Кузнечика.
+                     <br>
+                     <br>
+                      Основной контраргумент к статьям про структуры в SBox Кузнечика в том, что «практически в любом SBox можно найти какую-то структуру, если захотеть». И «хоть вероятность нахождения структуры, которую нашел Лео, ничтожна мала, если бы был другой SBox, то нашлась бы другая, тоже с ничтожной вероятностью».
+                     <br>
+                     <br>
+                      Допустим, это так. Но. Как оказалось, можно вывести некую «степень заструктурированности» SBox, которая не зависит от вероятности попадания в ту или иную структуру.
+                     <br>
+                     <br>
+                      Зато она зависит от размера алгоритма, который нужен для генерации данного SBox!
+                     <br>
+                     <br>
+                      Это и называется Колмогоровской сложностью.
+                     <br>
+                     <br>
+                      Если представить SBox как строку байт, то в случае случайной строки не должно быть алгоритма, который генерирует эту строку и при этом сам меньше этой строки.
+                     <br>
+                     <br>
+                     <h2>Применительно к кузнечику</h2>
+                     <br>
+                      Итак, размер SBox — 256 байт. Перед вами читабельная версия кода авторства Лео Перрина, которая реализует таблицу Кузнечика. На входе — исходный байт, на выходе — соответствующий ему байт из SBox Кузнечика. Главным условием для такого алгоритма является запрет на использование языковых или платформенных структур, читерски сокращающих размер программы. К примеру, если где-то внутри стандартной библиотеки есть константа, содержащая половину SBox, то использовать её нельзя.
+                     <br>
+                     <br>
+                      Челлендж — написать программу, размер которой будет меньше, чем SBox.
+                     <br>
+                     <br>
+                     <pre><code class="cpp">unsigned char p(unsigned char x){
+    unsigned char
+        s[]={1,221,146,79,147,153,11,68,214,215,78,220,152,10,69},
+        k[]={0,32,50,6,20,4,22,34,48,16,2,54,36,52,38,18,0};    
+    if(x) {
+        unsigned char l=1, a=2;
+        while(a!=x) {
+            a=(a&lt;&lt;1)^(a&gt;&gt;7)*29;
+            l++;
+        }
+        if (l%17) return 252^k[l%17]^s[l/17];
+        else return 252^k[l/17];
+    }
+    else return 252;
+}
+</code></pre>
+                     <br>
+                      Наша задача показать, что в SBox Кузнечика заложена «сильная» структура, такая, что её размер сильно меньше размера самого SBox. Код выше занимает 416 символов, что пока многовато.
+                     <br>
+                     <br>
+                      Если упаковать константы в символы юникода и избавиться от некоторой красоты, то получится следующий код:
+                     <br>
+                     <br>
+                     <pre><code class="cpp">p(x){
+  unsigned char
+      *t="@`rFTDVbpPBvdtfR@\xacp?\xe2&gt;4\xa6\xe9{z\xe3q5\xa7\xe8",
+      a=2,l=0,b=17;
+  while(x &amp;&amp; (l++,a^x)) a=2*a^a/128*29;
+  return l%b ? t[l%b]^t[b+l/b]^b : t[l/b]^188;
+}
+</code></pre>
+                     <br>
+                      Этот исходник занимает уже 196 байт, что уже на 23% меньше чем сам SBox. Но мы идём дальше. Если убрать лишние пробелы и переносы строк, то лучшая на сегодняшний день рабочая версия С кода выглядит так:
+                     <br>
+                     <br>
+                     <pre><code class="cpp">p(x){char*k="@`rFTDVbpPBvdtfR@\xacp?\xe2&gt;4\xa6\xe9{z\xe3q5\xa7\xe8";int l=256,b=17;while(--l*x^l)x=2*x^x/128*285;return l%b?k[l%b]^k[b+l/b]^b:k[l/b]^188;}
+</code></pre>
+                     <br>
+                      Чтобы вывести на экран SBox можно воспользоваться следующим простым кодом:
+                     <br>
+                     <br>
+                     <pre><code class="cpp">int main() {
+   for(int i = 0; i &lt; 256; i++){
+       if (i % 16 == 0){
+           printf("\n");
+       }
+    printf("%d, ", (unsigned char)p(i));    
+   }
+}
+</code></pre>
+                     <br>
+                      Можете запустить и убедиться, что код действительно работает и соответствует SBox Кузнечика.
+                     <br>
+                      Эта версия С кода занимает 153 символа. Поскольку все символы кода — валидные ANSI, то можно считать каждый символ равным 7 битам, а не 8. Таким образом имеем 1071 бит или ~134 байта. А это уже почти половина от размера таблицы, хоть и всё еще текстовый исходник.
+                     <br>
+                     <br>
+                      Что касается скомпилированного кода, то для архитектуры Cortex-M4 Лео удалось скомпилировать код размером всего <b>80 байт</b> (ассемблерный код есть в статье).
+                     <br>
+                     <br>
+                      Это тоже не предел, уже есть рабочие имплементации размером <b>меньше чем 64 байта</b>.
+                     <br>
+                     <br>
+                     <h2>И что, это означает бекдор?</h2>
+                     <br>
+                      Нет, мы не можем говорить о наличие бекдора в Кузнечике, пока он не будет стопроцентно найден.
+                     <br>
+                     <br>
+                      Но и структура, в 4 раза меньшая чем Sbox, не может попасть в SBox случайно, что бы там ни говорили авторы и защитники Кузнечика.
+                     <br>
+                     <br>
+                      Только вдумайтесь. <b>Реальный размер таблицы подстановки Кузнечика, найденной «псевдослучайным поиском» сравним с размером таблицы AES</b> (, GolfScript), у которого структура была известна с самого начала.
+                     <br>
+                     <br>
+                      Есть или нет бекдор в Кузнечике — мы не знаем. Но в том, что авторы соврали — сомнений не осталось.
+                     <br>
+                     <br>
+                     <h2>Выводы</h2>
+                     <br>
+                      Дизайнеры Кузнечика неоднократно декларировали отсутствие скрытых структур в важнейшем элементе алгоритма — SBox. Но исследования показали, что процесс создания таблицы подстановки был далёк от случайного поиска. Даже с теми критериями, которые описали авторы в .
+                     <br>
+                     <br>
+                      Если авторам верить (а по эту сторону границы им безоговорочно верят), то они случайно наткнулись на <b>структуру, размер которой в 4 раза меньше, чем сам SBox</b>. Повторюсь, криптография — не точная наука и достаточно малейшего повода для сомнения, чтобы разбудить в людях паранойю. В данной ситуации размер повода в 4 раза более чем достаточный, чтобы считать алгоритм, разработанный в недрах наших прославленных силовых структур, очень подозрительным. Нет, ну правда, смешно когда наши доблестные ФСБшники включают школьников и говорят, что 11 лет назад этот алгоритм начинал разрабатываться чуть ли не в свободное время, поэтому они в итоге потеряли и сиды и скорее всего программу, которая генерировала таблицу подстановок. Просто так получилось, что side project стал национальным стандартом ¯\_(ツ)_/¯.
+                     <br>
+                     <br>
+                     <h2>Послесловие</h2>
+                     <br>
+                      Сейчас в ISO идёт полугодовой период исследования Кузнечика на наличие бекдора. По его результатам будет принято решение о дальнейшей судьбе алгоритма как международного стандарта. Либо процесс будет продлён еще на пол года.
+                     <br>
+                     <br>
+                      Со слов людей, лично знакомых с дизайнерами Кузнечика, алгоритм был разработан в то время, когда никто не требовал объяснять почему SBox имеет именно заданный ими вид. Поэтому никто не сохранил стартовые значения для перебора. Аргумент, как по мне, слабоват.
+                     <br>
+                     <br>
+                      На конференции я поговорил с автором Curve25519 Daniel J. Bernstein и Tanja Lange, которые являются членами комитета ISO по стандартизации новых алгоритмов. Они сказали, что предоставлять сиды не обязательно, достаточно показать саму программу, которая генерировала этот злосчастный SBox. Этого сделано до сих не было и вероятность этого события не слишком большая. Ибо секрет.
+                     <br>
+                     <br>
+                      Вообще в  можно найти много интересных деталей и реплик, позволяющих понять ход мыслей членов комитета.
+                     <br>
+                     <br>
+                      Что касается дальнейшей судьбы алгоритма, вероятность принять его как международный стандарт довольно низкая. Это признают как члены ISO, так и сотрудники российских компаний, с которыми я познакомился на EuroCrypt.
+                     <br>
+                     <br>
+                      Более того, по последним данным есть ненулевая вероятность выпиливания уже принятого в стандарт хэша Стрибог (с тем же SBox), а так же RFC 7801, в котором описан Кузнечик. 
+                     <br>
+                     <br>
+                      Можно было бы создать новый, правильный по всем канонам SBox, этим даже ради интереса занялись в одной из российских компаний (кстати, обещали результаты показать). Но проблема в том, что в России Кузнечик уже стандартизирован, реализован в железе и внедрён везде, где только можно. Замена Кузнечика на Кузнечик V2 обойдется в очень круглую сумму.
+                     <br>
+                     <br>
+                      Девяностые и нулевые давно позади. Пора перестать создавать алгоритмы шифрования в подвальных шарашках и говорить, что «а кроме ФСБ никто ничего подобного создать в России не может, у нас выбора нет».
+                     <br>
+                     <br>
+                      Может хотя бы попробовать конкурс провести перед тем, как бросаться такими словами? И не забывать, что AES вообще-то не в США был придуман.
+                     <br>
+                     <br>
+                      Может тогда у нас отпадёт необходимость бить по рукам совковых раздолбаев, которые находят место детским отмазкам в алгоритмах, защищающих, помимо прочего, гос. тайну.
+                     <br>
+                     <br>
+                     <h2>Challenge!</h2>
+                     <br>
+                      Нужно написать реализацию функции SBox Кузнечика, которая была бы по возможности еще меньше, чем найденная Лео и его коллегами. Но пойдут и те, что просто меньше 256 байт. Технические детали . Там же несколько примеров на разных языках. Самым успешным — слава, респект и уважуха за вклад в честную криптографию.
+                     <br>
+                     <br>
+                      Пока рекорд — <b>58 байт</b> на языке Stax. Это меньше чем четверть от размера «случайно найденного» SBox.
+                     <br>
+                     <br>
+                      Спасибо за внимание.
+                    </div>
+                   </div>
+                  </div><!----> <!---->
+                 </div><!----> <!---->
+                </div><!---->
+                <div class="tm-article-presenter__meta">
+                 <div class="tm-article-presenter__meta-list tm-separated-list">
+                  <span class="tm-separated-list__title">Теги:</span>
+                  <ul class="tm-separated-list__list">
+                   <!---->
+                  </ul>
+                 </div>
+                 <div class="tm-article-presenter__meta-list tm-separated-list">
+                  <span class="tm-separated-list__title">Хабы:</span>
+                  <ul class="tm-separated-list__list">
+                   <!---->
+                  </ul>
+                 </div>
+                </div><!---->
+               </article>
+              </div><!---->
+             </div>
+             <div class="tm-article-sticky-panel">
+              <div class="tm-data-icons tm-article-sticky-panel__icons">
+               <div class="tm-article-rating tm-data-icons__item">
+                <div title="Всего голосов 58: ↑55 и ↓3" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
+                 <button title="Нравится" type="button" class="tm-votes-lever__button"></button>
+                 <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-article">
+                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +52 </span></span>
+                 </div><button title="Не нравится" type="button" class="tm-votes-lever__button"></button>
+                </div>
+                <div class="v-portal" style="display:none;"></div><!---->
+               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 75 </span></button>
+               <div title="Поделиться" class="tm-sharing tm-data-icons__item">
+                <button type="button" class="tm-sharing__button"></button>
+                <div class="v-portal" style="display:none;"></div>
+               </div>
+               <div title="Читать комментарии" class="tm-article-comments-counter-link tm-data-icons__item">
+                <!---->
+               </div><!---->
+               <div class="v-portal" style="display:none;"></div>
+              </div>
+             </div>
+            </div>
+            <div class="tm-article-presenter__footer">
+             <div class="tm-article-blocks">
+              <!---->
+              <section class="tm-block tm-block tm-block_spacing-bottom">
+               <!---->
+               <div class="tm-block__body tm-block__body tm-block__body_variant-balanced">
+                <div class="tm-article-author">
+                 <div class="tm-article-author__company">
+                  <div class="tm-article-author__company-card">
+                   <div class="tm-company-snippet">
+                    <div class="tm-company-snippet__info">
+                     <div class="tm-company-snippet__description">
+                      Мы превращаем программистов в криптографов.
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-article-author__buttons">
+                    <!----> <!---->
+                   </div>
+                  </div>
+                  <div class="tm-article-author__company-contacts"></div>
+                  <div class="tm-article-author__separator"></div>
+                 </div>
+                 <div class="tm-user-card tm-article-author__user-card tm-user-card tm-user-card_variant-article">
+                  <div class="tm-user-card__info-container">
+                   <div class="tm-user-card__header">
+                    <div class="tm-user-card__header-data">
+                     <div class="tm-user-card__meta">
+                      <div title=" 604 голоса " class="tm-counter-container tm-karma tm-karma">
+                       <div class="tm-counter-container__header">
+                        <div class="tm-karma__votes tm-karma__votes_positive">
+                         178
+                        </div>
+                       </div>
+                       <div class="tm-counter-container__footer">
+                        <div class="tm-karma__text">
+                         Карма
+                        </div>
+                        <div class="v-portal" style="display:none;"></div>
+                       </div>
+                      </div>
+                      <div title="Рейтинг пользователя" class="tm-counter-container">
+                       <div class="tm-counter-container__header">
+                        <div class="tm-votes-lever tm-votes-lever tm-votes-lever_appearance-rating">
+                         <!---->
+                         <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-rating">
+                          <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 0 </span></span>
+                         </div><!---->
+                        </div>
+                       </div>
+                       <div class="tm-counter-container__footer">
+                        <span class="tm-rating__text tm-rating__text"> Рейтинг </span>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-user-card__info tm-user-card__info tm-user-card__info_variant-article">
+                    <div class="tm-user-card__title tm-user-card__title tm-user-card__title_variant-article">
+                     <span class="tm-user-card__name tm-user-card__name tm-user-card__name_variant-article">Алексей</span> <!---->
+                    </div>
+                    <p class="tm-user-card__short-info tm-user-card__short-info tm-user-card__short-info_variant-article">Системный архитектор, криптоманьяк</p>
+                   </div>
+                  </div>
+                  <div class="tm-user-card__buttons tm-user-card__buttons tm-user-card__buttons_variant-article">
+                   <!----> <!----> <!----> <!---->
+                  </div>
+                 </div><!---->
+                </div>
+               </div><!---->
+              </section><!----> <!---->
+              <div class="tm-article-blocks__comments">
+               <div id="publication-comments" class="tm-article-page-comments">
+                <div class="tm-article-comments-counter-link tm-article-comments-counter-button">
+                 <!---->
+                </div>
+               </div>
+              </div>
+              <section class="tm-block tm-block tm-block_spacing-bottom">
+               <header class="tm-block__header tm-block__header tm-block__header_variant-borderless">
+                <div class="tm-block__header-container">
+                 <h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Публикации</h2>
+                </div><!---->
+               </header>
+               <div class="tm-block__body tm-block__body tm-block__body_variant-condensed-slim">
+                <div class="tm-tabs tm-tabs">
+                 <div>
+                  <span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_active tm-tabs__tab-link_slim"> Лучшие за сутки </button></span><span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_slim"> Похожие </button></span>
+                 </div><!---->
+                </div>
+                <div class="similar-and-daily__tab-view">
+                 <div class="placeholder-wrapper">
+                  <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+                  <div class="tm-placeholder-article-cards">
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                  </div><!----> <!----> <!----> <!----> <!---->
+                 </div><!---->
+                </div>
+               </div><!---->
+              </section><!---->
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="tm-page__sidebar">
+          <div class="tm-layout-sidebar">
+           <div class="tm-layout-sidebar__placeholder_initial"></div>
+           <div class="tm-sexy-sidebar tm-sexy-sidebar_initial" style="margin-top:0px;">
+            <!---->
+            <section class="tm-block tm-block tm-block_spacing-bottom">
+             <header class="tm-block__header tm-block__header">
+              <div class="tm-block__header-container">
+               <h2 class="tm-block__title tm-block__title">Информация</h2>
+              </div><!---->
+             </header>
+             <div class="tm-block__body tm-block__body">
+              <div class="tm-company-basic-info">
+               <dl class="tm-description-list tm-description-list tm-description-list_variant-columns-nowrap">
+                <dt class="tm-description-list__title tm-description-list__title tm-description-list__title_variant-columns-nowrap">
+                 Сайт
+                </dt>
+                <dd class="tm-description-list__body tm-description-list__body tm-description-list__body_variant-columns-nowrap"></dd>
+               </dl>
+               <dl class="tm-description-list tm-description-list tm-description-list_variant-columns-nowrap">
+                <dt class="tm-description-list__title tm-description-list__title tm-description-list__title_variant-columns-nowrap">
+                 Дата регистрации
+                </dt>
+                <dd class="tm-description-list__body tm-description-list__body tm-description-list__body_variant-columns-nowrap">
+                 <time datetime="2016-05-12T13:05:27.000Z" title="2016-05-12, 16:05">12 мая 2016</time>
+                </dd>
+               </dl>
+               <dl class="tm-description-list tm-description-list tm-description-list_variant-columns-nowrap">
+                <dt class="tm-description-list__title tm-description-list__title tm-description-list__title_variant-columns-nowrap">
+                 Дата основания
+                </dt>
+                <dd class="tm-description-list__body tm-description-list__body tm-description-list__body_variant-columns-nowrap">
+                 <span> 2014 </span>
+                </dd>
+               </dl>
+               <dl class="tm-description-list tm-description-list tm-description-list_variant-columns-nowrap">
+                <dt class="tm-description-list__title tm-description-list__title tm-description-list__title_variant-columns-nowrap">
+                 Численность
+                </dt>
+                <dd class="tm-description-list__body tm-description-list__body tm-description-list__body_variant-columns-nowrap">
+                 31–50 человек
+                </dd>
+               </dl>
+               <dl class="tm-description-list tm-description-list tm-description-list_variant-columns-nowrap">
+                <dt class="tm-description-list__title tm-description-list__title tm-description-list__title_variant-columns-nowrap">
+                 Местоположение
+                </dt>
+                <dd class="tm-description-list__body tm-description-list__body tm-description-list__body_variant-columns-nowrap">
+                 Украина
+                </dd>
+               </dl><!---->
+              </div>
+             </div><!---->
+            </section><!----> <!----> <!----> <!---->
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </main><!---->
+    </div>
+    <div class="tm-footer-menu">
+     <div class="tm-page-width">
+      <div class="tm-footer-menu__container">
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Ваш аккаунт</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Разделы</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Информация</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Услуги</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="tm-footer">
+     <div class="tm-page-width">
+      <div class="tm-footer__container">
+       <!---->
+       <div class="tm-footer__social"></div>
+       <div class="v-portal" style="display:none;"></div><button class="tm-footer__link"><!----> Настройка языка </button>
+       <div class="tm-footer-copyright">
+        <span class="tm-copyright"><span class="tm-copyright__years">© 2006–2024, </span> <span class="tm-copyright__name"></span></span>
+       </div>
+      </div>
+     </div>
+    </div><!---->
+   </div>
+   <div class="vue-portal-target"></div>
+  </div>
+  <noscript>
+   <div>
+   </div>
+  </noscript>
+ </body>
+</html>

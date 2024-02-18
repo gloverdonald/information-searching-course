@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="ru" data-vue-meta="%7B%22lang%22:%7B%22ssr%22:%22ru%22%7D%7D">
+ <head>
+  <title>Безопасная разработка приложений — что такое Secure SDLC и на что обратить внимание / Хабр</title>
+ </head>
+ <body>
+  <div id="app" data-server-rendered="true" data-async-called="true">
+   <div class="tm-layout__wrapper">
+    <!---->
+    <div></div><!---->
+    <header class="tm-header">
+     <div class="tm-page-width">
+      <div class="tm-header__container">
+       <!----> <span class="tm-header__logo-wrap"> <span class="tm-header__beta-sign" style="display:none;">β</span></span>
+       <div class="tm-dropdown tm-header__projects">
+        <div class="tm-dropdown__head">
+         <button class="tm-header__dropdown-toggle"></button>
+        </div><!---->
+       </div>
+       <div class="tm-feature tm-header__feature tm-feature tm-feature_variant-inline">
+        <!---->
+       </div><!----> <!---->
+      </div>
+     </div>
+    </header>
+    <div class="tm-layout">
+     <div class="tm-page-progress-bar"></div>
+     <div data-menu-sticky="true" class="tm-base-layout__header tm-base-layout__header_is-sticky">
+      <div class="tm-page-width">
+       <div class="tm-base-layout__header-wrapper">
+        <div class="tm-main-menu">
+         <div class="tm-main-menu__section">
+          <nav class="tm-main-menu__section-content">
+          </nav>
+         </div>
+        </div>
+        <div class="tm-header-user-menu tm-base-layout__user-menu">
+         <!----> <!----> <!---->
+         <div class="tm-header-user-menu__item">
+          <button class="tm-header-user-menu__toggle"></button>
+         </div> <!---->
+         <div class="v-portal" style="display:none;"></div>
+        </div>
+       </div>
+      </div>
+     </div><!---->
+     <div class="tm-page-width"></div>
+     <main class="tm-layout__container">
+      <div hl="ru" companyname="t1_cloud" data-async-called="true" class="tm-page">
+       <div class="tm-page-width">
+        <!---->
+        <div class="tm-page__wrapper">
+         <div class="tm-page__main tm-page__main_has-sidebar">
+          <div class="pull-down">
+           <!---->
+           <div class="pull-down__header" style="height:0px;">
+            <div class="pull-down__content" style="bottom:10px;"></div>
+           </div>
+           <div class="tm-article-presenter">
+            <!---->
+            <div class="tm-company-profile-card tm-company-article__profile-card">
+             <div class="tm-company-card tm-company-profile-card__info">
+              <div class="tm-company-card__header">
+               <!---->
+               <div class="tm-counter-container tm-company-card__rating">
+                <div class="tm-counter-container__header">
+                 <div class="tm-votes-lever tm-votes-lever tm-votes-lever_appearance-rating">
+                  <!---->
+                  <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-rating">
+                   <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 0 </span></span>
+                  </div><!---->
+                 </div>
+                </div>
+                <div class="tm-counter-container__footer">
+                 <span class="tm-rating__text tm-rating__text"> Рейтинг </span>
+                </div>
+               </div><!---->
+              </div>
+              <div class="tm-company-card__info">
+               <div class="tm-company-card__description">
+                Облако для бизнеса и разработки
+               </div>
+              </div>
+             </div><!---->
+            </div><!---->
+            <div class="tm-article-presenter__body">
+             <div class="tm-misprint-area">
+              <div class="tm-misprint-area__wrapper">
+               <article class="tm-article-presenter__content tm-article-presenter__content_narrow">
+                <div class="tm-article-presenter__header">
+                 <div class="tm-article-snippet tm-article-presenter__snippet tm-article-snippet">
+                  <div class="tm-article-snippet__meta-container">
+                   <div class="tm-article-snippet__meta">
+                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2022-06-23T09:48:53.000Z" title="2022-06-23, 12:48">23 июн 2022 в 12:48</time></span></span></span>
+                   </div><!---->
+                  </div>
+                  <h1 lang="ru" class="tm-title tm-title_h1"><span>Безопасная разработка приложений — что такое Secure SDLC и на что обратить внимание</span></h1>
+                  <div class="tm-article-snippet__stats">
+                   <!---->
+                   <div class="tm-article-reading-time">
+                    <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 4 мин </span>
+                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">5.4K</span></span>
+                  </div>
+                  <div class="tm-publication-hubs__container">
+                   <div class="tm-publication-hubs">
+                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
+                   </div>
+                  </div><!----> <!----> <!---->
+                 </div>
+                </div><!---->
+                <div data-gallery-root="" lang="ru" class="tm-article-body">
+                 <div></div>
+                 <div id="post-content-body">
+                  <div>
+                   <div class="article-formatted-body article-formatted-body article-formatted-body_version-2">
+                    <div xmlns="http://www.w3.org/1999/xhtml">
+                     <p>Мы в  уделяем серьезное внимание защищенности клиентских сервисов, поэтому решили подготовить серию материалов о разработке приложений в облаке. Начнем с вводных и расскажем, что собой представляет процесс безопасной разработки программного обеспечения (Secure SDLC) и на какие нюансы стоит обратить внимание в этом контексте.</p>
+                     <figure class="full-width ">
+                      <figcaption>
+                       / Unsplash.com / Anne Nygård
+                      </figcaption>
+                     </figure>
+                     <h2>Краткий ликбез</h2>
+                     <p>Прежде чем перейти к теме Secure SDLC, немного поговорим о том, что вообще следует понимать под термином Software Development Life Cycle. Это — фреймворк, который описывает жизненный цикл программного обеспечения. Его задача — помочь бизнесу выстроить процессы разработки качественных приложений. Соответствующие рекомендации описаны в международном стандарте ISO/IEC 12207:2008 и российском ИСО/МЭК 12207–2010.</p>
+                     <p>Сам по себе фреймворк состоит из привычного набора шагов — это проектирование, развертка, тестирование, поддержка и другие. Однако различные модели, диктующие порядок прохождения по этим этапам. Пожалуй, наиболее известная из них — каскадная (водопадная) модель, когда каждый этап стартует по завершении предыдущего. В таком контексте стоимость ошибки в начале проекта достаточно высока, поэтому модель на компактных и типизированных задачах с четким техзаданием (например,).</p>
+                     <p>Противоположность водопадной модели — модель итерационная. В этом случае разработка проекта начинается с MVP, который сразу выпускают на рынок. Далее, вносят изменения на основе фидбека, и процесс повторяется. Итерационная модель подходит для больших задач с неопределёнными требованиями. К ней прибегают стартапы и команды, разрабатывающие инновационные проекты, способные изменить привычное положение вещей в том или ином секторе.</p>
+                     <p>Модификацией итерационной модели является спиральная модель. Движение по этапам разработки, но с каждым новым витком процессы усложняются и расширяются, поэтому модель подходит для рисковых исследовательских инициатив. Разумеется, существуют и другие подходы к разработке — по этой теме написано большое количество публикаций и литературы, её обсуждают на профильных площадках вроде Хабра. Но последнее время в контексте построения жизненного цикла приложений все чаще начинают уделять внимание информационной безопасности и комплаенсу.</p>
+                     <h2>От SDLC к Secure SDLC</h2>
+                     <p>За последние пять лет количество уязвимостей в программном обеспечении. Существенная часть проблем возникает в силу низкой эффективности процесса разработки, поэтому понятен повышенный интерес к циклу разработки защищенных приложений — <strong>Secure SDLC</strong>.</p>
+                     <p><strong>Безопасные процессы</strong> не только сокращают риски взломов, но и буквально экономят деньги. Устранение бага на этапе реализации в шесть раз дороже уязвимости, обнаруженной во время проектирования. По другим оценкам, затраты на устранение ошибок после релиза возрастают в тридцать раз.</p>
+                     <p>Существует несколько моделей Secure SDLC, но, пожалуй, одной из наиболее известных является <strong>MS SDL</strong>. Основы концепции еще двадцать лет назад Билл Гейтс, но с тех пор её скорректировали с учетом новых подходов и технологий. В частности, проектирование ПО в рамках MS SDL подразумевает моделирование угроз на уровне компонентов, динамический анализ кода и. Все члены команды разработки проходят тренинги по ИБ и изучают лучшие практики в этой области.</p>
+                     <figure class="full-width ">
+                      <figcaption>
+                       / Unsplash.com / iMattSmart
+                      </figcaption>
+                     </figure>
+                     <p>Согласно отчетам, инициатива Билла Гейтса повысила конкурентоспособность корпорации в плане информационной безопасности — в период с 2004 по 2010 год число уязвимостей в её приложениях почти на три порядка, по сравнению с другими организациями. Сразу после этого в компании наработки под лицензией Creative Commons, а модель MS SDL стала своеобразным каноном, от которого отталкиваются другие подходы Secure SDLC.</p>
+                     <p>Среди них можно выделить. С её помощью можно оценить текущий уровень зрелости цикла разработки ПО и наметить изменения в контексте безопасности. Согласно концепции, процесс разработки приложений двенадцать компонентов — например, код-ревью и тестирование безопасности, а также повышение грамотности и уровня кибергигиены сотрудников. Каждый компонент оценивают по шкале от нуля до трех, где цифра три подразумевает полное овладение практиками ИБ в этом направлении.</p>
+                     <p>Еще одна модель для построения Secure SDLC называется. Она представляет собой тематический справочник с примерами лучших практик и механизмов. Бизнес свои процессы с процессами сотен компаний и на основании этого скорректировать цели и задачи. Всего в состав фреймворка входят больше 120 различных методов, которые покрывают двенадцать этапов жизненного цикла разработки и развертки приложений.</p>
+                     <h2>Какие есть особенности</h2>
+                     <p>Каждая из представленных методологий описывает только общие шаги, которые стоит предпринять для построения защищенного цикла разработки приложений. Однако в связи с этим есть тонкости — например, классическая методология MS DLC может плохо проявлять себя в agile-средах, так как строгие дедлайны на процессы внутри компании. Также очевидно, что выбор конкретного инструментария будет зависеть от потребностей организации. В список входят сервисы DevSecOps, решения для проведения пентестов, антивирусы, а также файрволы вроде Anti-DDoS + WAF.</p>
+                     <p>Внедрение такого инструментария с нуля — это довольно дорогая затея. По оценкам экспертов, переход только на первый уровень в координатах OpenSAMM в районе $90 тыс. И это еще консервативная оценка, так как подразумевает, что компания проводит код-ревью не чаще 5–9 дней в год. Этого может быть достаточно для небольшого проекта, но в рамках корпорации неприемлемо, плюс — увеличит стоимость поддержки Secure SDLC.</p>
+                     <p>В целом можно самостоятельно внедрить инструменты и следовать рекомендациям безопасной разработки приложений — документация по этому вопросу исчерпывающая, а недостающие факты можно узнать у участников сообщества. Но это все равно потребует специальных знаний и компетенций в области AppSec. Помочь с внедрением Secure SDLC и сэкономить на этом деньги способны сервис-провайдеры. Облако предложит системы статического (SAST) и динамического анализа (DAST) кода, защиту от DDoS-атак веб-атак, а также обеспечит соответствие законодательству в сфере ИБ.</p>
+                     <p>В итоге облачные решения дают возможность сфокусироваться на бизнес-задачах, повысить защищенность приложений и реализовать принцип безопасности Zero Trust в отношении разработчиков. Подробнее о том, какие еще вопросы может взять на себя провайдер, расскажем в следующем материале — подписывайтесь, чтобы не пропустить.</p>
+                     <p><strong>P.S. Пока вы ждете — пара материалов для дополнительного чтения:</strong></p>
+                     <ul></ul>
+                     <p></p>
+                    </div>
+                   </div>
+                  </div><!----> <!---->
+                 </div><!----> <!---->
+                </div><!---->
+                <div class="tm-article-presenter__meta">
+                 <div class="tm-article-presenter__meta-list tm-separated-list">
+                  <span class="tm-separated-list__title">Теги:</span>
+                  <ul class="tm-separated-list__list">
+                   <!---->
+                  </ul>
+                 </div>
+                 <div class="tm-article-presenter__meta-list tm-separated-list">
+                  <span class="tm-separated-list__title">Хабы:</span>
+                  <ul class="tm-separated-list__list">
+                   <!---->
+                  </ul>
+                 </div>
+                </div><!---->
+               </article>
+              </div><!---->
+             </div>
+             <div class="tm-article-sticky-panel">
+              <div class="tm-data-icons tm-article-sticky-panel__icons">
+               <div class="tm-article-rating tm-data-icons__item">
+                <div title="Всего голосов 6: ↑6 и ↓0" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
+                 <button title="Нравится" type="button" class="tm-votes-lever__button"></button>
+                 <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-article">
+                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +6 </span></span>
+                 </div><button title="Не нравится" type="button" class="tm-votes-lever__button"></button>
+                </div>
+                <div class="v-portal" style="display:none;"></div><!---->
+               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 14 </span></button>
+               <div title="Поделиться" class="tm-sharing tm-data-icons__item">
+                <button type="button" class="tm-sharing__button"></button>
+                <div class="v-portal" style="display:none;"></div>
+               </div>
+               <div title="Читать комментарии" class="tm-article-comments-counter-link tm-data-icons__item">
+                <!---->
+               </div><!---->
+               <div class="v-portal" style="display:none;"></div>
+              </div>
+             </div>
+            </div>
+            <div class="tm-article-presenter__footer">
+             <div class="tm-article-blocks">
+              <!---->
+              <section class="tm-block tm-block tm-block_spacing-bottom">
+               <!---->
+               <div class="tm-block__body tm-block__body tm-block__body_variant-balanced">
+                <div class="tm-article-author">
+                 <div class="tm-article-author__company">
+                  <div class="tm-article-author__company-card">
+                   <div class="tm-company-snippet">
+                    <div class="tm-company-snippet__info">
+                     <div class="tm-company-snippet__description">
+                      Облако для бизнеса и разработки
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-article-author__buttons">
+                    <!----> <!---->
+                   </div>
+                  </div>
+                  <div class="tm-article-author__company-contacts"></div>
+                  <div class="tm-article-author__separator"></div>
+                 </div>
+                 <div class="tm-user-card tm-article-author__user-card tm-user-card tm-user-card_variant-article">
+                  <div class="tm-user-card__info-container">
+                   <div class="tm-user-card__header">
+                    <div class="tm-user-card__header-data">
+                     <div class="tm-user-card__meta">
+                      <div title=" 15 голосов " class="tm-counter-container tm-karma tm-karma">
+                       <div class="tm-counter-container__header">
+                        <div class="tm-karma__votes tm-karma__votes_positive">
+                         5
+                        </div>
+                       </div>
+                       <div class="tm-counter-container__footer">
+                        <div class="tm-karma__text">
+                         Карма
+                        </div>
+                        <div class="v-portal" style="display:none;"></div>
+                       </div>
+                      </div>
+                      <div title="Рейтинг пользователя" class="tm-counter-container">
+                       <div class="tm-counter-container__header">
+                        <div class="tm-votes-lever tm-votes-lever tm-votes-lever_appearance-rating">
+                         <!---->
+                         <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-rating">
+                          <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 0 </span></span>
+                         </div><!---->
+                        </div>
+                       </div>
+                       <div class="tm-counter-container__footer">
+                        <span class="tm-rating__text tm-rating__text"> Рейтинг </span>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-user-card__info tm-user-card__info tm-user-card__info_variant-article">
+                    <div class="tm-user-card__title tm-user-card__title tm-user-card__title_variant-article">
+                     <!----> <!---->
+                    </div>
+                    <p class="tm-user-card__short-info tm-user-card__short-info tm-user-card__short-info_variant-article">Пользователь</p>
+                   </div>
+                  </div>
+                  <div class="tm-user-card__buttons tm-user-card__buttons tm-user-card__buttons_variant-article">
+                   <!----> <!----> <!----> <!---->
+                  </div>
+                 </div><!---->
+                </div>
+               </div><!---->
+              </section><!----> <!---->
+              <div class="tm-article-blocks__comments">
+               <div id="publication-comments" class="tm-article-page-comments">
+                <div class="tm-article-comments-counter-link tm-article-comments-counter-button">
+                 <!---->
+                </div>
+               </div>
+              </div>
+              <section class="tm-block tm-block tm-block_spacing-bottom">
+               <header class="tm-block__header tm-block__header tm-block__header_variant-borderless">
+                <div class="tm-block__header-container">
+                 <h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Публикации</h2>
+                </div><!---->
+               </header>
+               <div class="tm-block__body tm-block__body tm-block__body_variant-condensed-slim">
+                <div class="tm-tabs tm-tabs">
+                 <div>
+                  <span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_active tm-tabs__tab-link_slim"> Лучшие за сутки </button></span><span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_slim"> Похожие </button></span>
+                 </div><!---->
+                </div>
+                <div class="similar-and-daily__tab-view">
+                 <div class="placeholder-wrapper">
+                  <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+                  <div class="tm-placeholder-article-cards">
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                  </div><!----> <!----> <!----> <!----> <!---->
+                 </div><!---->
+                </div>
+               </div><!---->
+              </section><!---->
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="tm-page__sidebar">
+          <div class="tm-layout-sidebar">
+           <div class="tm-layout-sidebar__placeholder_initial"></div>
+           <div class="tm-sexy-sidebar tm-sexy-sidebar_initial" style="margin-top:0px;">
+            <!---->
+            <section class="tm-block tm-block tm-block_spacing-bottom">
+             <header class="tm-block__header tm-block__header">
+              <div class="tm-block__header-container">
+               <h2 class="tm-block__title tm-block__title">Информация</h2>
+              </div><!---->
+             </header>
+             <div class="tm-block__body tm-block__body">
+              <div class="tm-company-basic-info">
+               <dl class="tm-description-list tm-description-list tm-description-list_variant-columns-nowrap">
+                <dt class="tm-description-list__title tm-description-list__title tm-description-list__title_variant-columns-nowrap">
+                 Сайт
+                </dt>
+                <dd class="tm-description-list__body tm-description-list__body tm-description-list__body_variant-columns-nowrap"></dd>
+               </dl>
+               <dl class="tm-description-list tm-description-list tm-description-list_variant-columns-nowrap">
+                <dt class="tm-description-list__title tm-description-list__title tm-description-list__title_variant-columns-nowrap">
+                 Дата регистрации
+                </dt>
+                <dd class="tm-description-list__body tm-description-list__body tm-description-list__body_variant-columns-nowrap">
+                 <time datetime="2022-04-13T14:30:12.000Z" title="2022-04-13, 17:30">13 апреля 2022</time>
+                </dd>
+               </dl>
+               <dl class="tm-description-list tm-description-list tm-description-list_variant-columns-nowrap">
+                <dt class="tm-description-list__title tm-description-list__title tm-description-list__title_variant-columns-nowrap">
+                 Дата основания
+                </dt>
+                <dd class="tm-description-list__body tm-description-list__body tm-description-list__body_variant-columns-nowrap">
+                 <time datetime="2017-08-14T21:00:00.000Z" title="2017-08-15, 00:00">15 августа 2017</time>
+                </dd>
+               </dl>
+               <dl class="tm-description-list tm-description-list tm-description-list_variant-columns-nowrap">
+                <dt class="tm-description-list__title tm-description-list__title tm-description-list__title_variant-columns-nowrap">
+                 Численность
+                </dt>
+                <dd class="tm-description-list__body tm-description-list__body tm-description-list__body_variant-columns-nowrap">
+                 101–200 человек
+                </dd>
+               </dl>
+               <dl class="tm-description-list tm-description-list tm-description-list_variant-columns-nowrap">
+                <dt class="tm-description-list__title tm-description-list__title tm-description-list__title_variant-columns-nowrap">
+                 Местоположение
+                </dt>
+                <dd class="tm-description-list__body tm-description-list__body tm-description-list__body_variant-columns-nowrap">
+                 Россия
+                </dd>
+               </dl><!---->
+              </div>
+             </div><!---->
+            </section><!----> <!----> <!----> <!---->
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </main><!---->
+    </div>
+    <div class="tm-footer-menu">
+     <div class="tm-page-width">
+      <div class="tm-footer-menu__container">
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Ваш аккаунт</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Разделы</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Информация</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Услуги</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="tm-footer">
+     <div class="tm-page-width">
+      <div class="tm-footer__container">
+       <!---->
+       <div class="tm-footer__social"></div>
+       <div class="v-portal" style="display:none;"></div><button class="tm-footer__link"><!----> Настройка языка </button>
+       <div class="tm-footer-copyright">
+        <span class="tm-copyright"><span class="tm-copyright__years">© 2006–2024, </span> <span class="tm-copyright__name"></span></span>
+       </div>
+      </div>
+     </div>
+    </div><!---->
+   </div>
+   <div class="vue-portal-target"></div>
+  </div>
+  <noscript>
+   <div>
+   </div>
+  </noscript>
+ </body>
+</html>

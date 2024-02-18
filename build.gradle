@@ -20,3 +20,15 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+tasks.register('crawle', JavaExec) {
+    dependsOn 'classes'
+    mainClass = 'ru.itis.CrawlerMain'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+tasks.register('linkGenerate', JavaExec) {
+    dependsOn 'classes'
+    mainClass = 'ru.itis.HabrLinksGenerator'
+    classpath = sourceSets.main.runtimeClasspath
+}

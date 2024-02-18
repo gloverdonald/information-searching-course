@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+ <head>
+  <title>Вход — Habr Account</title>
+ </head>
+ <body>
+  <div class="layout">
+   <div class="layout__notice" id="global_notices"></div>
+   <div class="layout__header">
+    <div class="layout__header-inner layout__header-inner_clean">
+    </div>
+   </div>
+   <div class="layout__page layout__page_thin">
+    <div class="shadow-box">
+     <div class="shadow-box__title">
+      Вход
+     </div>
+     <form action="/ajax/login/" class="form form_login s-form validateble" id="login_form" method="post" data-remote="true" novalidate>
+      <input type="hidden" name="state" value="f6d61e8f5c0af82799eabc99b6d4a7d5"> <input type="hidden" name="consumer" value="habr"> <input type="hidden" name="host" value="habr.com">
+      <fieldset class="form__fields">
+       <div class="form__field s-field">
+        <label for="email_field" class="form__field-label">E-mail</label> <input type="email" class="form__field-input" value="" name="email" data-required="true" id="email_field" data-validate_url="/ajax/validate/email/">
+       </div>
+       <div class="form__field s-field">
+        <label for="password_field" class="form__field-label">Пароль</label> <input type="password" class="form__field-input" value="" data-required="true" name="password" id="password_field">
+       </div>
+       <div class="form__field " id="captcha-s-field">
+        <input name="captcha" type="hidden">
+        <div class="captcha">
+         <div id="captcha_widget"></div><input type="hidden" name="captcha_type" value="recaptcha">
+        </div>
+       </div>
+       <div class="form__buttons s-buttons">
+        <button type="submit" name="go" class="button button_wide button_primary"> Войти </button>
+       </div>
+       <div class="form__field form__field_socials js_socials-buttons ">
+        <label class="form__field-label">Или войдите с помощью других сервисов</label>
+        <div class="socials-buttons s-buttons ">
+        </div>
+       </div>
+      </fieldset>
+     </form>
+    </div>
+    <div class="shadow-box shadow-box_additionals">
+     <span class="form-additional-message">Ещё нет аккаунта?&nbsp;</span>
+    </div>
+    <div class="layout__footer">
+     <div class="layout__footer-inner">
+      <div class="footer-links">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div> <!-- Yandex.Metrika counter -->
+  <noscript>
+   <div></div>
+  </noscript><!-- /Yandex.Metrika counter -->
+ </body>
+</html>

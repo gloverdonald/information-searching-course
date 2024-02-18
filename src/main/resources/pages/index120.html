@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="ru" data-vue-meta="%7B%22lang%22:%7B%22ssr%22:%22ru%22%7D%7D">
+ <head>
+  <title>EDK II UEFI + Debian + Proxmox 7 на Orange Pi 5 / Хабр</title>
+ </head>
+ <body>
+  <div id="app" data-server-rendered="true" data-async-called="true">
+   <div class="tm-layout__wrapper">
+    <!---->
+    <div></div><!---->
+    <header class="tm-header">
+     <div class="tm-page-width">
+      <div class="tm-header__container">
+       <!----> <span class="tm-header__logo-wrap"> <span class="tm-header__beta-sign" style="display:none;">β</span></span>
+       <div class="tm-dropdown tm-header__projects">
+        <div class="tm-dropdown__head">
+         <button class="tm-header__dropdown-toggle"></button>
+        </div><!---->
+       </div>
+       <div class="tm-feature tm-header__feature tm-feature tm-feature_variant-inline">
+        <!---->
+       </div><!----> <!---->
+      </div>
+     </div>
+    </header>
+    <div class="tm-layout">
+     <div class="tm-page-progress-bar"></div>
+     <div data-menu-sticky="true" class="tm-base-layout__header tm-base-layout__header_is-sticky">
+      <div class="tm-page-width">
+       <div class="tm-base-layout__header-wrapper">
+        <div class="tm-main-menu">
+         <div class="tm-main-menu__section">
+          <nav class="tm-main-menu__section-content">
+          </nav>
+         </div>
+        </div>
+        <div class="tm-header-user-menu tm-base-layout__user-menu">
+         <!----> <!----> <!---->
+         <div class="tm-header-user-menu__item">
+          <button class="tm-header-user-menu__toggle"></button>
+         </div> <!---->
+         <div class="v-portal" style="display:none;"></div>
+        </div>
+       </div>
+      </div>
+     </div><!---->
+     <div class="tm-page-width"></div>
+     <main class="tm-layout__container">
+      <div hl="ru" data-async-called="true" class="tm-page">
+       <div class="tm-page-width">
+        <!---->
+        <div class="tm-page__wrapper">
+         <div class="tm-page__main tm-page__main_has-sidebar">
+          <div class="pull-down">
+           <!---->
+           <div class="pull-down__header" style="height:0px;">
+            <div class="pull-down__content" style="bottom:10px;"></div>
+           </div>
+           <div class="tm-adfox-banner__container">
+            <!---->
+            <div id="adfox_169815559787254866" class="tm-adfox-banner tm-adfox-banner tm-adfox-banner_variant-narrow"></div>
+           </div>
+           <div class="tm-article-presenter">
+            <div class="tm-article-presenter__body">
+             <div class="tm-misprint-area">
+              <div class="tm-misprint-area__wrapper">
+               <article class="tm-article-presenter__content tm-article-presenter__content_narrow">
+                <div class="tm-article-presenter__header">
+                 <div class="tm-article-snippet tm-article-presenter__snippet tm-article-snippet">
+                  <div class="tm-article-snippet__meta-container">
+                   <div class="tm-article-snippet__meta">
+                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2024-01-28T21:50:59.000Z" title="2024-01-29, 00:50">29 янв в 00:50</time></span></span></span>
+                   </div><!---->
+                  </div>
+                  <h1 lang="ru" class="tm-title tm-title_h1"><span>EDK II UEFI + Debian + Proxmox 7 на Orange Pi 5</span></h1>
+                  <div class="tm-article-snippet__stats">
+                   <div class="tm-article-complexity tm-article-complexity_complexity-medium">
+                    <span class="tm-svg-icon__wrapper tm-article-complexity__icon"></span> <span class="tm-article-complexity__label"> Средний </span>
+                   </div>
+                   <div class="tm-article-reading-time">
+                    <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 5 мин </span>
+                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">5.3K</span></span>
+                  </div>
+                  <div class="tm-publication-hubs__container">
+                   <div class="tm-publication-hubs">
+                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
+                   </div>
+                  </div>
+                  <div class="tm-article-labels">
+                   <div class="tm-article-labels__container">
+                    <div class="tm-publication-label tm-publication-label_variant-tutorial">
+                     <span> Туториал </span>
+                    </div>
+                   </div>
+                  </div><!----> <!---->
+                 </div>
+                </div><!---->
+                <div data-gallery-root="" lang="ru" class="tm-article-body">
+                 <div></div>
+                 <div id="post-content-body">
+                  <div>
+                   <div class="article-formatted-body article-formatted-body article-formatted-body_version-2">
+                    <div xmlns="http://www.w3.org/1999/xhtml">
+                     <p>Купил я себе пару Orange PI 5B. Показалось, что вайфай это очень хорошо. Памяти много, хочу на них накатить разного. Но не хочется постоянно все переставлять и вообще жажду удобства. В итоге поискал и нашел, что Proxmox позволяет сделать фермочку с виртуалками и потом их сносить. Мне идея сразу понравилась, памяти на девайсе много, можно порезать на виртуалки и куда поставить k3s, куда еще что. Собственно порядок установки я и опишу.</p>
+                     <hr>
+                     <p>Для начала на этой версии железки нет m2 слота для подключения ssd, так что он подключен снаружи в usb3 порт. Просто купил портативный ссд диск, попутно пожалев, что не дождался выхода версии где и вафля есть, и m2, но пойдет для моих скромных задачек. Плюс тоже есть, с тем загрузчиком, что описан ниже, я просто подключаю внешний диск к ноуту, заливаю на него новый дистр и готово, минимум возни. В итоге мне нужно что бы загрузка была с emmc (впаян в плату), там должен загрузчик стоять, а ОС должна быть на SSD, который воткнут в USB3 порт. Потому как износить emmc впаянный не хотелось бы.</p>
+                     <p>Поставить ОС на SD карточку и грузить, и даже поставить на SD карту и грузить с USB-SSD не сложно вроде бы, это дефолтные установщики умеют (не вышло, но я не старался), мы не ищем легких путей. Значит надо поставить загрузчик, который умеет сразу с emmc зацепить USB-SSD. Такой загрузчик называется EDK II (мне он понравился среди альтернатив тем, что позволяет свободно грузится откуда угодно). Далее порядок установки загрузкичка, который из всех сработал. На основе  я собрал rkdeveloptool это прошивалка emmc, который распаян на борту orangepi 5b.</p>
+                     <pre><code>sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf
+может еще (см. доку) sudo apt-get install pkg-config libusb-1.0 
+
+git clone https://github.com/radxa/rkdeveloptool.git
+ cd rkdeveloptool
+ autoreconf -i
+ ./configure
+ make
+sudo cp rkdeveloptool /usr/local/bin/
+sudo ldconfig
+rkdeveloptool -v </code></pre>
+                     <p>Далее у нас есть тула, которая прямо с линукса может шить emmc без винды, что приятно. Далее на основе  я скачал загрузчик EDK2,  зачиналку загрузки.</p>
+                     <p>Далее сам .</p>
+                     <p>Там для Orange 5b надо выбрать  просто.</p>
+                     <p>Эти файлы нужно зашить в сам девайс после чего EDK2 умеет грузить и ОС, и другие загрузчики откуда угодно. Мне надо что бы GRUB грузился, так привычнее. Перед шитьем надо перевести девайс в спец режим. Это делается по инструкции производителя (Orange Pi 5 User Manual) .</p>
+                     <p>Порядок действий таков:</p>
+                     <ol></ol>
+                     <p>Я взял салфетку, через нее взял плату и довольно легко все сделал умудрившись ее не спалить. Эквилибрист хренов, подумал я в этот момент.</p>
+                     <p>Когда девайс подключен к компу таким образом, он в режиме maskrom. Можно шить ранее скачанный файлы такими командами. Дока .</p>
+                     <pre><code>посмотреть на список девайсов подключенных и их maskmode режим проверить
+sudo rkdeveloptool ld
+sudo rkdeveloptool db /путь к файлу/orange/rk3588_spl_loader_v1.08.111.bin
+sudo rkdeveloptool wl 0 /путь к файлу/orange/orangepi-5_UEFI_Release_v0.9.1.img 
+rkdeveloptool rd</code></pre>
+                     <p>В итоге у вас на emmc окажется EDK II UEFI загрузчик, который при старте и подключенной клавиатуре позволяет в меню всякое крутить и надо будет накрутить. Нужно зайти в меню Device manager-&gt;Rockchip platform configuration-&gt;ACPI/Device tree и выбрать режим Device tree. Без этого дистры грузится не будут далее. Вариант нужен both с разрешенным override, а так же выбрать включить USB2.0.</p>
+                     <p><strong>UPD: </strong>далее можно в принципе не читать, так как описанное ниже ставит Proxmox 7 да еще до состояния "что бы включился". Я написал другую статью с подробной настройкой Proxmox 8  и там все доведено до работающих виртуалок.</p>
+                     <p>Следующим шагом нам надо достать дистр, который мы бы хотели поставить на SSD. Причем тут будет два этапа. Первый это базовый дистр, а второй установка на него Proxmox, который собран под arm64. Нашел самое простое. Официальный дистр от авторов Orange PI5. Причем для Proxmox 7 надо Debian Bullseye потому, что я выбрал самый простой способ установки скриптом Proxmox 7 .</p>
+                     <p>Итак дистр берем .</p>
+                     <p>После чего надо его залить на ssd диск. Проблема в том, что на этом дистре нет файлов, которые нужны что бы грузить его с UEFI загрузчика, нужен GRUB (мне, очень). Потому можно взять официальный Debian например debian-bookworm-live-arm64.hybrid.iso и с него взять две папки, /EFI и /boot/grub, собственно это загрузчик. Эти папки копируем на первый раздел SSD диска, который там после заливки на него официального образа будет. На компе своем я сделал</p>
+                     <pre><code>sudo mount /dev/sdX1 /mnt
+и скопировал папку в /mnt с помощью 
+sudo mc</code></pre>
+                     <p>После чего надо отредактировать меню grub. Мудрить я не стал и просто в папке на SSD куда мы скопировали файлы отредактировал /boot/grub/grub.cfg руками. Нужно там написать следущее.</p>
+                     <pre><code>set root=(hd0,gpt1)
+linux /vmlinuz-5.10.160-rockchip-rk3588 root=/dev/sda2
+initrd /initrd.img-5.10.160-rockchip-rk3588
+boot</code></pre>
+                     <p>Это скажет GRUB где взять ядро и как его грузануть. Далее можно подключить по USB3 наш SSD к Orange PI5 и включить все это. Мы увидим загрузчик EDK2 (напомню мы уже настроили Device tree mode или можно это сделать теперь в EDK2). В нем надо в меню Boot Maintenace manager поставить вместо NONE наш SSD диск, что бы загрузка по умолчанию с него шла. Вообще можно без GRUB обойтись, но мне так привычнее. В итоге EDK2 будет искать на первом разделе в папке /EFI файлы GRUB, передаст им управление, а GRUB в папке /boot/grub найдет свои файлы и конфиги, стартанет ядро линукса. Можно в загрузчике выйти в корневое меню сказав да на все его вопросы сохранять ли изменения и нажать reset. Стартанет официальный Debian от авторов железки.</p>
+                     <p>При первом старте надо будет подождать, так как дистр официальный поймет, что он на большом диске и свою файловую систему растянет на весь диск целиком, так что руками это делать не придется. Все, мы в консоли, пароль по умолчанию orangepi. Нам надо запустить скрипт установки Proxmox7</p>
+                     <pre><code>sudo -s
+curl https://raw.githubusercontent.com/pimox/pimox7/master/RPiOS64-IA-Install.sh &gt; RPiOS64-IA-Install.sh
+chmod +x RPiOS64-IA-Install.sh
+./RPiOS64-IA-Install.sh</code></pre>
+                     <p>Далее следуем инструкциям скрипта. Но есть одно но. После рестарта, когда скрипт доработает надо еще выполнить</p>
+                     <pre><code>systemctl restart networking</code></pre>
+                     <p>Без этого у меня сеть не стартанула. Обратите внимание, что вашей железке теперь выдан статический IP адрес. То есть на роутере вероятно надо его за ней закрепить. С момента рестарта я взял ноут, который подключен к той же сети и зашел на веб интерфейс Proxmox7<br></p>
+                     <p>Сами виртуалки я пока не крутил, пока не забыл решил записать как таки до консоли добраться этого Proxmox7. Но подозреваю работать все будет, как принято на arm пока что, так себе и гемор еще будет. Потому оставлю тут еще ,<br>
+                      там есть заметки для того что бы конкретно для Rockchip прошивки долить. Это я сделаю попозже тоже, так как сходу qemu что то не запахал, но я пока две кнопки нажал и ничего не пробовал.</p>
+                     <p>Да, более новую версию Proxmox можно поставить , но я возиться не стал так как скрипт-автомат сделан под старую. И без того море времени ушло на то что бы найти все это. Может потом. Так же для желающих может быть полезна , там парень вроде как собирает iso готовые для Proxmox со всем установленным, не пробовал, но в целом изложенного выше хватит, что бы и их, как и любой дистр завести.</p>
+                     <p>UPD: оказалось виртуалки поднимаются если убрать CD/DVD девайс из них, не нравится ему чем то ide. Надо создавать Cd/DVD на scsi просто. Правда я еще обновил пакеты и прочее, что отсюда</p>
+                     <p></p>
+                    </div>
+                   </div>
+                  </div><!----> <!---->
+                 </div><!----> <!---->
+                </div><!---->
+                <div class="tm-article-presenter__meta">
+                 <div class="tm-article-presenter__meta-list tm-separated-list">
+                  <span class="tm-separated-list__title">Теги:</span>
+                  <ul class="tm-separated-list__list">
+                   <!---->
+                  </ul>
+                 </div>
+                 <div class="tm-article-presenter__meta-list tm-separated-list">
+                  <span class="tm-separated-list__title">Хабы:</span>
+                  <ul class="tm-separated-list__list">
+                   <!---->
+                  </ul>
+                 </div>
+                </div><!---->
+               </article>
+              </div><!---->
+             </div>
+             <div class="tm-article-sticky-panel">
+              <div class="tm-data-icons tm-article-sticky-panel__icons">
+               <div class="tm-article-rating tm-data-icons__item">
+                <div title="Всего голосов 7: ↑6 и ↓1" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
+                 <button title="Нравится" type="button" class="tm-votes-lever__button"></button>
+                 <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-article">
+                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +5 </span></span>
+                 </div><button title="Не нравится" type="button" class="tm-votes-lever__button"></button>
+                </div>
+                <div class="v-portal" style="display:none;"></div><!---->
+               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 31 </span></button>
+               <div title="Поделиться" class="tm-sharing tm-data-icons__item">
+                <button type="button" class="tm-sharing__button"></button>
+                <div class="v-portal" style="display:none;"></div>
+               </div>
+               <div title="Читать комментарии" class="tm-article-comments-counter-link tm-data-icons__item">
+                <!---->
+               </div><!---->
+               <div class="v-portal" style="display:none;"></div>
+              </div>
+             </div>
+            </div>
+            <div class="tm-article-presenter__footer">
+             <div class="tm-article-blocks">
+              <!---->
+              <section class="tm-block tm-block tm-block_spacing-bottom">
+               <!---->
+               <div class="tm-block__body tm-block__body tm-block__body_variant-balanced">
+                <div class="tm-article-author">
+                 <div class="tm-user-card tm-article-author__user-card tm-user-card tm-user-card_variant-article">
+                  <div class="tm-user-card__info-container">
+                   <div class="tm-user-card__header">
+                    <div class="tm-user-card__header-data">
+                     <div class="tm-user-card__meta">
+                      <div title=" 71 голос " class="tm-counter-container tm-karma tm-karma">
+                       <div class="tm-counter-container__header">
+                        <div class="tm-karma__votes tm-karma__votes_positive">
+                         19
+                        </div>
+                       </div>
+                       <div class="tm-counter-container__footer">
+                        <div class="tm-karma__text">
+                         Карма
+                        </div>
+                        <div class="v-portal" style="display:none;"></div>
+                       </div>
+                      </div>
+                      <div title="Рейтинг пользователя" class="tm-counter-container">
+                       <div class="tm-counter-container__header">
+                        <div class="tm-votes-lever tm-votes-lever tm-votes-lever_appearance-rating">
+                         <!---->
+                         <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-rating">
+                          <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 3 </span></span>
+                         </div><!---->
+                        </div>
+                       </div>
+                       <div class="tm-counter-container__footer">
+                        <span class="tm-rating__text tm-rating__text"> Рейтинг </span>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-user-card__info tm-user-card__info tm-user-card__info_variant-article">
+                    <div class="tm-user-card__title tm-user-card__title tm-user-card__title_variant-article">
+                     <span class="tm-user-card__name tm-user-card__name tm-user-card__name_variant-article">Ренат Ескенин</span> <!---->
+                    </div>
+                    <p class="tm-user-card__short-info tm-user-card__short-info tm-user-card__short-info_variant-article">Программист Java -&gt; Spring/JavaEE/Android</p>
+                   </div>
+                  </div>
+                  <div class="tm-user-card__buttons tm-user-card__buttons tm-user-card__buttons_variant-article">
+                   <!----> <!----> <!----> <!---->
+                  </div>
+                 </div>
+                 <div class="tm-article-author__user-contacts"></div>
+                </div>
+               </div><!---->
+              </section>
+              <div class="tm-adfox-banner__container tm-page-article__banner">
+               <!---->
+               <div id="adfox_164725660339535756" class="tm-adfox-banner tm-adfox-banner tm-adfox-banner_variant-leaderboard"></div>
+              </div>
+              <div class="tm-article-blocks__comments">
+               <div id="publication-comments" class="tm-article-page-comments">
+                <div class="tm-article-comments-counter-link tm-article-comments-counter-button">
+                 <!---->
+                </div>
+               </div>
+              </div>
+              <section class="tm-block tm-block tm-block_spacing-bottom">
+               <header class="tm-block__header tm-block__header tm-block__header_variant-borderless">
+                <div class="tm-block__header-container">
+                 <h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Публикации</h2>
+                </div><!---->
+               </header>
+               <div class="tm-block__body tm-block__body tm-block__body_variant-condensed-slim">
+                <div class="tm-tabs tm-tabs">
+                 <div>
+                  <span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_active tm-tabs__tab-link_slim"> Лучшие за сутки </button></span><span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_slim"> Похожие </button></span>
+                 </div><!---->
+                </div>
+                <div class="similar-and-daily__tab-view">
+                 <div class="placeholder-wrapper">
+                  <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+                  <div class="tm-placeholder-article-cards">
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    </div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                    </div>
+                   </div>
+                  </div><!----> <!----> <!----> <!----> <!---->
+                 </div><!---->
+                </div>
+               </div><!---->
+              </section>
+              <div>
+               <div class="placeholder-wrapper">
+                <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+                <div class="tm-placeholder-promo">
+                 <div class="tm-placeholder-promo__header">
+                  <div class="tm-placeholder__line tm-placeholder__line_promo-title"></div>
+                 </div>
+                 <div class="tm-placeholder-promo__body">
+                  <div class="tm-placeholder-promo__posts">
+                   <div class="tm-placeholder-promo__post">
+                    <div class="tm-placeholder-promo__image"></div>
+                    <div class="tm-placeholder__line tm-placeholder__line_post-title"></div>
+                   </div>
+                   <div class="tm-placeholder-promo__post">
+                    <div class="tm-placeholder-promo__image"></div>
+                    <div class="tm-placeholder__line tm-placeholder__line_post-title"></div>
+                   </div>
+                   <div class="tm-placeholder-promo__post">
+                    <div class="tm-placeholder-promo__image"></div>
+                    <div class="tm-placeholder__line tm-placeholder__line_post-title"></div>
+                   </div>
+                  </div>
+                  <div class="tm-placeholder-promo__dots">
+                   <div class="tm-placeholder-promo__dot"></div>
+                   <div class="tm-placeholder-promo__dot"></div>
+                   <div class="tm-placeholder-promo__dot"></div>
+                  </div>
+                 </div>
+                </div><!----> <!----> <!----> <!----> <!----> <!---->
+               </div>
+              </div>
+              <div>
+               <div class="placeholder-wrapper">
+                <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+                <div class="tm-placeholder-inset tm-placeholder-salary">
+                 <div class="tm-placeholder-inset__header">
+                  <div class="tm-placeholder__line tm-placeholder__line_inset-header loads"></div>
+                 </div>
+                 <div class="tm-placeholder-salary__body">
+                  <div class="tm-placeholder-salary__text">
+                   <div class="tm-placeholder__line tm-placeholder__line_salary_average"></div>
+                   <div class="tm-placeholder-salary__description">
+                    <div class="tm-placeholder__line loads"></div>
+                    <div class="tm-placeholder__line loads"></div>
+                    <div class="tm-placeholder__line loads"></div>
+                    <div class="tm-placeholder__line loads"></div>
+                   </div>
+                  </div>
+                  <div class="tm-placeholder-salary__image loads"></div>
+                 </div>
+                 <div class="tm-placeholder-inset__footer tm-placeholder-inset__footer_salary">
+                  <div class="tm-placeholder__line tm-placeholder__line_inset-footer loads"></div>
+                 </div>
+                </div><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+               </div>
+              </div><!---->
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="tm-page__sidebar">
+          <div class="tm-layout-sidebar">
+           <div class="tm-layout-sidebar__ads tm-layout-sidebar__ads_initial">
+            <div class="tm-adfox-banner__container tm-layout-sidebar__banner tm-layout-sidebar__banner_top">
+             <!---->
+             <div id="adfox_164725680533065327" class="tm-adfox-banner tm-adfox-banner tm-adfox-banner_variant-half-page"></div>
+            </div>
+           </div>
+           <div class="tm-sexy-sidebar tm-sexy-sidebar_initial" style="margin-top:0px;">
+            <!---->
+            <section data-navigatable="" tabindex="0" data-async-called="true" class="tm-block tm-stories-block tm-block tm-block_spacing-around">
+             <header class="tm-block__header tm-block__header">
+              <div class="tm-block__header-container">
+               <h2 class="tm-block__title tm-block__title">Истории</h2>
+              </div><!---->
+             </header>
+             <div class="tm-block__body tm-block__body tm-block__body_variant-equal">
+              <div class="tm-stories-empty">
+               <div class="tm-stories-card-empty">
+                <div class="tm-stories-card-empty__image"></div>
+                <div class="tm-stories-card-empty__title">
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                </div>
+               </div>
+               <div class="tm-stories-card-empty">
+                <div class="tm-stories-card-empty__image"></div>
+                <div class="tm-stories-card-empty__title">
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                </div>
+               </div>
+               <div class="tm-stories-card-empty">
+                <div class="tm-stories-card-empty__image"></div>
+                <div class="tm-stories-card-empty__title">
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                </div>
+               </div>
+               <div class="tm-stories-card-empty">
+                <div class="tm-stories-card-empty__image"></div>
+                <div class="tm-stories-card-empty__title">
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                </div>
+               </div>
+               <div class="tm-stories-card-empty">
+                <div class="tm-stories-card-empty__image"></div>
+                <div class="tm-stories-card-empty__title">
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                </div>
+               </div>
+               <div class="tm-stories-card-empty">
+                <div class="tm-stories-card-empty__image"></div>
+                <div class="tm-stories-card-empty__title">
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                 <div class="tm-stories-card-empty__title-block"></div>
+                </div>
+               </div>
+              </div><!---->
+             </div><!---->
+            </section><!---->
+            <section data-async-called="true" class="tm-block block tm-block tm-block_spacing-around" data-v-cb9bff32>
+             <header class="tm-block__header tm-block__header">
+              <div class="tm-block__header-container">
+               <h2 class="tm-block__title tm-block__title">Ближайшие события</h2>
+              </div><!---->
+             </header>
+             <div class="tm-block__body tm-block__body">
+              <div class="swiper-container slider" style="--swiper-space-between:22px;" data-v-cb9bff32>
+               <div class="swiper-wrapper">
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_130" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>1 – 29 февраля </span>
+                     </div>
+                     <div class="tm-event-card__time">
+                      <span>11:00</span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_154" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>5 – 29 февраля </span>
+                     </div><!---->
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_162" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>17 февраля </span>
+                     </div>
+                     <div class="tm-event-card__time">
+                      <span>10:00</span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_142" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>18 – 19 февраля </span>
+                     </div><!---->
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_174" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>19 февраля </span>
+                     </div>
+                     <div class="tm-event-card__time">
+                      <span>17:00</span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_156" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>19 февраля </span>
+                     </div>
+                     <div class="tm-event-card__time">
+                      <span>19:00</span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_164" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>19 февраля </span>
+                     </div>
+                     <div class="tm-event-card__time">
+                      <span>20:00</span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_170" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>21 февраля </span>
+                     </div>
+                     <div class="tm-event-card__time">
+                      <span>20:00</span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_172" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>21 февраля </span>
+                     </div>
+                     <div class="tm-event-card__time">
+                      <span>20:00</span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_122" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>27 февраля </span>
+                     </div>
+                     <div class="tm-event-card__time">
+                      <span>20:00</span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_176" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>1 марта – 19 апреля </span>
+                     </div>
+                     <div class="tm-event-card__time">
+                      <span>19:00</span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_140" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>4 – 5 марта </span>
+                     </div>
+                     <div class="tm-event-card__time">
+                      <span>10:00 – 20:00</span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Москва</span> <span class="tm-event-card__places-separator"> • </span></span><span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+                <div class="swiper-slide" data-v-cb9bff32>
+                 <section id="events_160" tabindex="-1" class="tm-block tm-block tm-block_spacing-none" data-v-cb9bff32>
+                  <!---->
+                  <div class="tm-event-card tm-event-card_is-widget">
+                   <!---->
+                   <div class="tm-event-card__info">
+                    <div class="tm-event-card__date">
+                     <div class="tm-event-card__day">
+                      <span>21 марта </span>
+                     </div>
+                     <div class="tm-event-card__time">
+                      <span>09:00 – 18:00</span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__places">
+                     <div class="tm-event-card__places-list">
+                      <span class="tm-event-card__places-item"><span>Москва</span> <span class="tm-event-card__places-separator"> • </span></span><span class="tm-event-card__places-item"><span>Онлайн</span> <!----></span>
+                     </div>
+                    </div>
+                    <div class="tm-event-card__footer"></div>
+                   </div><!---->
+                  </div><!---->
+                 </section>
+                </div>
+               </div><!----> <button class="swiper-button-prev"><span class="tm-svg-icon__wrapper swiper-button-icon"></span></button> <button class="swiper-button-next"><span class="tm-svg-icon__wrapper swiper-button-icon"></span></button>
+              </div>
+             </div><!---->
+            </section>
+            <div class="tm-adfox-banner__container tm-layout-sidebar__banner tm-layout-sidebar__banner_bottom">
+             <!---->
+             <div id="adfox_164725691003361602" class="tm-adfox-banner tm-adfox-banner tm-adfox-banner_variant-medium-rectangle"></div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </main><!---->
+    </div>
+    <div class="tm-footer-menu">
+     <div class="tm-page-width">
+      <div class="tm-footer-menu__container">
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Ваш аккаунт</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Разделы</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Информация</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+       <div class="tm-footer-menu__block">
+        <p class="tm-footer-menu__block-title">Услуги</p>
+        <div class="tm-footer-menu__block-content">
+         <ul class="tm-footer-menu__list"></ul>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="tm-footer">
+     <div class="tm-page-width">
+      <div class="tm-footer__container">
+       <!---->
+       <div class="tm-footer__social"></div>
+       <div class="v-portal" style="display:none;"></div><button class="tm-footer__link"><!----> Настройка языка </button>
+       <div class="tm-footer-copyright">
+        <span class="tm-copyright"><span class="tm-copyright__years">© 2006–2024, </span> <span class="tm-copyright__name"></span></span>
+       </div>
+      </div>
+     </div>
+    </div><!---->
+   </div>
+   <div class="vue-portal-target"></div>
+  </div>
+  <noscript>
+   <div>
+   </div>
+  </noscript>
+ </body>
+</html>

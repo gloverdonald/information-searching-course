@@ -6,7 +6,7 @@ import org.jsoup.nodes.Document;
 import java.io.*;
 import java.util.*;
 
-import static ru.itis.Util.getHTML;
+import static ru.itis.Util.loadHTML;
 
 public class Crawler {
     String fileName;
@@ -16,18 +16,20 @@ public class Crawler {
         this.fileName = fileName;
     }
 
+    // обходим по ссылкам, загружаем каждую из них, удаляя при этом ненужные теги
     public void crawl() {
         var links = getLinksFromFile();
 
         var i = 0;
         for (String link : links) {
             var fileName = String.format("index%s", i);
-            writeToFile(rmTags(getHTML(link)), fileName);
+            writeToFile(rmTags(loadHTML(link)), fileName);
             i++;
         }
 
     }
 
+    // удаление ненужных html тегов
     private String rmTags(String html) {
         Document doc = Jsoup.parse(html);
         doc.select("script").remove();
@@ -42,6 +44,7 @@ public class Crawler {
     }
 
 
+    // запись html в файл
     private void writeToFile(String html, String fileName) {
         String path = String.format("src/main/resources/pages/%s.html", fileName);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
@@ -51,6 +54,7 @@ public class Crawler {
         }
     }
 
+    // загрузка ссылок из файла
     private List<String> getLinksFromFile() {
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         try (InputStream is = classLoader.getResourceAsStream(fileName)) {

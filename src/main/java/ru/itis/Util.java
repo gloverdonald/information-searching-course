@@ -6,7 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Util {
-    public static String getHTML(String stringUrl) throws RuntimeException {
+    public static String loadHTML(String stringUrl) throws RuntimeException {
         try {
             URL url = new URL(stringUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
