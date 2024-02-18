@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru" data-vue-meta="%7B%22lang%22:%7B%22ssr%22:%22ru%22%7D%7D">
  <head>
-  <title>«Мыши плакали и кололись..» Импортозамещение на практике. Часть 4 (теоретическая, завершающая). Системы и сервисы / Хабр</title>
+  <title>Внедрение Zimbra Collaboration Open Source, авторизация через AD и автоматическое создание почтовых ящиков / Хабр</title>
  </head>
  <body>
   <div id="app" data-server-rendered="true" data-async-called="true">
@@ -69,21 +69,29 @@
                  <div class="tm-article-snippet tm-article-presenter__snippet tm-article-snippet">
                   <div class="tm-article-snippet__meta-container">
                    <div class="tm-article-snippet__meta">
-                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2019-04-30T15:47:21.000Z" title="2019-04-30, 18:47">30 апр 2019 в 18:47</time></span></span></span>
+                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2019-02-07T20:41:22.000Z" title="2019-02-07, 23:41">7 фев 2019 в 23:41</time></span></span></span>
                    </div><!---->
                   </div>
-                  <h1 lang="ru" class="tm-title tm-title_h1"><span>«Мыши плакали и кололись..» Импортозамещение на практике. Часть 4 (теоретическая, завершающая). Системы и сервисы</span></h1>
+                  <h1 lang="ru" class="tm-title tm-title_h1"><span>Внедрение Zimbra Collaboration Open Source, авторизация через AD и автоматическое создание почтовых ящиков</span></h1>
                   <div class="tm-article-snippet__stats">
                    <!---->
                    <div class="tm-article-reading-time">
                     <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 10 мин </span>
-                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">54K</span></span>
+                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">27K</span></span>
                   </div>
                   <div class="tm-publication-hubs__container">
                    <div class="tm-publication-hubs">
-                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
+                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
                    </div>
-                  </div><!----> <!----> <!---->
+                  </div>
+                  <div class="tm-article-labels">
+                   <div class="tm-article-labels__container">
+                    <div class="tm-publication-label tm-publication-label_variant-tutorial">
+                     <span> Туториал </span>
+                    </div>
+                    <div class="tm-publication-label tm-publication-label_variant-sandbox"></div>
+                   </div>
+                  </div><!----> <!---->
                  </div>
                 </div><!---->
                 <div data-gallery-root="" lang="ru" class="tm-article-body">
@@ -94,234 +102,445 @@
                     <div xmlns="http://www.w3.org/1999/xhtml">
                      <br>
                      <br>
-                      Поговорив в прошлых статьях о ,  и , продолжим сбор информации о необходимых системах и сервисах, которые на этих ОСях можно развернуть.
+                     <h2>1. Исходные данные</h2>
+                     <br><i>ОС сервера</i>: CentOS 7
                      <br>
-                     <br>
-                      На самом деле данная статья получилась в основном теоретической. Проблема в том, что ничего нового и оригинально в «отечественных» системах нет. А переписывать в сотый раз одно и тоже, не добавив ничего нового, я смысла не вижу. Так что тут будет сборка и анализ данных касательно импортозамещаемых систем.
-                     <br>
-                     <br>
-                      Плюс к этому, более-менее нормальное Wiki есть только у <b>Альт, Astra</b> и <b>Rosa</b>. У <b>Ред ОС</b> есть  (весьма скромная на мой вкус). Причем у Rosa статьи в этом Wiki зачастую устаревшие и неактуальные, датированные 2013-2014 годами и относящиеся к старым дистрибутивам… Но у остальных систем Wiki считай, что вообще нет. Поэтому для дистрибутивов, у которых нет БЗ или Wiki, будем считать, что смотреть надо в Wiki или БЗ их родительского дистрибутива. Для <b>ROSA</b> — CentOS (Red Hat), <b>Astra </b> — Debian, <b>Calculate </b> — Gentoo, <b>Ред ОС</b> — Red Hat, <b>AlterOS </b> — openSUSE, <b>ОСь </b> — CentOS (Red Hat), <b>Ульяновск.BSD</b> — FreeBSD, <b>QP OC</b> — полностью отечественная разработка (по уверениям ее создателей это не Linux).
-                     <br>
-                     <br>
-                      Так же я пока опущу тот момент, что я оставляю всю инфраструктуру на базе Microsoft, и начну с основ — <b>DNS, Directory Service, Proxy-server</b>. Ну и далее пойдут user oriented системы и сервисы, типа почтового сервера, офиса, чата и т.д.
-                     <br>
-                     <br>
-                     <h2><u>1. Инфраструктура</u></h2>
-                     <br>
-                     <h3>1.1. DNS</h3>
-                     <br><b>DNS</b>-сервер представлен во всех «отечественных» ОС в виде <b>BIND9</b>. Ничего нового. Да и в настройке нет ничего сложного. Только у Calculate в репозитории BIND'a нет. 
-                     <br>
-                     <br><b>DDNS </b> — чуточку сложнее, но тоже ничего из ряда вон выходящего тут нет.
-                     <br>
-                     <br>
-                     <br>
-                      У ROSA в Wiki есть следующая , не имеющая никакого отношения к реальному положению вещей. Так что будем считать, что инструкцию по настройке DDNS для ROSA нужно искать как относящуюся к CentOS.
-                     <br>
-                     <br>
-                     <h3>1.2. DHCP</h3>
-                     <br>
-                      Опять же — ничего нового, ничего сложного.
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <h3>1.3. Directory Service</h3>
                      <br>
                      <div class="spoiler">
-                      <b class="spoiler_title">1.3.1. Astra Linux Directory (ALD)</b>
+                      <b class="spoiler_title">По поводу ОС</b>
                       <div class="spoiler_text">
+                       На самом деле разница между CentOS7 и любой другой системой будет заключаться исключительно в командах серверу на установку зависимостей, и, возможно, расположении некоторых файлов. Работа ведется в основном с командлетами Zimbra, так что отличия настройки будет минимальны.
                        <br>
-                       <blockquote>
-                        Включение машины ОС Microsft Windows в домен ALD штатными средствами ОС Microsft Windows невозможно.
-                       </blockquote>
-                       <br>
-                        При этом в качестве клиента AD Astra вводится в домен буквально .
-                       <br>
-                       <br>
-                       <br>
-                       <br>
-                        Так же в качестве контроллера домена в Astra Linux может выступать <b>SAMBA 4</b>. Это не доработка Astra, это SAMDA в изначальном виде. . 
+                      </div>
+                     </div>
+                     <br><i>Windows домен</i>: home.local
+                     <br><i>Адрес и имя почтового сервера</i>: 10.40.0.80 / zimbramail.home.local
+                     <br><i>Пользователь для доступа к каталогу AD</i>: ZimbraLDAP с паролем qwe123
+                     <br>
+                     <br>
+                     <h2>2. Подводные камни</h2>
+                     <br>
+                      Сам процесс установки Zimbra довольно прост. Нужно установить зависимые пакеты, скачать архив, запустить скрипт и правильно ответить на вопросы установщика. Но, как и везде, есть свои маленькие сложности.
+                     <br>
+                     <br>
+                      1) Zimbra чувствительна к hostname. Первое, что нужно сделать перед установкой – привести файл /etc/hosts к виду:
+                     <br>
+                     <br>
+                     <pre><code class="bash">127.0.0.1	 localhost.localdomain	localhost
+10.40.0.80	 zimbramail.home.local	zimbramail</code></pre>
+                     <br>
+                      2) Без доступа к internet чуда не произойдет. Если доступа в internet не будет, то скрипт будет подвисать на 20-40 минут, и в итоге, естественно, завершится с ошибкой. Казалось бы, зачем нужен почтовый сервер без доступа в интернет, но «чего только не бывает в подлунном мире».
+                     <br>
+                     <br>
+                     <h2>3. Непосредственно установка</h2>
+                     <br>
+                      Итак, к делу!
+                     <br>
+                     <br>
+                      1) Установка зависимостей: 
+                     <br>
+                     <br>
+                     <pre><code class="bash">$ yum install perl perl-core ntpl nmap sudo libidn gmp libaio libstdc++ unzip sysstat sqlite wget</code></pre>
+                     <br>
+                      2) Скачать архив:
+                     <br>
+                     <br>
+                     <pre><code class="bash">$ wget https://files.zimbra.com/downloads/8.8.11_GA/zcs-8.8.11_GA_3737.RHEL7_64.20181207111719.tgz</code></pre>
+                     <br>
+                      3) Разархивировать скачанный архив, перейти в каталог и запустить установку:
+                     <br>
+                     <br>
+                     <pre><code class="bash">$ tar –xzf zcs-8.8.11_GA_3737.RHEL7_64.20181207111719.tgz
+$ cd zcs-8.8.11_GA_3737.RHEL7_64.20181207111719
+$ ./install.sh --platform-override</code></pre>
+                     <br>
+                      4) Согласиться с лицензионным соглашением и использованием репозитория Zimbra:
+                     <br>
+                     <br>
+                     <pre><code class="bash">Do you agree with the terms of the software license agreement? [N] Y
+Use Zimbra's package repository [Y] Y</code></pre>
+                     <br>
+                      5) Выбрать необходимые компоненты и подтвердить изменение:
+                     <br>
+                     <br>
+                     <div class="spoiler">
+                      <b class="spoiler_title">Выводимый текст</b>
+                      <div class="spoiler_text">
+                       <pre><code class="bash">Select the packages to install
+Install zimbra-ldap [Y] Y
+Install zimbra-logger [Y] Y
+Install zimbra-mta [Y] Y
+Install zimbra-dnscache [Y] N
+Install zimbra-snmp [Y] Y
+Install zimbra-store [Y] Y
+Install zimbra-apache [Y] Y
+Install zimbra-spell [Y] Y
+Install zimbra-memcached [Y] Y
+Install zimbra-proxy [Y] N
+The system will be modified.  Continue? [N] Y</code></pre>
+                      </div>
+                     </div>
+                     <br>
+                      6) Далее нужно ввести пароль администратора для Zimbra:
+                     <br>
+                     <br>
+                     <div class="spoiler">
+                      <b class="spoiler_title">Выводимый текст</b>
+                      <div class="spoiler_text">
+                       <pre><code class="bash">Main menu
+   1) Common Configuration:                                                  
+   2) zimbra-ldap:                             Enabled                       
+   3) zimbra-logger:                           Enabled                       
+   4) zimbra-mta:                              Enabled                       
+   5) zimbra-snmp:                             Enabled                       
+   6) zimbra-store:                            Enabled                       
+        +Create Admin User:                    yes                           
+        +Admin user to create:                 admin@zimbramail.home.local    
+******* +Admin Password                        UNSET                         
+        +Anti-virus quarantine user:           virus-quarantine.2hwbbw7msh@zimbramail.ciam.local 
+        +Enable automated spam training:       yes                           
+        +Spam training user:                   spam.jedk1fhggz@zimbramail.home.local 
+        +Non-spam(Ham) training user:          ham.y4nb2o4bt@zimbramail.home.local 
+        +SMTP host:                            zimbramail.home.local          
+        +Web server HTTP port:                 8080                          
+        +Web server HTTPS port:                8443                          
+        +Web server mode:                      https                         
+        +IMAP server port:                     7143                          
+        +IMAP server SSL port:                 7993                          
+        +POP server port:                      7110                          
+        +POP server SSL port:                  7995                          
+        +Use spell check server:               yes                           
+        +Spell server URL:                     http:// zimbramail.home.local :7780/aspell.php
+        +Enable version update checks:         TRUE                          
+        +Enable version update notifications:  TRUE                          
+        +Version update notification email:    admin@zimbramail.home.local    
+        +Version update source email:          admin@zimbramail.home.local    
+        +Install mailstore (service webapp):   yes                           
+        +Install UI (zimbra,zimbraAdmin webapps): yes                           
+
+   7) zimbra-spell:                            Enabled                       
+   8) zimbra-proxy:                            Enabled                       
+   9) Default Class of Service Configuration:                                
+   s) Save config to file                                                    
+   x) Expand menu                                                            
+   q) Quit                                    
+
+Address unconfigured (**) items  (? - help) 6
+Select, or 'r' for previous menu [r] 4
+Password for admin@example.com  (min 6 characters): [MFSPcRW18] qwe123</code></pre>
                        <br>
                       </div>
                      </div>
                      <br>
+                      Остальное в этом меню нас особо не интересует. Но. По умолчанию Zimbra создаст свой внутренний домен по образу и подобию своего zmhostname (читай hostname), то есть это будет домен zimbramail.home.local. Меня такой вариант устраивает, если вас – нет, и имя домена должно строго соответствовать [home.local], то рекомендую сразу изменить адреса получения Version update notification и Version update source на admin@home.local
+                     <br>
+                     <br>
+                      7) Тут нужно нажать кнопку [a], чтобы применить изменения, затем согласиться с сохранением конфигурации в файл и еще раз нажать [Enter], чтобы продолжить установку. 
+                     <br>
+                     <br>
+                      Система не зависла после слова “done”, она ждет нажатия клавиши.
+                     <br>
+                     <br>
                      <div class="spoiler">
-                      <b class="spoiler_title">1.3.2.РЕД ОС организация домена IPA</b>
+                      <b class="spoiler_title">Выводимый текст</b>
                       <div class="spoiler_text">
-                       , в которой довольно подробно все расписано.
+                       <pre><code class="bash">Select from menu, or press 'a' to apply config (? - help) a
+Save configuration data to a file? [Yes]
+Save config in file: [/opt/zimbra/config.10925]
+Saving config in /opt/zimbra/config.10925...done.</code></pre>
                        <br>
                       </div>
                      </div>
                      <br>
+                      Далее происходит работа скрипта установки, после окончании которой он предлагает нажать любую клавишу для продолжения
+                     <br>
+                     <br>
+                      8) После завершения установки необходимо открыть нужные порты в фаэрволле. Список портов можно найти в Wiki разработчика по 
+                     <br>
+                     <br>
+                      9) Настоятельно так же рекомендую убедиться, что Zimbra поняла все правильно, и ее zmhostname совпадает с hostname сервера:
+                     <br>
+                     <br>
+                     <pre><code class="bash">$ su – zimbra
+$ zmhostname
+  zimbramail.home.local</code></pre>
+                     <br>
+                      Если имя не совпадает, делаем следующее:
+                     <br>
+                     <br>
+                      а) первым делом проверяем, есть ли в DNS записи A и MX для нашего нового zmhostname, если нет – создаем их
+                     <br>
+                     <br>
+                      б) 
+                     <pre><code class="bash">$ su – zimbra
+/opt/zimbra/libexec/zmsetservername -n [servername]</code></pre>
+                     <br>
+                      в) чистим zmloggerhostmap:
+                     <br>
+                     <br>
+                     <pre><code class="bash">$ zmloggerhostmap</code></pre>
+                     <br>
+                      Эта команда выводит список всех Hostname Map.
+                     <br>
+                     <br>
+                      Удалять командой:
+                     <br>
+                     <br>
+                     <pre><code class="bash">$ zmloggerhostmap -d localhost localhost.localdomain</code></pre>
+                     <br>
+                      где localhost и localhost.localdomain нужно заменить на строку из списка Hostname Map
+                     <br>
+                      после чего перезапустить Zimbra
+                     <br>
+                     <br>
+                      10) Запускаем сервер:
+                     <br>
+                     <br>
+                     <pre><code class="bash">$ su – zimbra
+$ zmcontrol start</code></pre>
+                     <br>
                      <div class="spoiler">
-                      <b class="spoiler_title">1.3.3. ROSA directory</b>
+                      <b class="spoiler_title">Выводимый текст</b>
                       <div class="spoiler_text">
-                       В интернетах есть упоминания того, что у ROSA есть своя разработка ROSA Directory Server. В их Wiki есть  на этот счет. Датированная 28 февраля 2013. Есть еще и упоминания интересного инструмента Rosa Server Setup. И я начал копать, интересно же потрогать.
-                       <br>
-                       <br>
-                        В общем, в релизе R7 все это выпилили. Как я понял, связано это было с тем, что Rosa пересобрали на базе CentOS вместо Mandriva, а их Directory был основан на <b>Mandriva Directory Server</b>, и на CentOS просто не налез.
-                       <br>
-                       <br>
-                        По этому, как и на все другие-остальные ОС, на <b>ROSA</b> можно установить <b>SAMBA</b>, и использовать ее в качестве контроллера домена.
-                       <br>
+                       <pre><code class="bash"> Host zimbramail.home.local 
+    Starting zmconfigd...Done.
+    Starting logger...Done.
+    Starting mailbox...Done.
+    Starting memcached...Done.
+    Starting proxy...Done.
+    Starting amavis...Done.
+    Starting antispam...Done.
+    Starting antivirus...Done.
+    Starting opendkim...Done.
+    Starting snmp...Done.
+    Starting spell...Done.
+    Starting mta...Done.
+    Starting stats...Done.
+    Starting service webapp...Done.
+    Starting zimbra webapp...Done.
+    Starting zimbraAdmin webapp...Done.
+    Starting zimlet webapp...Done.</code></pre>
                       </div>
                      </div>
                      <br>
+                      Теперь сервер доступен по адресу 
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                      11) Для возможности доступа к серверу как по https так и по http делаем следующее:
+                     <br>
+                     <br>
+                     <pre><code class="bash">$ su – zimbra
+$ zmtlsctl both
+$ zmcontrol restart</code></pre>
+                     <br>
+                      12) Для тех, у кого нет доступа к интернет, или если сервер живет за NAT’ом, нужно будет еще прописать команду:
+                     <br>
+                     <br>
+                     <pre><code class="bash">$ su – zimbra
+$ zmprov ms zimbramail.home.local zimbraMtaLmtpHostLookup native
+$ zmcontrol restart</code></pre>
+                     <br>
+                      zmprov это утилита для управления настройками сервера, она нам еще понадобится, когда нужно будет настроить автоматическое создание ящиков, их резервное копирование и восстановление, а так же автоматическое создание и обновление списков рассылки. Но об этом чуть позже.
+                     <br>
+                     <br>
+                      13) Проблема с самоподписанным сертификатом решается импортом сертификата на сервер из Вашего удостоверяющего центра.
+                     <br>
+                     <br>
+                      Или же экспортом сертификата с сервера Zimbra:
+                     <br>
+                     <br>
+                     <pre><code class="bash">$ cd /opt/zimbra/ssl/zimbra/ca
+$ openssl x509 -in ca.pem -outform DER -out ~/zimbra-mail-example.cer</code></pre>
+                     <br>
+                      с последующим экспортом его клиентским машинам, руками, или групповыми политиками домена, установив сертификат в «Доверенные корневые центры сертификации» клиентских машин.
+                     <br>
+                     <br>
+                      На этом установка и первичная настройка завершена.
+                     <br>
+                     <br>
+                     <h2>4. Настройка авторизации через LDAP</h2>
+                     <br>
+                      Прежде всего нужно создать в AD пользователя для доступа к каталогу. У меня это ZimbraLDAP, после чего зайти в консоль администратора через web и настроить авторизацию в домене zimbramail.home.local.
+                     <br>
+                     <br>
+                      1) Заходим в «настройка» – «домены», ПКМ по названию домена – «настроить проверку подлинности»:
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                      2) Выбрать “Внешний Active Directory”, нажать далее:
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                      3) В поле «Имя домена AD» вводим имя домена, в поле «ldap://» пишем имя домена или имя контроллера домена, или IP контроллера домена. У меня контроллеров несколько, поэтому я пишу имя домена. Порт оставляем без изменений. Жмем далее:
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                      4) Привязка LDAP оставляем без изменений.
+                     <br>
+                     <br>
+                      5) Сводка по конфигурации проверки подлинности. Имя пользователя ZimbraLDAP, пароль qwe123. Жмем кнопку «тест»:
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                      Настройка внешней группы отвечает за то, где именно в AD Zimbra будет искать пользователей и какие фильтры будет применять. Можно применить фильтр: 
+                     <br>
+                     <br>
+                     <pre><code class="bash">(&amp;(objectClass=user)(objectClass=person))</code></pre>
+                     <br>
+                      в этом случае будут отобраны только объекты AD «пользователи» и «персоны». А параметр External Group LDAP Search Base использоваться не будет, он будет заменен на «<b>zimbraAutoProvLdapSearchBase</b>» в ходе настройки EAGER-режима.
+                     <br>
+                     <br>
+                      Теперь пользователи будут авторизовываться по своим паролям из AD. И даже при создании нового почтового ящика пароль задать будет нельзя.
+                     <br>
+                     <br>
+                     <h2>5. Настройка автоматического создания почтовых ящиков</h2>
+                     <br><i>Немного теории:</i>
+                     <br>
+                     <br>
+                      Zimbra умеет в 3 варианта создания ящиков:
+                     <br>
+                     <br><b>EAGER</b> – полностью автоматический, который через определенные промежутки времени просматривает AD и создает ящики для новых пользователей.
+                     <br>
+                     <br><b>LAZY</b> – полуавтоматический, который создает почтовый ящик при первом входе пользователя на почтовый сервер под учетными данными домена.
+                     <br>
+                     <br><b>MANUAL</b> – ручной поиск и отбор учетных записей, для которых нужно создать почтовые ящики.
+                     <br>
+                     <br>
+                      По понятным причинам режим MANUAL пригоден только для маленьких компаний с вялой текучкой кадров. LAZY-режим подходит для использования почты с web-интерфейсом, без подключения почтового клиента. Меня не устраивали оба варианта, так как стояла задача автоматизировать по-максимуму (автоматическая установка клиентского приложения Zimbra Desktop, чтобы пользователю нужно было просто ввести логин-пароль и получить доступ к почте). Поэтому только EAGER. Да он и удобнее, если честно.
+                     <br>
+                     <br>
+                      Для удобства правки и применения параметров проще и удобнее создать файл. Пусть будет /tmp/prov
+                     <br>
+                     <br>
+                      Наполнение файла следующее:
+                     <br>
+                     <br>
                      <div class="spoiler">
-                      <b class="spoiler_title">1.3.4. Альт FreeIPA</b>
+                      <b class="spoiler_title">Содержимое файла</b>
                       <div class="spoiler_text">
+                       <pre><code class="bash">md zimbramail.home.local zimbraAutoProvAccountNameMap "samAccountName"
+md zimbramail.home.local +zimbraAutoProvAttrMap description=description
+md zimbramail.home.local +zimbraAutoProvAttrMap displayName=displayName
+md zimbramail.home.local +zimbraAutoProvAttrMap givenName=givenName
+md zimbramail.home.local +zimbraAutoProvAttrMap cn=cn
+md zimbramail.home.local +zimbraAutoProvAttrMap sn=sn
+md zimbramail.home.local zimbraAutoProvAuthMech LDAP
+md zimbramail.home.local zimbraAutoProvBatchSize 300
+md zimbramail.home.local zimbraAutoProvLdapAdminBindDn "CN=ZimbraLDAP,OU=HOME_Users,DC=home,DC=local"
+md zimbramail.home.local zimbraAutoProvLdapAdminBindPassword qwe123
+md zimbramail.home.local zimbraAutoProvLdapBindDn "admin@zimbramail.home.local"
+md zimbramail.home.local zimbraAutoProvLdapSearchBase "CN=HOME_Users,dc=home,dc=local"
+md zimbramail.home.local zimbraAutoProvLdapSearchFilter "(&amp;(objectClass=user)(objectClass=person))"
+md zimbramail.home.local zimbraAutoProvLdapURL "ldap://home.local:389"
+md zimbramail.home.local zimbraAutoProvMode EAGER
+md zimbramail.home.local zimbraAutoProvNotificationBody "Your account has been auto provisioned.  Your email address is ${ACCOUNT_ADDRESS}."
+md zimbramail.home.local zimbraAutoProvNotificationFromAddress prov-admin@zimbramail.home.local
+md zimbramail.home.local zimbraAutoProvNotificationSubject "New account auto provisioned"
+ms zimbramail.home.local zimbraAutoProvPollingInterval "1m"
+ms zimbramail.home.local +zimbraAutoProvScheduledDomains "zimbramail.home.local"</code></pre>
                        <br>
                       </div>
                      </div>
+                     <br><i>Еще немного теории:</i>
                      <br>
-                      Почти у всех представленных на рынке «отечественных» ОС есть возможность работать в качестве контроллера домена на базе <b>SAMBA</b>. Но у SAMBA есть серьезное ограничение при работе с Windows based клиентами:
                      <br>
-                     <blockquote>
-                      Samba AD DC функционирует на уровне контроллера доменов Windows 2008 R2. Вы можете ввести его в домен Windows 2012 как клиента, но не как контроллер домена.
-                     </blockquote>
+                      В данном файле содержатся команды для присвоения переменных. Так, например, параметр <b>zimbraAutoProvAttrMap cn=cn</b> означает, что Zimbra будет формировать свои ящики таким образом, что «выводимое имя» (CN в AD) будет подставляться в поле «выводимое имя» в Zimbra.
                      <br>
-                      Таким образом, для нормальной работы Windows серверов и рабочих станций, если они нам нужны, а они нужны, так как есть ПО, которое не может работать под Linux (те же САПР-пакеты или устаревшие программные пакеты для устройств, которые вообще ни на что, кроме Win XP поставить невозможно), нам необходимо разворачивать домен на базе <b>Windows </b>или <b>FreeIPA</b>. Развернуть FreeIPA — достаточно трудоемкий процесс, тогда как домен под управлением Windows разворачивается за пару часов. В моем случае — нулевые временные затраты, потому что у меня уже есть домен под управлением Windows. При этом Linux умеет авторизовываться с помощью AD. Справедливости ради замечу, что Windows может авторизовываться через FreeIPA.
                      <br>
+                      Параметр <b>zimbraAutoProvLdapAdminBindDn</b> отвечает за учетную запись, которую будет использовать Zimbra для доступа к каталогу AD. В Данном случае «CN=ZimbraLDAP,OU=HOME_Users,DC=home,DC=local», что значит следующее: будет использоваться учетная запись с отображаемым именем ZimbraLDAP, хранящаяся в OU HOME_Users, который расположен в корне домена home.local
                      <br>
-                      Это я так подвожу к обоснованию того, почему я не хочу отказываться от контроллеров домена на базе Microsoft Windows. Он у меня уже есть. Я не вижу смысла тратить уйму сил и времени, переучивать администраторов, привыкших к удобству графического интерфейса Windows, на работу с текстовыми файликами Linux-систем. Да, у IPA есть web-интерфейс, но это дела не особо меняет. (Линуксоиды меня за эти слова скорее всего четвертуют, но я, как Windows-админ, которому довелось работать с Linux, представляю, о чем говорю. Я не могу взять в толк, как можно любить копаться в текстовых редакторах, вчитываясь в тысячи строк кода, боясь опечататься при внесении изменений. Тогда как графический интерфейс сам тебе все покажет, подскажет, объяснит, только кнопку нажми и нужные параметры введи. Все. Я высказался. Стреляйте!)
+                     <br><b>zimbraAutoProvLdapAdminBindPassword</b> хранит пароль от учетной записи ZimbraLDAP
                      <br>
+                     <br><b>zimbraAutoProvLdapBindDn</b> хранит в себе учетную запись администратора сервера Zimbra для домена zimbramail.home.local
                      <br>
-                      На всякий случай,  о разворачивании IPA-сервера. Вдруг кому-то будет полезной.
+                     <br><b>zimbraAutoProvLdapSearchBase</b> отвечает за OU, в котором Zimbra будет искать доменные учетные записи для создания почтовых ящиков. В моем случае это тот же контейнер, в котором лежит и пользователь ZimbraLDAP
                      <br>
+                     <br><b>zimbraAutoProvPollingInterval</b> это период обращения к AD на предмет поиска появления новых учетных записей.
                      <br>
-                     <h3>1.4. Proxy-сервер</h3>
-                     <br><b>Squid</b> можно найти в репозиториях почти всех «отечественных» ОС. Не знаю, как у кого, но у меня Squid развернут уже давно. Меня устраивает.
                      <br>
+                      С остальными параметрами все и так понятно. 
                      <br>
                      <br>
+                      На сайте разработчика написано, что если вы используете версию Zimbra до 8.0.8, то для работы EAGER-режима нужно будет еще устанавливать параметр zimbraAutoProvLastPolledTimestamp в пустое значение «», иначе больше одного раза он не отработает.
                      <br>
-                      У ROSA в Wiki подобной статьи не нашлось. Но литературы по настройке Squiid в интернете очень много. И настройка будет отличаться лишь командой установки менеджеру пакетов и, возможно, расположением файлов-конфигов.
                      <br>
+                      Далее выполняем команду:
                      <br>
-                     <h3>1.5. Мониторинг</h3>
-                     <br><b>Zabbix</b> есть в репозиториях <b>Astra, ROSA, Альт, Ред ОС</b>. С этим проблем не возникнет, нужно будет только экспортировать из продуктового сервера всю нужную информацию, а затем импортировать в новый сервер. Да, мы потеряем историю, но это не критично в большинстве случаев. В случаях, когда это критично, можно оставить в работе оба сервера до тех пор, пока информация на старом сервере устареет и потеряет необходимость. И еще один момент. , судя по которой, можно сделать вывод, что Maria DB попадет в черный список, и будет выпилена из репозиториев всех «отечественных» ОС.
                      <br>
+                     <pre><code class="bash">$ su – zimbra
+$ zmprov &lt; /tmp/prov</code></pre>
                      <br>
+                      Для просмотра всех значений zmprov можно ввести команду:
                      <br>
                      <br>
+                     <pre><code class="bash">$ su – zimbra
+$ zmprov gd zimbramail.home.local</code></pre>
                      <br>
-                     <h3>1.6. IP-телефония</h3>
+                      Править параметры можно с помощью той же утилиты zmprov, переписывая значения переменных (утилита — действие — домен — переменная — значние), может помочь для дебагинга: 
                      <br>
-                      В реестре Минсвязи есть несколько программных решений от отечественных разработчиков.
-                     <br><b>Ideco PBX</b> не требует под собой ОС. .
-                     <br><b>Роском. IP-АТС</b> также не требует под собой работающей ОС. .
-                     <br><b>MetPBX</b> тоже не требует ОС под собой. .
-                     <br><b>СКИТ.АТС</b> может быть развернута на базе Linux. . 
                      <br>
-                      И, наконец, платформа <b>GetCall</b>, которая также не требует под собой ОС. .
+                     <pre><code class="bash">$ su – zimbra
+$ zmprov md zimbramail.home.local zimbraAutoProvBatchSize 200</code></pre>
                      <br>
+                      На сайте разработчика есть небольшая табличка траблшутинга LDAP-ошибок. Логи автопровижна пишутся в <b>/opt/zimbra/log/mailbox.log</b>
                      <br>
-                      С IP-телефонией я сам лично дела не имел, так что сказать про них ничего не могу.
                      <br>
                      <br>
-                     <h2><u>2. User oriented системы</u></h2>
-                     <br><b>2.1.</b> Как было указано в , у нас на <b>Firebird 1.5</b> работает система под названием ТЕКТОН. Соответственно, при импортозамещении нужно это дело переносить в новую инфраструктуру. У Firebird есть версии для Linux, но в репозиториях «отечественных» ОС версии 1.5 нет. А перейти на более позднюю версию возможности нет, так как на стыке 1 и 2 версий Firebird изменился принцип работы хранимых процедур, и переписывать их никто не будет… да и не сможет… да и смысла нет, так как в ближайшее время эту систему должна заменить 1с. Так что «на первое время» можно будет скачать пакет и установить не из репозитория.
                      <br>
-                     <br><b>2.2.</b> Система электронной отчетности <b>ОАЗИС</b> под Linux не работает. Более того, ОАЗИС не работает ни на чем, кроме MSSQL Server. Таким образом, нам потребуется виртуальная машина с Windows и MSSQL Server. Достаточно будет Express версии, так как БД маленькая. Но уйти от этого нельзя, так как на этом основана отчетность в ПФР и налоговую.
+                      И еще немного оговорюсь. Получил фидбэк от , настраивавшего сервер с нуля. Версия 8.8.12_GA_3794.RHEL7_64_20190329045002 RHEL7_64 FOSS edition, Patch 8.8.12_P1 proxy.
                      <br>
-                     <br><b>2.3.</b> В качестве <b>веб-сервера</b> MS IIS, естественно, не подойдет, придется использовать входящие в репозитории <b>Apache</b> или <b>Nginx</b> (последний есть в репозиториях ROSA, Альт, Calculate).
                      <br>
-                      Что из них лучше? Можно ознакомиться со  товарища 
+                      Дело вот в чем: после чистой установки параметр «zimbraAutoProvScheduledDomains» нужно проинициализировать — выполнить команду «ms zimbraAutoProvScheduledDomains» без знака "+". Если сразу писать "+zimbraAutoProvScheduledDomains", то он не записывается и процесс не стартует.
                      <br>
                      <br>
-                      Ссылка на Wiki:
+                      Спасибо человеку за информацию!
                      <br>
                      <br>
-                     <br> есть только команды установки, конфигурировать придется по другой литературе. Например, . Или можно .
+                     <h2>6. Установка клиентских приложений</h2>
                      <br>
-                     <br><b>2.4.</b> <b>Корпоративный чат</b> c авторизацией через AD. OpenFire или ejabberd. Просто и бесплатно.
+                      Скачиваем с официального сайта msi-пакет свежей версии. Копируем его в расшаренную сетевую папку, доступную всем для чтения. Можно скопировать и в Netlogon, но пакет весит более 100 Мб, поэтому я решил использовать шару.
                      <br>
                      <br>
+                      Zimbra Desktop использует java, а значит, надо скачать еще и её, и положить в ту же папку.
                      <br>
+                      Далее по вкусу – KIX, GPO, руками. Я использую GPO.
                      <br>
                      <br>
-                      В качестве клиента чата можно использовать что угодно, начиная от <b>Pidgin </b>и <b>Miranda</b>, которые есть в сборках ОС, и заканчивая чем-то самописным.
+                      В той же шаре создаем файл installZimbra.cmd следующего содержания:
                      <br>
-                     <br><b>2.5.</b> <b>Почтовый сервер.</b> Как я уже неоднократно упоминал, мне нравится Zimbra. Её можно развернуть на базе RELS.
                      <br>
+                     <pre><code class="bash">\\SharedFolder\jrex64.exe INSTALL_SILENT=Enable
+\\SharedFolder\ZimbraInstall.msi /q /norestart</code></pre>
                      <br>
+                      Добавляем в раздел «конфигурации компьютера»-«конфигурация Windows»-«Сценарии (запуск\завершение)»-«Автозагрузка» сценарий установки, созданный ранее. Сценарий установит java и Zimbra Desktop в silent режиме и не будет требовать перезагрузуку. Далее — разгул фантазии администратору.
                      <br>
                      <br>
+                      Но. Для того, чтобы Zimbra Desktop настроить на наш сервер – надо руками вбить параметры.
                      <br>
                      <br>
-                      Так же в репозиториях ОС есть пакеты <b>Postfix/exim/Dovecot</b>.
                      <br>
                      <br>
+                      Поэтому для пользователей нужно создать некую памятку-инструкцию, в какие поля что нужно вбивать, и на какую кнопочку нажать, чтобы получить доступ к почте. В целом – не сложно.
                      <br>
-                      По поводу настройки Rosa. В их Wiki есть , датированная 28 февраля 2013. Беда лишь в том, что там описан метод с использованием RSS (ROSA Server Setup), который, как я говорил выше, был випилен из актуальной версии дистрибутива. Так что теперь можно использовать инструкции по настройке почтового сервера без привязки к ОС. Например, .
                      <br>
+                     <h2>Заключение</h2>
                      <br>
-                      Так же можно рассмотреть вариант проприетарного ПО в виду "<b>МойОфис сервер</b>" или "<b>CommuniGate Pro</b>". Но мне этот вариант не нравится. Как минимум потому, что он платный. С другой стороны, поддержка — это хорошо, это гарантия. Но при условии, что почти все администраторы могут гарантировать работоспособность почтового сервера, необходимость поддержки вызывает сомнения. И если CommuniGate это проверенное ПО, то «МойОфис» был создан в 2014 году, и лично у меня вызывает опасения мысль о количестве багов, которые в этой системе еще можно словить. При всем при этом цена обоих продуктов на мой взгляд необоснованно завышена.
+                      Таким образом мы весьма несложно и достаточно быстро внедрили совершенно бесплатную систему корпоративного взаимодействия на базе Zimbra Collaboration Suite, настроили ее взаимодействие с доменом, упростив создание почтовых ящиков и избавившись от проблем с кучей лишних учетных записей.
                      <br>
-                     <br><b>2.6.</b> <b>Резервное копирование</b> в дистрибутивах представлено <b>Bacula</b>. Настройка этого монстра — целая эпопея. Материалов по этому вопросу достаточно много, но все равно это целый труд. Но Bacula — мощный и крайне полезный мультиплатформенный инструмент.
                      <br>
+                      На мой взгляд Zimbra – достаточно мощный инструмент для корпоративного сегмента. Но по этому поводу статей было написано уже огромное множество, не буду распыляться.
                      <br>
+                     <br><b>P.S.:</b>
                      <br>
+                      В  речь пойдет о резервном копировании и восстановлении почтовых ящиков Zimbra OSE.
                      <br>
-                     <br>
-                      Взяв в расчет тот факт, что Альт является официальным партнером Bacula в России, можно надеяться на то, что у них в репозитории будут появляться относительно свежие версии этого дистрибутива.
-                     <br>
-                     <br><b>2.7.</b> Про <b>почтовый клиент</b> <b>Thunderbird</b>, представленный со всех «отечественных» ОС ничего говорить не буду.
-                     <br>
-                     <br><b>2.8.</b> О web-браузерах <b>Mozilla Firefox</b>, представленном во всех «отечественных» ОС и Яндекс.Браузере, который может быть установлен на всех «отечественные» ОС, так же промолчу.
-                     <br>
-                     <br><b>2.9.</b> <b>Офисный пакет</b>. <b></b> входит в состав всех «отечественных» ОС. У него есть 2 платных альтернативы — это "<b></b>" и "<b></b>". У Р-7 есть тестовая версия дистрибутива «на попробовать». Можно . Что касается «МойОфис», то я просто оставлю тут  и  (особое внимание советую уделить комментариям).
-                     <br>
-                     <br><b>2.10.</b> <b>1С: ПРЕДПРИЯТИЕ</b>. Например, 
-                     <br>
-                      В Wiki Astra есть  про установку 1с как клиентской, так и серверной частей.
-                     <br>
-                      В ROSA Wiki есть . Странно, что нет статьи по настройке сервера, так как на CentOS эска встает. Например, вот .
-                     <br>
-                      В Альт Wiki есть  установки и настройки, в которой так же приведены полезные ссылки.
-                     <br>
-                     <br>
-                     <h2><u>3. Заключение</u></h2>
-                     <br>
-                      Ну что я могу сказать после изучения информации, связанной с импортозамещением? Все это профанация. От импорта это никоим образом не избавляет, зависимость от зарубежных разработчиков никоим образом не отменяет. Просто заменяет одних на других, позволяя кормить не забугорных дядей, а наших, отечественных. Налоги с продаж пойдут в казну государства, это плюс. Но большая часть денег осядет на руках и без того богатых «дядей и тётей», а не дойдет до целевых фондов, это минус. Всякие предприятия типа «Новых Облачных Технологий», которые заявляют, что «их цель не обогатиться на программе импортозамещения ...», на самом деле преследуют именно эту цель, иначе бы подобных заявлений не было, не было бы исков в суды и заявлений в ФАС. Не стали бы они брать кусок LibreOffice и перекрашивать под «СвойОфис».
-                     <br>
-                     <br>
-                      Взять бесплатный продукт, кем-то уже сделанный, чуточку его допилить и продавать под видом своего, на мой взгляд, как минимум немного нае… надувательство. Нет, системы защиты они, конечно, сделали, шифрование там, все дела, подвели все под сертификацию ФСТЭК… Но это все равно не ими сделанные продукты. За исключением QP ОС, Криптософт сделал все сам. И у них из-за этого будут проблемы с совместимостью, с отсутствием софта под их ОС, неотловленные баги и т.д. и т.п. Но они сделали. Альт сделал еще до хайпа с импортозамещением, они тоже молодцы, не ради сиюминутной выгоды делали, на совесть, ибо деньги зарабатывали на том, что не было main stream'ом.
-                     <br>
-                     <br>
-                      Я не просто так слово «отечественные» пишу в кавычках, так как отечественных систем раз, два и обчелся. Операционных систем — вообще только одна. О каком «импортозамещении» идет речь — остается загадкой.
-                     <br>
-                     <br>
-                      Нет, в целом, если ооочень захотеть и потратить кучу сил и времени, то поднять инфраструктуру и большинство сервисов на Linux можно. Но для этого нужно переучить или поменять windows-администраторов, и заставить их красноглазить в текстовые файлики настройки приложений. Но 90% этих систем не будут отечественными, они будут свободными и в, редких случаях, чуточку перекрашенными. С нескучными обоями. В общем и целом, вся эта возня выглядит как дорогостоящий нонсенс. Если , тогда что говорить о нас?.. «Мыши плакали и кололись..», а большой брат продолжал набивать карман. Здравое зерно во всей этой программе закончилось на стадии идеи, когда было сказано о том, что секретку нужно перевести на наши защищенные системы, чтобы «враг ничего не выведал». А в итоге это вылилось в то, во что у нас выливается все нормальные идеи. Ну бизнес у нас в стране так построен — максимальная прибыль при минимальных затратах.
-                     <br>
-                     <br>
-                     <h2><u>4. Что делать?</u></h2>
-                     <br>
-                      Плакать и колоться… Приказ есть — надо делать, иначе покарают. Как покарают — неизвестно. Проблема в том, что никто не знает, как будут проверять результаты выполнения программы импортозамещения, в том числе и те, кто будет проверять. Нет данных о возможности использовать ПО из репозиториев ОС. Можно его использовать? Нельзя? Все используют — значит можно? Но в реестре Минкомсвязи нет — значит нельзя? Ответов на эти вопросы нет. Но кто-то отчитался с использованием того же LibreOffice, входящего в состав ОС. Прокатило. А Zabbix? Тот, который входит в репозторий — можно, а если ту же версию скачать у официалов — нельзя? И т.д. и т.п. И где тут логика?
-                     <br>
-                     <br>
-                      В итоге остается лишь приводить к установленным показателям доли используемого программного обеспечения, тратить кучу денег на его закупку и поддержку, и обучать сотрудников работе с новым для них софтом. Есть мнение, что «суровость российских законов компенсируется необязательностью их исполнения», но на это надеяться — дело такое…
-                     <br>
-                     <br>
-                     <h2><u>5. P.S.:</u></h2>
-                     <br>
-                      Пока я писал эти статьи, мне пришлось перелопатить такое количество информации, что я диву даюсь, как у меня все это в голове удержалось. И я рад, что цикл статей подошел к концу. Осталась только статья про QP OC, которую я обещал написать их представителю в обмен на возможность потрогать дистрибутив. Возможно, потом будет еще что-то про железо в рамках того же импортозамещения, но пока это вилами по воде.
-                     <br>
-                     <br>
-                      Надеюсь, что собранная воедино и проанализированная мною информация поможет кому-то в нелегком деле перехода на «отечественное» ПО. Всем спасибо и до новых встреч.
-                     <br>
-                     <br><b>Так же по теме можете почитать:</b>
-                     <br>
-                     <br><i>Предыдущие публикации:</i>
-                     <br>
-                     <br> про планирование импортозамещения.
-                     <br>
-                     <br> про «отечественные» операционные системы.
-                     <br>
-                     <br> про системы и сервисы.
-                     <br>
-                     <br>
-                      Ну и про  в придачу.
+                      В  речь идет об автоматическом формировании и обновлении списков рассылки на основе групп пользователей AD в Zimbra OSE.
                     </div>
                    </div>
                   </div><!----> <!---->
@@ -353,14 +572,14 @@
              <div class="tm-article-sticky-panel">
               <div class="tm-data-icons tm-article-sticky-panel__icons">
                <div class="tm-article-rating tm-data-icons__item">
-                <div title="Всего голосов 52: ↑50 и ↓2" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
+                <div title="Всего голосов 18: ↑18 и ↓0" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
                  <button title="Нравится" type="button" class="tm-votes-lever__button"></button>
                  <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-article">
-                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +48 </span></span>
+                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +18 </span></span>
                  </div><button title="Не нравится" type="button" class="tm-votes-lever__button"></button>
                 </div>
                 <div class="v-portal" style="display:none;"></div><!---->
-               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 101 </span></button>
+               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 82 </span></button>
                <div title="Поделиться" class="tm-sharing tm-data-icons__item">
                 <button type="button" class="tm-sharing__button"></button>
                 <div class="v-portal" style="display:none;"></div>
@@ -631,30 +850,19 @@
                 </div><!----> <!----> <!----> <!----> <!----> <!---->
                </div>
               </div>
-              <div>
-               <div class="placeholder-wrapper">
-                <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-                <div class="tm-placeholder-inset tm-placeholder-salary">
-                 <div class="tm-placeholder-inset__header">
-                  <div class="tm-placeholder__line tm-placeholder__line_inset-header loads"></div>
-                 </div>
-                 <div class="tm-placeholder-salary__body">
-                  <div class="tm-placeholder-salary__text">
-                   <div class="tm-placeholder__line tm-placeholder__line_salary_average"></div>
-                   <div class="tm-placeholder-salary__description">
-                    <div class="tm-placeholder__line loads"></div>
-                    <div class="tm-placeholder__line loads"></div>
-                    <div class="tm-placeholder__line loads"></div>
-                    <div class="tm-placeholder__line loads"></div>
-                   </div>
-                  </div>
-                  <div class="tm-placeholder-salary__image loads"></div>
-                 </div>
-                 <div class="tm-placeholder-inset__footer tm-placeholder-inset__footer_salary">
-                  <div class="tm-placeholder__line tm-placeholder__line_inset-footer loads"></div>
-                 </div>
-                </div><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-               </div>
+              <div class="placeholder-wrapper">
+               <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+               <div class="tm-placeholder-inset tm-placeholder-tasks">
+                <div class="tm-placeholder-inset__header">
+                 <div class="tm-placeholder__line tm-placeholder__line_inset-header loads"></div>
+                </div>
+                <div class="tm-placeholder-inset__body">
+                 <ul class="tm-placeholder-list"></ul>
+                </div>
+                <div class="tm-placeholder-inset__footer">
+                 <div class="tm-placeholder__line tm-placeholder__line_inset-footer loads"></div>
+                </div>
+               </div><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
               </div><!---->
              </div>
             </div>

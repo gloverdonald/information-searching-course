@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru" data-vue-meta="%7B%22lang%22:%7B%22ssr%22:%22ru%22%7D%7D">
  <head>
-  <title>Настройка резервного копирования и восстановления Zimbra OSE целиком и отдельными ящиками, не используя Zextras / Хабр</title>
+  <title>МЦСТ выпустила дистрибутив «Эльбрус Линукс» версии 6.0 / Хабр</title>
  </head>
  <body>
   <div id="app" data-server-rendered="true" data-async-called="true">
@@ -69,28 +69,21 @@
                  <div class="tm-article-snippet tm-article-presenter__snippet tm-article-snippet">
                   <div class="tm-article-snippet__meta-container">
                    <div class="tm-article-snippet__meta">
-                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2019-02-10T13:12:49.000Z" title="2019-02-10, 16:12">10 фев 2019 в 16:12</time></span></span></span>
+                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2020-10-04T12:51:04.000Z" title="2020-10-04, 15:51">4 окт 2020 в 15:51</time></span></span></span>
                    </div><!---->
                   </div>
-                  <h1 lang="ru" class="tm-title tm-title_h1"><span>Настройка резервного копирования и восстановления Zimbra OSE целиком и отдельными ящиками, не используя Zextras</span></h1>
+                  <h1 lang="ru" class="tm-title tm-title_h1"><span>МЦСТ выпустила дистрибутив «Эльбрус Линукс» версии 6.0</span></h1>
                   <div class="tm-article-snippet__stats">
                    <!---->
                    <div class="tm-article-reading-time">
-                    <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 16 мин </span>
-                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">17K</span></span>
+                    <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 2 мин </span>
+                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">18K</span></span>
                   </div>
                   <div class="tm-publication-hubs__container">
                    <div class="tm-publication-hubs">
-                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
+                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
                    </div>
-                  </div>
-                  <div class="tm-article-labels">
-                   <div class="tm-article-labels__container">
-                    <div class="tm-publication-label tm-publication-label_variant-tutorial">
-                     <span> Туториал </span>
-                    </div>
-                   </div>
-                  </div><!----> <!---->
+                  </div><!----> <!----> <!---->
                  </div>
                 </div><!---->
                 <div data-gallery-root="" lang="ru" class="tm-article-body">
@@ -99,725 +92,41 @@
                   <div>
                    <div class="article-formatted-body article-formatted-body article-formatted-body_version-1">
                     <div xmlns="http://www.w3.org/1999/xhtml">
+                     <div style="text-align:center;"></div>
                      <br>
+                      В начале октября 2020 года разработчик архитектуры Эльбрус компания АО «МЦСТ» новую версию дистрибутива «Эльбрус Линукс» — операционной системы общего назначения семейства GNU/Linux для компьютеров на архитектуре Эльбрус, SPARC и x86. Шестая версия «Эльбрус Линукс» основана на модифицированном ядре Linux 5.4 и включает в себя технические решения Debian GNU/Linux и проекта LFS. 
                      <br>
-                     <h3>1. С чего начать</h3>
                      <br>
-                      С чего начинается резервное копирование? Планирование. При резервировании любой системы необходимо составить план резервного копирования: что именно, как часто, как долго хранить, хватит ли свободного пространства? Из ответов на эти вопросы вытекает ответ на главный вопрос – чем бэкапить?
+                      «Эльбрус Линукс» 6.0, благодаря использованию ядра Linux 5.4, обеспечивает поддержку современной аппаратуры, в том числе мощных видеокарт, что расширяет возможности использования техники «Эльбрус» в системах трехмерного моделирования и симуляторах виртуальной реальности, а также геоинформационных системах и ситуационных центрах. Это стало возможным еще и благодаря существенному обновлению всего графического стека ОС — в нем используются новые версии X.Org, Mesa и DRM.
                      <br>
                      <br>
-                      Если свободного пространства много – можно хранить целиком виртуальную машину. Делать бэкапы тем же Veeam по расписанию, и не думать о сложностях. Но как по мне, так это расточительство, я привык делать все максимально сжато и, по возможности, экономично. Veeam у меня, конечно же, развернут, но им я делаю резервные копии лишь тех систем, которые либо невозможно, либо проблематично и очень долго разворачивать из резервных копий.
+                      В новой ОС поддерживаются системы с процессорами Эльбрус (Эльбрус-16С, Эльбрус-12С, Эльбрус-2С3, Эльбрус-8СВ, Эльбрус-8С, Эльбрус-1С+, Эльбрус-1СК и Эльбрус-4С), SPARC V9 (R2000, R2000+, R1000) и x86_64. 
                      <br>
                      <br>
-                      Про скрипты средств управления виртуальной средой просто многозначительно промолчу. 
+                      «Эльбрус Линукс» 6.0 собрана с помощью новой версии оптимизирующего компилятора . Это ПО генерирует более эффективный машинный код за меньшее время. Компилятор поддерживает самый новый стандарт языка C++ 20 в экспериментальном режиме и обеспечивает более высокий уровень совместимости с популярным компилятором GCC. 
                      <br>
                      <br>
-                      У Zimbra есть инструмент zmmailbox. И, при ближайшем рассмотрении его функционала, я понял, что его мне будет более, чем достаточно. Он умеет резервировать и восстанавливать ящики даже на живой системе. И мне понравилась возможность делать бэкапы критичных почтовых ящиков отдельно от бэкапа всей системы. Таким образом пространство, занимаемое резервными копиями, будет ограничено размером заархивированных почтовых ящиков, помноженным на количество дней «глубины бэкапа», а не объемом всей системы, помноженной на то же количество дней. К тому же с бэкапа всей системы, в случае с Zimbra, крайне сложно восстановиться. Гораздо проще скопировать виртуальную машину с помощью Veeam или средств управления виртуальной средой (Hyper-V, ESXI, вписать нужное) сразу после настройки системы, и положить «на полочку», чтобы в критичный момент можно было быстро развернуть почти ничего не весящую ВМ и залить в нее бэкапы ящиков. По-моему, это наименее затратный во всех отношениях сценарий.
+                      В «Эльбрус Линукс» 6.0 обновлены и добавлены средства разработки: интерпретаторы и трансляторы, отладчики и профилировщики, системы сборки, системы контроля версий, программные библиотеки, интегрированные среды разработки. Комплект исходных текстов с необходимыми корректурами, инструментами и сценариями сборки доступен в виде Набора разработчика платформы —  по запросу.
                      <br>
                      <br>
-                     <h3>2. Исходные данные:</h3>
-                     <br><i>ОС сервера</i>: CentOS 7
+                      Всего в «Эльбрус Линукс» 6.0 насчитывается свыше 2100 пакетов, из них около 200 новых. В дистрибутиве обновлены несколько приложений по сравнению с версией 5.0. В его состав включены офисные программы, графические редакторы, средства мультимедиа и интернет-коммуникаций, средства защиты информации, инструменты администрирования и удаленного доступа, серверные компоненты (файлы, почта, мессенджеры и телефония, домены, веб-серверы и серверы приложений, системы управления базами данных, системы хранения данных и резервного копирования, средства создания кластеров высокой доступности). 
                      <br>
                      <br>
-                     <div class="spoiler">
-                      <b class="spoiler_title">По поводу ОС</b>
-                      <div class="spoiler_text">
-                       На самом деле разница между CentOS7 и любой другой системой будет заключаться исключительно в командах серверу на установку пакетов, и, возможно, расположении некоторых файлов. Работа ведется в основном с командлетами Zimbra, так что отличия настройки будет минимальны.
-                      </div>
-                     </div>
-                     <br><i>Домен Zimbra</i>: zimbramail.home.local
-                     <br><i>Имя пользователя и пароль для доступа к расшаренной папке</i>: ZimbraBackUp / 123123
-                     <br><i>Путь к расшаренной папке</i>: \\BackUpServer1\ZM\
-                     <br><i>Путь монтирования шары на хосте Zimbra</i>: /mnt/ZM/
+                      Разработчик заявляет, что новая версия дистрибутива находится в активной фазе развития и может быть дополнена или обновлена по запросу. Дистрибутив «Эльбрус Линукс» 6.0 для архитектуры SPARC МЦСТ планирует выпустить позже.
                      <br>
                      <br>
-                     <h3>3. Настройка</h3>
+                      Дистрибутив «Эльбрус Линукс» 6.0 (64-битный) для ПК с архитектурой процессора x86  для скачивания всем пользователям свободно и бесплатно.  «Эльбрус Линукс» 6.0.
                      <br>
-                      Итак, начнем!
                      <br>
+                      Тестирование «Эльбрус Линукс» 6.0 на компьютерах архитектуры Эльбрус возможно провести  по запросу. Также рабочие станции и северное демонстрационное оборудование Эльбрус можно  в аренду. 
                      <br>
-                      Бэкапы будем писать на сервер под управлением Windows, в расшаренную папку. При желании можно сливать резервные копии куда угодно, но у меня все настроено так, что большинство бэкапов пишутся именно на BackUpServer1.home.local. Так что:
-                     <br>
-                     <br>
-                      1) Создаем в домене пользователя для доступа к расшаренной папке на этом сервере, чтобы можно было смонтировать ее на сервере Zimbramail.home.local. Имя пользователя ZimbraBackUp, пароль, условно, 123123.
-                     <br>
-                     <br>
-                      2) На сервере BackUpServer1 создаем в хранилище директорию \ZM\, и расшариваем ее, давая права на изменение для пользователя ZimbraBackUp. Путь к шаре будет таким: \\BackUpServer1\ZM\
-                     <br>
-                     <br>
-                      3) Монтируем шару к серверу Zimbramail.home.local. Чтобы папка монтировалась автоматически, нужно поправить файл /etc/fstab, добавив в него строку:
-                     <br>
-                     <br>
-                     <pre><code class="bash">//BackUpServer/ZM /mnt/ZM cifs user,uid=500,rw,suid,username=ZimbraBackUp,password=123123 0 0</code></pre>
-                     <br>
-                      Но сначала надо проверить, работает ли монтирование:
-                     <br>
-                     <br>
-                     <pre><code class="bash">$ mount -t cifs //BackUpServer/ZM /mnt/ZM -o user=ZimbraBackUp,password=123123</code></pre>
-                     <br>
-                      Часто возникает ошибка примерно такого вида:
-                     <br>
-                     <br>
-                     <pre><code class="bash">mount: wrong fs type, bad option, bad superblock on //BackUpServer1/ZM/,
-missing codepage or helper program, or other error
-(for several filesystems (e.g. nfs, cifs) you might
-need a /sbin/mount.&lt;type&gt; helper program)
-In some cases useful info is found in syslog - try
-dmesg | tail or so.</code></pre>
-                     <br>
-                      Исправить можно установкой cifs-utils:
-                     <br>
-                     <br>
-                     <pre><code class="bash">$ yum install cifs-utils</code></pre>
-                     <br>
-                      После настройки рекомендую перезагрузить сервер.
-                     <br>
-                     <br>
-                      4) Создаем 3 файла-скрипта: FullBackUp.sh HandBackUp.sh Restore.sh
-                     <br>
-                     <br>
-                      Первый файл будет использоваться для автоматического создания резервных копий по расписанию, второй для возможности резервного копирования отдельных ящиков, или просто ручного запуска «а вдруг что». И третий скрипт – восстановление одного или сразу всех ящиков. Я постарался максимально прокомментировать работу скриптов и прописал логирование.
-                     <br>
-                     <br>
-                     <div class="spoiler">
-                      <b class="spoiler_title">Содержание файла FullBackUp.sh:</b>
-                      <div class="spoiler_text">
-                       <pre><code class="bash">#!/bin/bash
-#Куда положить бэкап
-Path="/mnt/ZM/BackUps"
-#Куда положить архив бэкапа
-ArchPath="/mnt/ZM/Archive"
-#Куда положить месячный бэкап
-MPath="/mnt/ZM/Mounthly"
-#Название домена Zimbra
-ZDomain="zimbramail.home.local"
-#Список ящиков
-MBoxes="/mnt/ZM/MBoxesList"
-#Текущая дата
-CDate=$(date +%d-%m-%Y)
-#Запоминаем день месяца
-MDay=$(date +%d)
-#Куда писать логи
-log="/mnt/ZM/BackUpLog.txt"
-echo -en "BackUp ALL MailBoxes started in $(date +%T)\n" &gt;&gt; $log
-#Проверка не существования каталога для резервного копирования
-if [ ! -d $Path ]; then
-	#Создание каталога хранения резервных копий
-	echo "Создание каталога хранения резервных копий..."
-	mkdir -p $Path
-	if [ $? -eq 0 ]; then
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-		echo
-		echo -en "BackUp dirctory was created in $(date +%T)\n" &gt;&gt; $log
-	else
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-		echo
-		echo -en "BackUp dirctory was NOT created in $(date +%T)\n" &gt;&gt; $log
-	fi
-else
-echo "Каталог хранения резервных копий существует, проверка существования каталога на сегодняшнее число..."
-fi
-#Првоерка не существования каталога на сегодняшнюю дату
-if [ ! -d $Path/$CDate ]; then
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-	echo
-	#Создание каталога хранения резервных копий на сегодняшнее число
-	echo "Создание каталога хранения резервных копий на сегодняшнее число..."
-	mkdir -p $Path/$CDate
-	if [ $? -eq 0 ]; then
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-		echo
-		echo -en "BackUp CDate dirctory was created in $(date +%T)\n" &gt;&gt; $log
-	else
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-		echo
-		echo -en "BackUp CDate dirctory was NOT created in $(date +%T)\n" &gt;&gt; $log
-	fi
-else
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-	echo
-	echo "Каталог хранения резервных копий существует, запись списка ящиков в файл..."
-fi
-#Запись списка ящиков в файл
-/opt/zimbra/bin/zmprov -l gaa $ZDomain &gt; $MBoxes
-#Вывод результата записи списка
-if [ $? -eq 0 ]; then
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-	echo
-	echo -en "Mail Boxes list created in $(date +%T)\n" &gt;&gt; $log
-else
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6)[FAIL]"
-	echo
-	echo -en "Mail Box list is NOT created! in $(date +%T)\n" &gt;&gt; $log
-	exit
-fi
-#создание резервных копий каждого ящика из списка
-for MailBox in $( cat $MBoxes); do
-	echo "Создание резервной копии ящика $MailBox..."
-	/opt/zimbra/bin/zmmailbox -z -m $MailBox getRestUrl "//?fmt=tgz" &gt; $Path/$CDate/$MailBox
-	if [ $? -eq 0 ]; then
-		#Вывод результата создания резервной копии для каждого ящика
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-		echo
-		echo -en "Mail Box $MailBox BackUp created in $(date +%T)\n" &gt;&gt; $log
-	else
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6)[FAIL]"
-		echo
-		echo -en "Mail Box $MailBox BackUp is NOT created! in $(date +%T)\n" &gt;&gt; $log
-	fi
-done
-#Очищаем файл со списком ящиков
-echo "Очистка файла со споском ящиков..."
-echo -n &gt; $MBoxes
-if [ $? -eq 0 ]; then
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-	echo
-	echo -en "File $MBoxes clear\n" &gt;&gt; $log
-else
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-	echo
-	echo -en "File $MBoxes can NOT be cleared\n" &gt;&gt; $log
-fi
-#Создание архива и работа с архивами
-#Проверка не существования каталога для архивирвоания
-if [ ! -d $ArchPath ]; then
-	#Создание каталога хранения архивов
-	echo "Создание каталога хранения архивов..."
-	mkdir -p $ArchPath
-	if [ $? -eq 0 ]; then
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-		echo
-		echo -en "Archive dirctory was created in $(date +%T)\n" &gt;&gt; $log
-	else
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-		echo
-		echo -en "Archive dirctory was NOT created in $(date +%T)\n" &gt;&gt; $log
-	fi
-else
-echo "Каталог хранения архивов существует, архививрование..."
-fi
-tar -czf $ArchPath/$CDate.tar $Path/$CDate
-if [ $? -eq 0 ]; then
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-	echo
-	echo -en "Archive created in $(date +%T)\n" &gt;&gt; $log
-	#Каждое первое число месяца копирование архива на долгосрочное хранение
-	if [ "$MDay" = 1 ]; then
-		#Проверка существования каталога хранения долгосрочных архивов
-		if [ ! -d $MPath ]; then
-			#Создание каталога хранения долговрочных архивов
-			echo "Создание каталога хранения долгосроных архивов..."
-			mkdir -p $MPath
-			if [ $? -eq 0 ]; then
-				echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-				echo
-				echo -en "Long saving dirctory was created in $(date +%T)\n" &gt;&gt; $log
-			else
-				echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-				echo
-				echo -en "Long saving dirctory was NOT created in $(date +%T)\n" &gt;&gt; $log
-			fi
-		else
-		#Каталог существует
-		echo "Каталог долгосрочного хранения архивов существует, копирование архива на долгосрочное хранение..."
-		fi
-		cp $ArchPath/$CDate.tgz $MPath/$CDate
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-			echo
-			echo -en "Archive is copied in $(date +%T)\n" &gt;&gt; $log
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-			echo
-			echo -en "Archive is NOT copied in $(date +%T)\n" &gt;&gt; $log
-		fi		
-		echo "Удаление старых резервных копий (старше 1 недели)..."
-		#Удаление каталогов, содержащих резервные копии, старше недели
-		find $Path -atime +7 | xargs rm -d
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-			echo
-			echo -en "Old BackUps files was deleted\n" &gt;&gt; $log
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-			echo
-			echo -en "Old BackUps files is NOT deleted in $(date +%T)\n" &gt;&gt; $log
-		fi
-		#Удаление старых архивов бэкапов (старше 2 месяцев)
-		echo "Удаление старых архивов резервных копий (старше 2 месяцев)..."
-		find $ArchPath -atime +61 | xargs rm -f
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-			echo
-			echo -en "Old BackUps archives was deleted\n" &gt;&gt; $log
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-			echo
-			echo -en "Old BackUps archives is NOT deleted in $(date +%T)\n" &gt;&gt; $log
-		fi
-	fi
-else
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-	echo
-	echo -en "Archive is NOT created in $(date +%T)\n" &gt;&gt; $log
-fi
-echo "BackUp job finished in $(date +%T)"
-#запись в лог-файл времени окончания резервного копирования
-echo -en "BackUp job finished in $(date +%T) $(date +%T)\n" &gt;&gt; $log
-echo -en "_____________________________________________\n" &gt;&gt; $log</code></pre>
-                      </div>
-                     </div>
-                     <br>
-                     <div class="spoiler">
-                      <b class="spoiler_title">Содержание файла HandBackUp.sh:</b>
-                      <div class="spoiler_text">
-                       <pre><code class="bash">#!/bin/bash
-#Куда положить бэкап
-Path="/mnt/ZM/BackUps"
-#Куда положить архив бэкапа
-ArchPath="/mnt/ZM/Archive"
-#Название домена Zimbra
-ZDomain="zimbramail.home.local"
-#Список ящиков
-MBoxes="/mnt/ZM/MBoxesList"
-#Текущая дата
-CDate=$(date +%d-%m-%Y)
-#Куда писать логи
-log="/mnt/ZM/BackUpLog.txt"
-read -p "Введите имя почтового ящика (без указания домена), или ALL для резервного копирования всех почтовых ящиков: " A
-if [[ "$A" = "ALL" || "$A" = "all" ]]; then
-	echo -en "BackUp started in $(date +%T)\n" &gt;&gt; $log
-	#Запись списка ящиков в файл
-	echo "Запись списка ящиков в файл..."
-	/opt/zimbra/bin/zmprov -l gaa $ZDomain &gt; $MBoxes
-	if [ $? -eq 0 ]; then
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-		echo
-		echo -en "Mail Boxes list created in $(date +%T)\n" &gt;&gt; $log
-	else
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6)[FAIL]"
-		echo
-		echo -en "Mail Box list is NOT created! in $(date +%T)\n" &gt;&gt; $log
-		exit
-	fi
-	
-	if ! [ -d $Path/$СDate ]; then
-		#Создание каталога резервного копирования
-		mkdir -p $Path/$CDate/
-		echo -en "BackUp directory created in $(date +%T)\n" &gt;&gt; $log
-	fi
-	#Создание резервных копий каждого ящика из списка
-	echo "Создание резервных копий каждого ящика из списка"
-	for MailBox in $( cat $MBoxes); do
-		echo "Создание резервной копии ящика $MailBox..."
-		/opt/zimbra/bin/zmmailbox -z -m $MailBox getRestUrl "//?fmt=tgz" &gt; $Path/$CDate/$MailBox
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-			echo
-			echo -en "Mail Box $MailBox BackUp created in $(date +%T)\n" &gt;&gt; $log
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[FAIL]"
-			echo
-			echo -en "Mail Box $MailBox BackUp is NOT created! in $(date +%T)\n" &gt;&gt; $log
-		fi
-	done
-else
-	MailBox="$A@$ZDomain"
-	#Проверка существования запрошенного ящика
-	echo "Проверка существования запрошенного ящика..."
-	Result=$(/opt/zimbra/bin/zmprov getMailboxInfo $MailBox)
-	if [ $? -eq 0 ]; then
-		#Запрошенный ящик существует
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-		echo
-		echo "Запрошенный ящик $MailBox существует, резервное копирование..."
-		echo -en "Required Mail Box $MailBox exist $(date +%T)\n" &gt;&gt; $log
-		#Проверка существования каталога для резервного копирования
-		if ! [ -d $Path/$СDate ]; then
-			#Создание резервной копии ящика
-			mkdir -p $Path/$CDate/
-			echo -en "BackUp directory created in $(date +%T)\n" &gt;&gt; $log
-		fi
-		#Создание резервной копии ящика $MailBox
-		/opt/zimbra/bin/zmmailbox -z -m $MailBox getRestUrl "//?fmt=tgz" &gt; $Path/$CDate/$MailBox
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-			echo
-			echo -en "Mail Box $MailBox BackUp created in $(date +%T)\n" &gt;&gt; $log
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[FAIL]"
-			echo
-			echo -en "Mail Box $MailBox BackUp is NOT created! in $(date +%T)\n" &gt;&gt; $log
-		fi
-	else
-		#Запрошенный ящик не существовует - выход
-		echo -n "$(tput hpa $(tput cols))$(tput cub 6)[FAIL]"
-		echo
-		echo "Запрошенный ящик $MailBox не существует. Завершение работы скрипта"
-		echo -en "Required Mail Box $MailBox is not exist\n" &gt;&gt; $log
-		exit
-	fi
-fi
-read -p "Хотите запустить архивацию резервной копии ящика $MailBox? [N]: " F
-if [[ "$F" = "Y" || "$F" = "y" ]]; then
-	#Проверка не существования каталога для архивирвоания
-	if [ ! -d $ArchPath ]; then
-		#Создание каталога хранения резервных копий
-		echo "Создание каталога хранения архивов..."
-		mkdir -p $ArchPath
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-			echo
-			echo -en "Archive dirctory was created in $(date +%T)\n" &gt;&gt; $log
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-			echo
-			echo -en "Archive dirctory was NOT created in $(date +%T)\n" &gt;&gt; $log
-		fi
-	else
-	echo "Каталог хранения архивов существует, архививрование..."
-	fi
-	#Создание архива резервной копии
-	echo "Архивирование резервной копии..."
-	if [[ "$A" = "ALL" || "$A" = "all" ]]; then
-		tar -czf $ArchPath/$CDate.tar $Path/$CDate
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-			echo
-			echo -en "Archive created in $(date +%T)\n" &gt;&gt; $log	
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-			echo
-			echo -en "Archive is NOT created in $(date +%T)\n" &gt;&gt; $log
-		fi
-	else
-		tar -czf $ArchPath/$MailBox.tar $Path/$CDate/$MailBox
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-			echo
-			echo -en "Archive created in $(date +%T)\n" &gt;&gt; $log
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-				echo
-			echo -en "Archive is NOT created in $(date +%T)\n" &gt;&gt; $log
-		fi
-	fi
-else
-echo "Архив создан не будет"
-echo -en "User decline archive creating\n" &gt;&gt; $log
-fi
-#Очищаем файл со списком ящиков
-echo "Очистка файла со споском ящиков..."
-echo -n &gt; $MBoxes
-if [ $? -eq 0 ]; then
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-	echo
-else
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-	echo
-fi
-echo "BackUp job finished in $(date +%T) $(date +%T)"
-#запись в лог-файл времени окончания резервного копирования
-echo -en "BackUp job finished in $(date +%T) $(date +%T)\n" &gt;&gt; $log
-echo -en "_____________________________________________\n" &gt;&gt; $log
-</code></pre>
-                      </div>
-                     </div>
-                     <br>
-                     <div class="spoiler">
-                      <b class="spoiler_title">Содержание файла Restore.sh:</b>
-                      <div class="spoiler_text">
-                       <pre><code class="bash">#!/bin/bash
-#Где лежат бэкапы
-Path="/mnt/ZM/BackUps"
-#Название домена Zimbra
-ZDomain="zimbramail.home.local"
-#Список ящиков
-MBoxes="/mnt/ZM/MBoxesList"
-#Куда писать логи
-log="/mnt/ZM/RestoreLog.txt"
-read -p "Дата резервной копии, которую необходимо восстановить в формате 02-09-2001: " Date
-if ! [ -d $Path/$Date ]; then
-echo "Нет резервных копий на указанную дату."
-echo -en "No BackUp file at $Date $(date +%T)\n" &gt; $log
-exit
-fi
-read -p "Введите имя почтового ящика (без указания домена), или ALL для восстановления всех почтовых ящиков на указанную дату: " A
-if [[ "$A" = "ALL" || "$A" = "all" ]]; then
-	echo -en "Restore started in $(date +%T)\n" &gt;&gt; $log
-	#Запись списка ящиков в файл
-	ls "$Path/$Date" &gt; $MBoxes
-	for MailBox in $( cat $MBoxes); do
-		#Проверка существования ящика
-		echo "Проверка существования ящика $MailBox"
-		Result=$(/opt/zimbra/bin/zmprov getMailboxInfo $MailBox)
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [OK]"
-			echo
-			echo -en "Start restore job for $MailBox $(date +%T)\n" &gt;&gt; $log
-			echo "Ящик $MailBox существует. Восстановление..."
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-			echo
-			echo -en "Mail Box $MailBox does not exist, creating Mail Box $MailBox $(date +%T)\n" &gt;&gt; $log
-			echo "Ящик $MailBox не существует. Создание ящика $MailBox..."
-			#Проверка создания ящика
-			Result=$(/opt/zimbra/bin/zmprov ca $MailBox 12345678 displayName "$MailBox")
-			if [ $? -eq 0 ]; then
-				echo -n "$(tput hpa $(tput cols))$(tput cub 6) [OK]"
-				echo
-				echo -en "Mail Box $MailBox is created, starting restore $(date +%T)\n" &gt;&gt; $log
-				echo "Ящик $MailBox создан успешно. Восстановление..."
-			else
-				echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-				echo
-				echo -en "Can NOT create Mail Box $MailBox ! $(date +%T)\n" &gt;&gt; $log
-				echo "Ящик $MailBox создать не удалось."
-			fi
-		fi
-		#Восстановление ящика
-		Result=$(/opt/zimbra/bin/zmmailbox -z -m $MailBox postRestURL "//?fmt=tgz&amp;resolve=replace" $Path/$Date/$MailBox)
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-			echo
-			echo -en "Ящик $MailBox восстановлен в $(date +%T)\n" &gt;&gt; $log
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[FAIL]"
-			echo
-			echo -en "Ящик $MailBox НЕ восстановлен! $(date +%T)\n" &gt;&gt; $log
-		fi	
-	done
-else
-	#Проверка существования запрошенной резервной копии
-	MailBox="$A@$ZDomain"
-	if [ -a $Path/$Date/$MailBox ]; then
-		#Проверка существования ящика
-		echo "Проверка существования ящика $MailBox..."
-		Result=$(/opt/zimbra/bin/zmprov getMailboxInfo $MailBox)
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [OK]"
-			echo
-			echo -en "Start restore job for $MailBox $(date +%T)\n" &gt;&gt; $log
-			echo "Ящик $MailBox существует. Восстановление..."
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-			echo
-			echo -en "Mail Box $MailBox does not exist $(date +%T)\n" &gt;&gt; $log
-			echo "Ящик $MailBox не существует."
-			read -p "Хотите создать почтовый ящик с указанным именем и восстановить в него резервную копию? [N]: " B
-			if [[ "$B" = "Y" || "$B" = "y" ]]; then
-				echo "Создание почтового ящика $MailBox..."
-				Result=$(/opt/zimbra/bin/zmprov ca $MailBox 12345678 displayName "$MailBox")
-				#Проверка создания ящика
-				if [ $? -eq 0 ]; then
-					echo -n "$(tput hpa $(tput cols))$(tput cub 6) [OK]"
-					echo
-					echo -en "Mail Box $MailBox is created, starting restore $(date +%T)\n" &gt;&gt; $log
-					echo "Ящик $MailBox создан успешно. Восстановление..."
-				else
-					echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-					echo
-					echo -en "Can NOT create Mail Box $MailBox ! $(date +%T)\n" &gt;&gt; $log
-					echo "Ящик $MailBox создать не удалось. Завершение работы скрипта..."
-					exit
-				fi
-			else
-				#Ящик не будет создан, нечего восстанавливать. Выход
-				echo "Ящик не будет создан. Завершение работы скрипта"
-				exit
-			fi
-		fi
-		#Восстановление ящика
-		Result=$(/opt/zimbra/bin/zmmailbox -z -m $MailBox postRestURL "//?fmt=tgz&amp;resolve=replace" $Path/$Date/$MailBox)
-		if [ $? -eq 0 ]; then
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-			echo
-			echo -en "Ящик $MailBox восстановлен в $(date +%T)\n" &gt;&gt; $log
-		else
-			echo -n "$(tput hpa $(tput cols))$(tput cub 6)[FAIL]"
-			echo
-			echo -en "Ящик $MailBox НЕ восстановлен! $(date +%T)\n" &gt;&gt; $log
-		fi	
-	else
-		#Запрошенной резервной копии не существует
-		echo "Запрошенной резервной копии не существует. Завершение работы скрипта"
-		echo -en "Required BackUp file is not exist\n" &gt;&gt; $log
-		exit
-	fi
-fi	
-#Очищаем файл со списком ящиков
-echo "Очистка файла со споском ящиков..."
-echo -n &gt; $MBoxes
-if [ $? -eq 0 ]; then
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
-	echo
-else
-	echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
-	echo
-fi
-echo "BackUp job finished in $(date +%T) $(date +%T)"
-#запись в лог-файл времени окончания резервного копирования
-echo -en "Restore job complete in $(date +%T)\n" &gt;&gt; $log
-echo -en "____________________________________\n" &gt;&gt; $log
-</code></pre>
-                      </div>
-                     </div>
-                     <br>
-                      Тут есть одна тонкость. Если создавать и редактировать файлы скриптов для bash под Windows, то при попытке запустить скрипт будет выпадать ошибка: <b>/bin/sh^M: bad interpreter: No such file or directory</b>, которая заключается в том, что редакторы, работающие под Windows, добавляют в конце строки символ возврата каретки «CR\LF», который редакторы в Linux не отображают. Но символ этот там есть, и никуда не делся. Чтобы избавиться от ошибки и удалить лишние символы делаем следующее:
-                     <br>
-                     <br>
-                     <pre><code class="bash">$ cat your-script.sh | tr -d '\r' &gt; corrected-your-script.sh</code></pre>
-                     <br>
-                      Ну или можно воспользоваться утилитой dos2unix, но ее еще надо установить:
-                     <br>
-                     <br>
-                     <pre><code class="bash">$ yum install dos2unix
-$ dos2unix your-script.sh</code></pre>
-                     <br>
-                      5) Делаем скрипты исполняемыми:
-                     <br>
-                     <br>
-                     <pre><code class="bash">$ chmod 0740 /opt/zimbra/BkUpRestScripts/FullBackUp.sh
-$ chmod 0740 /opt/zimbra/BkUpRestScripts/HandBackUp.sh
-$ chmod 0740 /opt/zimbra/BkUpRestScripts/Restore.sh</code></pre>
-                     <br>
-                      6) Рекомендую руками запустить скрипты и проверить, работают ли они, и как они работают.
-                     <br>
-                     <br>
-                      7) Создать задачу в CRON для ежедневного резервного копирования почтовых ящиков:
-                     <br>
-                     <br>
-                     <pre><code class="bash">10 0 * * * root /opt/zimbra/ BkUpRestScripts/FullBackUp.sh</code></pre>
-                     <br>
-                      8) Наслаждаться
-                     <br>
-                     <br>
-                     <h3>4. Работа скриптов</h3>
-                     <br>
-                      На случай, если комментарии в самих скриптах не помогли.
-                     <br>
-                     <br>
-                     <div class="spoiler">
-                      <b class="spoiler_title">1) Скрипт FullBaclUp.sh:</b>
-                      <div class="spoiler_text">
-                       В начале определяются переменные, какая за что отвечает – все прокомментировано.
-                       <br>
-                       <br>
-                        Далее следует проверка отсутствия каталога для резервного копирования, если он не существует – создается. Делается вывод в лог-файл и на экран (если запущен руками) о успехе или не успехе создания каталога.
-                       <br>
-                       <br>
-                        Проверка отсутствия каталога с сегодняшней датой. Если его нет — создается, так же вывод на экран и в лог результата создания каталога.
-                       <br>
-                       <br>
-                        Запись в файл всех существующих почтовых ящиков Zimbra. Он нужен для последовательного резерварования каждого ящика. Вывод на экран результата выполнения команды.
-                       <br>
-                       <br>
-                        Создание бэкапа для каждого ящика из полученного списка. С выводом результата выполнения на экран и в лог-файл.
-                       <br>
-                       <br>
-                        Очистка файла со списком ящиков. Так как с этим файлом работают все 3 скрипта, то целесообразно чистить его после каждого прогона, чтобы не было неожиданностей. Можно чистить его и перед началом работы скрипта, но мне как-то привычнее не хранить лишних данных после выполнения работы, а делать одно и то же до и после работы скрипта – легкая степень шизофрении.
-                       <br>
-                       <br>
-                        Далее блок по созданию сжатого архива.
-                       <br>
-                       <br>
-                        Проверка отсутствия каталога хранения архивов, его создание при отсутствии и вывод на экран и в лог результата создания.
-                       <br>
-                       <br>
-                        Архивирование.
-                       <br>
-                       <br>
-                        Проверка «а не первое ли сегодня число?». Я предпочитаю долгосрочно хранить бэкапы за 1е числа всех месяцев, мне этого для работы достаточно. Можно и по неделям хранить, но зачастую это избыточно. А вот сверху поставлено условие хранения бэкапов за весь период работы почтового сервера, так что лежать им там веки вечные. Если число – первое, то полученный архив копируется в отдельный каталог “ Mounthly ”. И чтобы его туда скопировать – нужно проверить, нет ли такого каталога, и если нет – создать его, о чем сообщать на экран и в лог-файл.
-                       <br>
-                       <br>
-                        Далее осуществляется чистка хранилища – удаляются все резервные копии старше 2х недель, а также архивы, старше 61 дня. Результат удаления выводится на экран и в лог-файл.
-                       <br>
-                       <br>
-                        После чего скрипт пишет время завершения работы в лог-файл и на экран, и завершает свою работу.
-                      </div>
-                     </div>
-                     <br>
-                     <div class="spoiler">
-                      <b class="spoiler_title">2) Скрипт HandBackUp.sh:</b>
-                      <div class="spoiler_text">
-                       В начале так же определяются переменные, так же прокомментированные для чего они нужны.
-                       <br>
-                       <br>
-                        Далее пользователю предлагается ввести имя почтового ящика, который необходимо бэкапить, причем без указания домена Zimbra. (там написано в приглашении на ввод), или же выбрать бэкап всех почтовых ящиков, написав ALL или all.
-                       <br>
-                       <br>
-                        Если выбрано резервное копирование всех ящиков, то скрипт работает почти так же, как и первый, приведенный выше, за исключением того, что после создания бэкапов каждого ящика, он спросит – а надо ли их архивировать?
-                       <br>
-                       <br>
-                        Если был написан конкретный почтовый ящик, то осуществляется проверка его существования в Zimbra. Если ящик с указанным именем существует – то запускается процесс резервного копирования этого ящика, с выводом на экран и в лог-файл соответствующей информации. Если указанного ящика не существует – об этом будет сообщено пользователю, и скрипт завершит свою работу.
-                       <br>
-                       <br>
-                        После завершения резервного копирования ящика будет предложено заархивировать копию. Если пользователь соглашается – идет проверка отсутствия каталога для складирования архива и далее по списку, как и в первом скрипте.
-                       <br>
-                       <br>
-                        После завершения архивирования происходит очистка файла со списком ящиков. На всякий случай.
-                       <br>
-                       <br>
-                        В конце выводится информация о времени завершения работы скрипта на экран и в лог-файл.
-                      </div>
-                     </div>
-                     <br>
-                     <div class="spoiler">
-                      <b class="spoiler_title">3) Скрипт Restore.sh:</b>
-                      <div class="spoiler_text">
-                       Как и в предыдущих файлах, сначала – определение переменных с комментариями.
-                       <br>
-                       <br>
-                        Приглашение пользователю выбрать дату резервной копии, которую нужно восстановить. Если указанной даты в бэкапах нет – скрипт завершается, сообщив об этом.
-                       <br>
-                       <br>
-                        Если бэкапы на указанную дату существуют – приглашение пользователю ввести имя ящика, который нужно восстановить. Чтобы восстановить все ящики нужно написать ALL или all.
-                       <br>
-                       <br>
-                        Если выбран параметр ALL, скрипт создает список файлов в папке бэкапа в файл, оповещает о результате создания.
-                       <br>
-                       <br>
-                        Далее идет пошаговое восстановление каждого ящика. Сначала проверка существования ящика в системе, в случае отсутствия он создается, после чего восстанавливается. О каждой операции выводится информация в лог-файл и на экран.
-                       <br>
-                       <br>
-                        Если выбран конкретный ящик – почти то же самое. Проверка существования файла с запрошенным именем. Вывод на экран и в лог-файл результата.
-                       <br>
-                       <br>
-                        Проверка существования ящика в системе. Вывод на экран и в лог-файл результата.
-                       <br>
-                        Приглашение пользователю согласиться с созданием ящика в случае отсутствия такового в системе. Вывод на экран и в лог-файл результата.
-                       <br>
-                       <br>
-                        Создание ящика в случае согласия. Вывод на экран и в лог-файл результата.
-                       <br>
-                        Восстановление ящика. Вывод на экран и в лог-файл результата.
-                       <br>
-                       <br>
-                        Очистка файла со списком ящиков на восстановление.
-                       <br>
-                       <br>
-                        В конце выводится информация о времени завершения работы скрипта на экран и в лог-файл.
-                      </div>
-                     </div>
-                     <br>
-                     <h3>5. По поводу восстановления</h3>
-                     <br>
-                      Если немного модифицировать данные скрипты, то они вполне подойдут и для перемещения почты с сервера на сервер, просто создав на новом месте ящики со всем содержимым. Так же можно и восстановить работу системы «с нуля», когда по каким-то причинам проще заново поднять сервер Zimbra, чем пытаться оживить старый. Как было написано выше, можно сохранить образ настроенной виртуальной машины, развернув его при необходимости, и залив в него все данные. Тот же алгоритм действий при переезде с одного сервера Zimbra на другой. И не нужно никаких платных утилит типа Zextras.
-                     <br>
-                     <br>
-                     <h3>6. Заключение</h3>
-                     <br>
-                      В целом, ничего сложного в написанных мной скриптах нет. Да, в них много условий, потому что я старался предвидеть как можно больше проблем и ошибок в их работе, но я так же постарался комментировать работу скрипта как можно более понятно. Скорее всего, «из коробки» они заработают не для всех. Может быть, кому-то вообще не подойдет такой способ резервного копирования. Но, надеюсь, многим окажутся полезными.
-                     <br>
-                     <br>
-                     <h3>7. P.S.:</h3>
-                     <br>
-                      Это вторая статья из серии «как я «Zimbra» внедрял». Первая, про внедрение, LDAP-авторизацию и автоматическое создание ящиков для пользователей AD, .
-                     <br>
-                      Третья статья об автоматическом формировании и обновлении списков рассылки на основе групп AD в Zimbra OSE .
-                     <br>
-                     <br>
-                      И еще хочу отметить, что это мой первый опыт скриптования на баше, из-за этого скрипты получились такими громоздкими и «для особо умных», что называется.
+                     <blockquote>
+                      См. также:
+                      <br>
+                      <br>
+                      <ul>
+                      </ul>
+                     </blockquote>
                     </div>
                    </div>
                   </div><!----> <!---->
@@ -849,14 +158,14 @@ $ chmod 0740 /opt/zimbra/BkUpRestScripts/Restore.sh</code></pre>
              <div class="tm-article-sticky-panel">
               <div class="tm-data-icons tm-article-sticky-panel__icons">
                <div class="tm-article-rating tm-data-icons__item">
-                <div title="Всего голосов 13: ↑12 и ↓1" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
+                <div title="Всего голосов 23: ↑22 и ↓1" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
                  <button title="Нравится" type="button" class="tm-votes-lever__button"></button>
                  <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-article">
-                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +11 </span></span>
+                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +21 </span></span>
                  </div><button title="Не нравится" type="button" class="tm-votes-lever__button"></button>
                 </div>
                 <div class="v-portal" style="display:none;"></div><!---->
-               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 55 </span></button>
+               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 14 </span></button>
                <div title="Поделиться" class="tm-sharing tm-data-icons__item">
                 <button type="button" class="tm-sharing__button"></button>
                 <div class="v-portal" style="display:none;"></div>
@@ -880,10 +189,10 @@ $ chmod 0740 /opt/zimbra/BkUpRestScripts/Restore.sh</code></pre>
                    <div class="tm-user-card__header">
                     <div class="tm-user-card__header-data">
                      <div class="tm-user-card__meta">
-                      <div title=" 102 голоса " class="tm-counter-container tm-karma tm-karma">
+                      <div title=" 1456 голосов " class="tm-counter-container tm-karma tm-karma">
                        <div class="tm-counter-container__header">
                         <div class="tm-karma__votes tm-karma__votes_positive">
-                         78
+                         762
                         </div>
                        </div>
                        <div class="tm-counter-container__footer">
@@ -898,7 +207,7 @@ $ chmod 0740 /opt/zimbra/BkUpRestScripts/Restore.sh</code></pre>
                         <div class="tm-votes-lever tm-votes-lever tm-votes-lever_appearance-rating">
                          <!---->
                          <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-rating">
-                          <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 0 </span></span>
+                          <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 413.4 </span></span>
                          </div><!---->
                         </div>
                        </div>
@@ -911,16 +220,15 @@ $ chmod 0740 /opt/zimbra/BkUpRestScripts/Restore.sh</code></pre>
                    </div>
                    <div class="tm-user-card__info tm-user-card__info tm-user-card__info_variant-article">
                     <div class="tm-user-card__title tm-user-card__title tm-user-card__title_variant-article">
-                     <span class="tm-user-card__name tm-user-card__name tm-user-card__name_variant-article">Сысоев Андрей</span> <!---->
+                     <span class="tm-user-card__name tm-user-card__name tm-user-card__name_variant-article">Денис</span> <!---->
                     </div>
-                    <p class="tm-user-card__short-info tm-user-card__short-info tm-user-card__short-info_variant-article">Системный администратор, системный архитектор</p>
+                    <p class="tm-user-card__short-info tm-user-card__short-info tm-user-card__short-info_variant-article">Информационная служба Хабра</p>
                    </div>
                   </div>
                   <div class="tm-user-card__buttons tm-user-card__buttons tm-user-card__buttons_variant-article">
                    <!----> <!----> <!----> <!---->
                   </div>
-                 </div>
-                 <div class="tm-article-author__user-contacts"></div>
+                 </div><!---->
                 </div>
                </div><!---->
               </section>
@@ -938,161 +246,294 @@ $ chmod 0740 /opt/zimbra/BkUpRestScripts/Restore.sh</code></pre>
               <section class="tm-block tm-block tm-block_spacing-bottom">
                <header class="tm-block__header tm-block__header tm-block__header_variant-borderless">
                 <div class="tm-block__header-container">
-                 <h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Публикации</h2>
+                 <h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Другие новости</h2>
                 </div><!---->
                </header>
                <div class="tm-block__body tm-block__body tm-block__body_variant-condensed-slim">
-                <div class="tm-tabs tm-tabs">
-                 <div>
-                  <span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_active tm-tabs__tab-link_slim"> Лучшие за сутки </button></span><span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_slim"> Похожие </button></span>
-                 </div><!---->
-                </div>
-                <div class="similar-and-daily__tab-view">
-                 <div class="placeholder-wrapper">
-                  <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-                  <div class="tm-placeholder-article-cards">
-                   <div class="tm-placeholder-article-card">
-                    <div class="tm-placeholder__user">
-                     <div class="tm-placeholder__user-pic loads"></div>
-                     <div class="tm-placeholder__user-date loads"></div>
+                <div class="placeholder-wrapper">
+                 <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+                 <div class="tm-placeholder-article-cards">
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__title">
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
                    </div>
-                   <div class="tm-placeholder-article-card">
-                    <div class="tm-placeholder__user">
-                     <div class="tm-placeholder__user-pic loads"></div>
-                     <div class="tm-placeholder__user-date loads"></div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__title">
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
                    </div>
-                   <div class="tm-placeholder-article-card">
-                    <div class="tm-placeholder__user">
-                     <div class="tm-placeholder__user-pic loads"></div>
-                     <div class="tm-placeholder__user-date loads"></div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__title">
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
                    </div>
-                   <div class="tm-placeholder-article-card">
-                    <div class="tm-placeholder__user">
-                     <div class="tm-placeholder__user-pic loads"></div>
-                     <div class="tm-placeholder__user-date loads"></div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__title">
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
                    </div>
-                   <div class="tm-placeholder-article-card">
-                    <div class="tm-placeholder__user">
-                     <div class="tm-placeholder__user-pic loads"></div>
-                     <div class="tm-placeholder__user-date loads"></div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__title">
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
                    </div>
-                  </div><!----> <!----> <!----> <!----> <!---->
-                 </div><!---->
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                   </div>
+                  </div>
+                 </div><!----> <!----> <!----> <!----> <!---->
                 </div>
                </div><!---->
               </section>
@@ -1128,8 +569,8 @@ $ chmod 0740 /opt/zimbra/BkUpRestScripts/Restore.sh</code></pre>
                </div>
               </div>
               <div class="placeholder-wrapper">
-               <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-               <div class="tm-placeholder-inset tm-placeholder-vacancies">
+               <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+               <div class="tm-placeholder-inset tm-placeholder-courses">
                 <div class="tm-placeholder-inset__header">
                  <div class="tm-placeholder__line tm-placeholder__line_inset-header loads"></div>
                 </div>
@@ -1139,7 +580,7 @@ $ chmod 0740 /opt/zimbra/BkUpRestScripts/Restore.sh</code></pre>
                 <div class="tm-placeholder-inset__footer">
                  <div class="tm-placeholder__line tm-placeholder__line_inset-footer loads"></div>
                 </div>
-               </div><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+               </div><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
               </div><!---->
              </div>
             </div>
@@ -1214,27 +655,7 @@ $ chmod 0740 /opt/zimbra/BkUpRestScripts/Restore.sh</code></pre>
                </div>
               </div><!---->
              </div><!---->
-            </section>
-            <section data-async-called="true" class="tm-block tm-block tm-block_spacing-around">
-             <header class="tm-block__header tm-block__header">
-              <div class="tm-block__header-container">
-               <h2 class="tm-block__title tm-block__title">Работа</h2>
-              </div><!---->
-             </header>
-             <div class="tm-block__body tm-block__body">
-              <div class="tm-vacancies-block__item">
-               <div class="tm-vacancies-block__vacancies-count">
-                38 вакансий
-               </div>
-              </div>
-              <div class="tm-vacancies-block__item">
-               <div class="tm-vacancies-block__vacancies-count">
-                110 вакансий
-               </div>
-              </div>
-             </div>
-             <footer class="tm-block__footer"></footer>
-            </section>
+            </section><!---->
             <section data-async-called="true" class="tm-block block tm-block tm-block_spacing-around" data-v-cb9bff32>
              <header class="tm-block__header tm-block__header">
               <div class="tm-block__header-container">

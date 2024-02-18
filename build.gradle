@@ -29,6 +29,6 @@ tasks.register('crawle', JavaExec) {
 
 tasks.register('linkGenerate', JavaExec) {
     dependsOn 'classes'
-    mainClass = 'ru.itis.HabrLinksGenerator'
+    mainClass = 'ru.itis.LinkGeneratorMain'
     classpath = sourceSets.main.runtimeClasspath
 }

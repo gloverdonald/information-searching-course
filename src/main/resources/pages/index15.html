@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru" data-vue-meta="%7B%22lang%22:%7B%22ssr%22:%22ru%22%7D%7D">
  <head>
-  <title>Установка виртуальных машин KVM под ubuntu server / Хабр</title>
+  <title>Минкомсвязи попросило провайдеров и интернет-компании РФ оптимизировать контент Рунета, ограничив качество онлайн-видео / Хабр</title>
  </head>
  <body>
   <div id="app" data-server-rendered="true" data-async-called="true">
@@ -69,19 +69,19 @@
                  <div class="tm-article-snippet tm-article-presenter__snippet tm-article-snippet">
                   <div class="tm-article-snippet__meta-container">
                    <div class="tm-article-snippet__meta">
-                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2009-10-07T06:01:34.000Z" title="2009-10-07, 10:01">7 окт 2009 в 10:01</time></span></span></span>
+                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2020-04-04T03:55:25.000Z" title="2020-04-04, 06:55">4 апр 2020 в 06:55</time></span></span></span>
                    </div><!---->
                   </div>
-                  <h1 lang="ru" class="tm-title tm-title_h1"><span>Установка виртуальных машин KVM под ubuntu server</span></h1>
+                  <h1 lang="ru" class="tm-title tm-title_h1"><span>Минкомсвязи попросило провайдеров и интернет-компании РФ оптимизировать контент Рунета, ограничив качество онлайн-видео</span></h1>
                   <div class="tm-article-snippet__stats">
                    <!---->
                    <div class="tm-article-reading-time">
-                    <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 5 мин </span>
-                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">156K</span></span>
+                    <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 3 мин </span>
+                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">11K</span></span>
                   </div>
                   <div class="tm-publication-hubs__container">
                    <div class="tm-publication-hubs">
-                    <span class="tm-publication-hub__link-container"></span>
+                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
                    </div>
                   </div><!----> <!----> <!---->
                  </div>
@@ -92,180 +92,49 @@
                   <div>
                    <div class="article-formatted-body article-formatted-body article-formatted-body_version-1">
                     <div xmlns="http://www.w3.org/1999/xhtml">
-                     Последнее время применение виртуализации при построении серверной инфраструктуры встречается все чаще. Гибкость, масштабируемость, экономия делают эту технологию очень перспективной. Сейчас на рынке существует достаточное количество решений, как проприетарных, так и open source, позволяющих развернуть виртуальные сервера. Один из таких вариантов я хочу рассмотреть в данной статье.
+                     <div style="text-align:center;"></div>
                      <br>
                      <br>
-                      Поигравшись с ГУЙовыми платформами виртуализации от Microsoft, VMware и Sun, я решил попробовать сделать тоже самое через консоль. Установив давно понравившийся мне linux дистрибутив ubuntu, стал выбирать — на какой же реализации виртуальных машин (ВМ) остановиться. В википедии есть интересная , хотя посмотрев оффициальный  к ubuntu я понял, что лучше начать с KVM.
+                      3 апреля 2020 года Минкомсвязи  письмо на адреса многих российских интернет-компаний и провайдеров, в котором от имени министра связи Максута Шадаева в рекомендательном порядке просится принять некоторые меры, чтобы компенсировать существенно выросшую нагрузку на сети провайдеров из-за увеличения количество нерабочих дней и перехода большого числа россиян на удаленную работу и обучение. 
                      <br>
                      <br>
-                      Процедура установки хост-сервера в общем-то стандартная, но есть нюансы. Во время установки включил LVM (как я понял — гостевые ОС можно впоследстии размещать на LVM-томах, что придаст дополнительную гибкость), а в окне выбора доустанавлемого ПО отметил OpenSSH server и Virtual Machine host.
+                      «Нагрузка на сеть по причине массового перехода абонентов на дистанционные методы работы и обучения, а также использования стриминговых сервисов имеет тенденцию к увеличению», — написано в письме. 
                      <br>
                      <br>
-                      Хост-серверу задан статический ip 172.16.4.24, что можно увидеть далее в приведенных конфигах.
+                      По мнению Минкомсвязи, для обеспечения бесперебойной работы российского сегмента сети интернет во время «нерабочего месяца» необходимо за две недели в срок до 15 апреля 2020 года провести «оптимизацию размещаемого в сети контента», а именно:
                      <br>
-                      После установки хост-сервера, подключаемся к нему по ssh (одноименной командой из linux или putty/kitty из windows).
                      <br>
+                     <ul>
+                     </ul>
                      <br>
-                      Первым делом необходимо проверить, поддерживает ли железо сервера аппаратную виртуализацию командой
-                     <br><b>egrep '(vmx|svm)' /proc/cpuinfo</b>
+                      Какие компании, согласно данным некоторых СМИ, получили письмо Минкомсязи: Rutube, Vimeo, «Двач», «Яндекс» (в том числе «Яндекс.Дзен»), Rambler Group, Mail.ru Group (в том числе «ВКонтакте» и «Одноклассники»), «Мамба», «Мегафон». Вероятно, что получателями письма были все компании из  организаторов распространения информации Роскомнадзора.
                      <br>
-                      Если вывод команды не пустой, значит поддерживает.
                      <br>
+                      Причем глава ассоциации «Интернет-видео» Алексей Бырдин заявил изданию «РБК», что видел письмо Минкомсвязи, но официально стриминговые сервисы его не получили. «Инфраструктура сетей связи справляется с текущими нагрузками, которые незначительно превышают пики, которые сети и онлайн-кинотеатры испытывают каждый год в новогодние праздники. Но мы их каждый год успешно переживаем», — рассказал «РБК» Бырдин.
                      <br>
-                      Скачиваем в домашнюю папку iso-образ того дистрибутива операционной системы, которая в последствии будет гостевой. У меня это тот же самый ubuntu-9.04-server-amd64.iso
                      <br>
+                      Однако, некоторые сервисы, которые не получили письмо, сам начали принимать подобные меры, например, сервисы Premier и «Матч Премьер» заявили, что уже  видеоконтент на своих порталах для снижения общей нагрузки на сети операторов.
                      <br>
-                      Устанавливаем необходимые пакеты:
-                     <br><b>sudo apt-get install kvm libvirt-bin python-virtinst bridge-utils</b>
                      <br>
+                      Полный текст письма Минкомсвязи:
                      <br>
-                      Добавляем пользователя, который будет рулить виртуалками (в простейшем случае это тот пользователь, которого мы завели во время установки системы, и под которым проделываем все описываемые действия):
-                     <br><b>sudo adduser $USER libvirtd</b>
                      <br>
+                     <div style="text-align:center;"></div>
                      <br>
-                      После этого лучше ребутнуться.
                      <br>
+                      Ранее 26 марта 2020 года МТС  пользователей воздержаться от пересылки мемов. Президент МТС Алексей Корня  с открытым письмом к клиентам компании, в котором предупредил о возросшей нагрузке на сеть в условиях удаленной работы. Он попросил пользователей воздержаться от пересылки веселого, но объемного контента. «Мы действительно видим значительный рост нагрузки на сеть и прежде всего рост трафика при пользовании домашним интернетом в крупных городах и в особенности в Москве, где в фиксированных сетях трафик увеличился на 30%», — написал президент компании. 
                      <br>
-                      Проверяем, как установилась KVM, командой:
-                     <br><b>virsh -c qemu:///system list --all</b>
                      <br>
-                      В консоли должно появиться примерно следующее:
-                     <br><i>az@vsrvs:~$ virsh -c qemu:///system list --all<br>
-                       Connecting to uri: qemu:///system<br>
-                       Id Name State<br>
-                       ----------------------------------</i>
+                      25 марта 2020 года социальная сеть Facebook  снизить качество потокового видео на своей платформе и в Instagram в Латинской Америке, чтобы снизить нагрузку на свои сети в регионе. Вдобавок аналогичные меры компания уже приняла в Европе из-за эпидемии коронавируса (COVID-19). По словам представителя Facebook, социальная сеть пошла на снижение качества видео, чтобы предотвратить потенциальное падение сетей. Сейчас компания обсуждает со своими партнерами инструменты, которые могли бы быть использованы для ограничения пропускной способности своих сетей в условиях повышенного спроса. 
                      <br>
-                      если все так, продолжаем.
                      <br>
+                      Видеоплатформа YouTube тоже приняла  снизить качество видеороликов по умолчанию по всему миру из-за эпидемии коронавируса (COVID-19). Изменения на площадке вступили в силу во вторник, 24 марта 2020 года и продлятся тридцать дней. Теперь пользователи при включении видеороликов видят их в стандартном качестве — 480p. Смотреть их можно и в высоком качестве (HD и выше), однако для этого нужно самостоятельно включить нужное разрешение на панели проигрывателя. Представители площадки сообщили, что не верят в глобальное падение сетей или исчерпание пропускной способности интернета в ближайшее время из-за возросшего спроса. Однако Google, которой принадлежит YouTube, пошла на превентивные меры, чтобы предотвратить возможные сбои, а также успокоить правительства стран, которые выражали обеспокоенность возможными проблемами из-за резкого повышения трафика вследствие пандемии коронавируса.
                      <br>
-                      Для того, чтобы виртуальные сервера работали в нашей реальной локальной сети на хост-машине создаем сетевой мост. Для этого надо подредактировать файл /etc/network/interfaces
                      <br>
+                      20 марта 2020 года Минкомсвязи  проведение первых в этом году учений по устойчивости и безопасности «суверенного Рунета». «Учения были отменены в связи с мерами профилактики распространения нового коронавируса, уточненный график этих мероприятий будет утвержден в ближайшее время», — заявили в пресс-службе Минкомсязи.
                      <br>
-                      Так он выглядел до модификации:
                      <br>
-                     <pre># This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-
-# The loopback network interface
-auto lo
-iface lo inet loopback
-
-# The primary network interface
-auto eth0
-iface eth0 inet static
-       address 172.16.4.24
-       netmask 255.255.255.192
-       network 172.16.4.0
-       broadcast 172.16.4.63
-       gateway 172.16.4.1
-</pre>
-                     <br>
-                     <br>
-                      Так после:
-                     <br>
-                     <pre># This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-
-# The loopback network interface
-auto lo
-iface lo inet loopback
-
-# The primary network interface
-auto eth0
-iface eth0 inet manual
-
-auto br0
-iface br0 inet static
-        address 172.16.4.24
-        netmask 255.255.255.192
-        network 172.16.4.0
-        broadcast 172.16.4.63
-        gateway 172.16.4.1
-        bridge_ports eth0
-        bridge_fd 9
-        bridge_hello 2
-        bridge_maxage 12
-        bridge_stp off
-</pre>
-                     <br>
-                     <br>
-                      Далее переходим к инсталляции ВМ:
-                     <br><b>sudo virt-install -n vsrv1 -r 384 -f vsrv1.img -s 10 -c ubuntu-9.04-server-amd64.iso --accelerate --os-type=linux --os-variant=generic26 -v --vnc -w bridge:br0</b>
-                     <br>
-                      где:
-                     <br>
-                      -n vsrv1 — имя ВМ;
-                     <br>
-                      -r 384 — выделяемый объем ОЗУ для нее;
-                     <br>
-                      -f vsrv1.img — файл, являющийся виртуальный жестким диском для гостевой ОС;
-                     <br>
-                      -s 10 — объем этого диска в гигабайтах;
-                     <br>
-                      -c ubuntu-9.04-server-amd64.iso — образ cd дистрибутива гостевой ОС, подключаемый как виртуальный cdrom;
-                     <br>
-                      --accelerate --os-type=linux --os-variant=generic26 -v — ускоряем, оптимизируем ВМ для конкретной гостевой ОС и задействуем аппаратные возможности виртуализации;
-                     <br>
-                      --vnc — запускаем для ВМ vnc-сервер;
-                     <br>
-                      -w bridge:br0 — указываем использовать сетевой мост.
-                     <br>
-                     <br>
-                      Если после запуска этой команды не появилось никаких ошибок, а отобразилось нечто следующее:
-                     <br><i>Starting install…<br>
-                       Creating domain… 0 B 00:01<br>
-                       /usr/lib/python2.6/dist-packages/virtinst/Guest.py:1086: DeprecationWarning: integer argument expected, got float<br>
-                       for ignore in range(1, (5 / .25)): # 5 seconds, .25 second sleeps<br>
-                       Unable to connect to graphical console: virt-viewer not installed. Please install the 'virt-viewer' package.<br>
-                       Domain installation still in progress. You can reconnect to<br>
-                       the console to complete the installation process.</i>
-                     <br>
-                     <br>
-                      То все отлично, виртуальная машина запустилась, что можно проверить командой:
-                     <br><b>virsh -c qemu:///system list --all</b>
-                     <br>
-                      Поэтому преступаем к установке гостевой ОС.
-                     <br>
-                     <br>
-                      Для начала необходимо подключится к vnc-серверу, который отображает экран ВМ. Я делал это из WinXP, хотя, из практически любого linux дистрибутива, это делается аналогично.
-                     <br>
-                     <br>
-                      Устанавливаем (если в самом начале не установили, а настраивали сервер локально) ssh-клиент, например,  (доработанный вариант putty). Запускаем, настраиваем:
-                     <br>
-                     <ol>
-                     </ol>
-                     <br>
-                      Примечание. При запуске еще одной ВМ, порт vnc-сервера увеличится на 1, поэтому для того, чтобы увидеть ее экран необходимо сделать перенаправление порта 5901 хост-сервера на, например, порт 59001.
-                     <br>
-                     <br>
-                      Устанавливаем vnc-клиент, например , запускаем UltraVNC Viewer и подключаемся к localhost:59000. Если все сделано правильно, то мы увидим экран нашей ВМ с запущенным инсталлятором гостевой ОС.
-                     <br>
-                     <br>
-                      Устанавливаем гостевую ОС.
-                     <br>
-                     <br>
-                      Так она начинает загружаться после установки:
-                     <br>
-                     <br>
-                      После установки и настройки гостевой ОС, ВМ можно клонировать командой
-                     <br><b>sudo virt-clone -o vsrv1 -n vsrv2 -f vsrv2.img --connect=qemu:///system</b>
-                     <br>
-                     <br>
-                      UPD: После клонирования для того, чтобы заработал сетевой интерфейс необходимо на клоне удалить файл /etc/udev/rules.d/70-persistent-net.rules ну и заодно изменить в /etc/hostname и в /etc/hosts имя сервера на новое.
-                     <br>
-                     <br>
-                      TIP:
-                     <br>
-                      Команды для управления ВМ:
-                     <br><code>
-                      <ul>
-                      </ul><br></code>
-                     <br>
-                     <br>
-                      Использованные материалы:
-                     <br>
-                     <ol>
-                     </ol>
+                      Согласно утвержденному Минкомсвязи  проведения в 2020 году «плановых учений по обеспечению устойчивого, безопасного и целостного функционирования на территории России сети «Интернет» и сети связи общего пользования», первый этап учений должен был пройти 20 марта 2020 года — в ходе этого этапа учений планировалось отрабатывать возможности по блокировке трафика, зашифрованного с использованием технологий DNS поверх HTTPS и DNS поверх TLS.
                     </div>
                    </div>
                   </div><!----> <!---->
@@ -284,21 +153,27 @@ iface br0 inet static
                    <!---->
                   </ul>
                  </div>
-                </div><!---->
+                </div>
+                <div class="article-donation-block">
+                 <div class="article-donation-block__message">
+                  Если эта публикация вас вдохновила и вы хотите поддержать автора — не&nbsp;стесняйтесь нажать на кнопку
+                 </div><button type="button" class="article-donation-block__button btn btn_solid btn_small tm-button tm-button_color-horizon"> Задонатить </button>
+                 <div class="v-portal" style="display:none;"></div>
+                </div>
                </article>
               </div><!---->
              </div>
              <div class="tm-article-sticky-panel">
               <div class="tm-data-icons tm-article-sticky-panel__icons">
                <div class="tm-article-rating tm-data-icons__item">
-                <div title="Всего голосов 10: ↑9 и ↓1" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
+                <div title="Всего голосов 11: ↑9 и ↓2" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
                  <button title="Нравится" type="button" class="tm-votes-lever__button"></button>
                  <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-article">
-                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +8 </span></span>
+                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +7 </span></span>
                  </div><button title="Не нравится" type="button" class="tm-votes-lever__button"></button>
                 </div>
                 <div class="v-portal" style="display:none;"></div><!---->
-               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 187 </span></button>
+               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 2 </span></button>
                <div title="Поделиться" class="tm-sharing tm-data-icons__item">
                 <button type="button" class="tm-sharing__button"></button>
                 <div class="v-portal" style="display:none;"></div>
@@ -322,10 +197,10 @@ iface br0 inet static
                    <div class="tm-user-card__header">
                     <div class="tm-user-card__header-data">
                      <div class="tm-user-card__meta">
-                      <div title=" 9 голосов " class="tm-counter-container tm-karma tm-karma">
+                      <div title=" 1456 голосов " class="tm-counter-container tm-karma tm-karma">
                        <div class="tm-counter-container__header">
                         <div class="tm-karma__votes tm-karma__votes_positive">
-                         7
+                         762
                         </div>
                        </div>
                        <div class="tm-counter-container__footer">
@@ -340,7 +215,7 @@ iface br0 inet static
                         <div class="tm-votes-lever tm-votes-lever tm-votes-lever_appearance-rating">
                          <!---->
                          <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-rating">
-                          <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 0 </span></span>
+                          <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 413.4 </span></span>
                          </div><!---->
                         </div>
                        </div>
@@ -353,9 +228,9 @@ iface br0 inet static
                    </div>
                    <div class="tm-user-card__info tm-user-card__info tm-user-card__info_variant-article">
                     <div class="tm-user-card__title tm-user-card__title tm-user-card__title_variant-article">
-                     <span class="tm-user-card__name tm-user-card__name tm-user-card__name_variant-article">Антон Завьялов</span> <!---->
+                     <span class="tm-user-card__name tm-user-card__name tm-user-card__name_variant-article">Денис</span> <!---->
                     </div>
-                    <p class="tm-user-card__short-info tm-user-card__short-info tm-user-card__short-info_variant-article">Пользователь</p>
+                    <p class="tm-user-card__short-info tm-user-card__short-info tm-user-card__short-info_variant-article">Информационная служба Хабра</p>
                    </div>
                   </div>
                   <div class="tm-user-card__buttons tm-user-card__buttons tm-user-card__buttons_variant-article">
@@ -379,161 +254,294 @@ iface br0 inet static
               <section class="tm-block tm-block tm-block_spacing-bottom">
                <header class="tm-block__header tm-block__header tm-block__header_variant-borderless">
                 <div class="tm-block__header-container">
-                 <h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Публикации</h2>
+                 <h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Другие новости</h2>
                 </div><!---->
                </header>
                <div class="tm-block__body tm-block__body tm-block__body_variant-condensed-slim">
-                <div class="tm-tabs tm-tabs">
-                 <div>
-                  <span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_active tm-tabs__tab-link_slim"> Лучшие за сутки </button></span><span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_slim"> Похожие </button></span>
-                 </div><!---->
-                </div>
-                <div class="similar-and-daily__tab-view">
-                 <div class="placeholder-wrapper">
-                  <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-                  <div class="tm-placeholder-article-cards">
-                   <div class="tm-placeholder-article-card">
-                    <div class="tm-placeholder__user">
-                     <div class="tm-placeholder__user-pic loads"></div>
-                     <div class="tm-placeholder__user-date loads"></div>
+                <div class="placeholder-wrapper">
+                 <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+                 <div class="tm-placeholder-article-cards">
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__title">
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
                    </div>
-                   <div class="tm-placeholder-article-card">
-                    <div class="tm-placeholder__user">
-                     <div class="tm-placeholder__user-pic loads"></div>
-                     <div class="tm-placeholder__user-date loads"></div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__title">
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
                    </div>
-                   <div class="tm-placeholder-article-card">
-                    <div class="tm-placeholder__user">
-                     <div class="tm-placeholder__user-pic loads"></div>
-                     <div class="tm-placeholder__user-date loads"></div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__title">
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
                    </div>
-                   <div class="tm-placeholder-article-card">
-                    <div class="tm-placeholder__user">
-                     <div class="tm-placeholder__user-pic loads"></div>
-                     <div class="tm-placeholder__user-date loads"></div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__title">
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
                    </div>
-                   <div class="tm-placeholder-article-card">
-                    <div class="tm-placeholder__user">
-                     <div class="tm-placeholder__user-pic loads"></div>
-                     <div class="tm-placeholder__user-date loads"></div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__title">
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
-                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
-                     <div class="tm-placeholder-data-icon">
-                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                     </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
                     </div>
                    </div>
-                  </div><!----> <!----> <!----> <!----> <!---->
-                 </div><!---->
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="tm-placeholder-article-card">
+                   <div class="tm-placeholder__user">
+                    <div class="tm-placeholder__user-pic loads"></div>
+                    <div class="tm-placeholder__user-date loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__title">
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                   </div>
+                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                    <div class="tm-placeholder-data-icon">
+                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    </div>
+                   </div>
+                  </div>
+                 </div><!----> <!----> <!----> <!----> <!---->
                 </div>
                </div><!---->
               </section>
@@ -568,9 +576,9 @@ iface br0 inet static
                 </div><!----> <!----> <!----> <!----> <!----> <!---->
                </div>
               </div>
-              <div hubs="virtualization" class="placeholder-wrapper">
-               <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-               <div class="tm-placeholder-inset tm-placeholder-questions">
+              <div class="placeholder-wrapper">
+               <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+               <div class="tm-placeholder-inset tm-placeholder-tasks">
                 <div class="tm-placeholder-inset__header">
                  <div class="tm-placeholder__line tm-placeholder__line_inset-header loads"></div>
                 </div>
@@ -580,7 +588,7 @@ iface br0 inet static
                 <div class="tm-placeholder-inset__footer">
                  <div class="tm-placeholder__line tm-placeholder__line_inset-footer loads"></div>
                 </div>
-               </div><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+               </div><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
               </div><!---->
              </div>
             </div>
@@ -655,22 +663,7 @@ iface br0 inet static
                </div>
               </div><!---->
              </div><!---->
-            </section>
-            <section data-async-called="true" class="tm-block tm-block tm-block_spacing-around">
-             <header class="tm-block__header tm-block__header">
-              <div class="tm-block__header-container">
-               <h2 class="tm-block__title tm-block__title">Работа</h2>
-              </div><!---->
-             </header>
-             <div class="tm-block__body tm-block__body">
-              <div class="tm-vacancies-block__item">
-               <div class="tm-vacancies-block__vacancies-count">
-                38 вакансий
-               </div>
-              </div>
-             </div>
-             <footer class="tm-block__footer"></footer>
-            </section>
+            </section><!---->
             <section data-async-called="true" class="tm-block block tm-block tm-block_spacing-around" data-v-cb9bff32>
              <header class="tm-block__header tm-block__header">
               <div class="tm-block__header-container">

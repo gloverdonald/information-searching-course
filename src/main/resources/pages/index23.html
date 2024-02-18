@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru" data-vue-meta="%7B%22lang%22:%7B%22ssr%22:%22ru%22%7D%7D">
  <head>
-  <title>Производители назвали сроки выпуска планшета на российском чипе «Скиф» / Хабр</title>
+  <title>Бэкдоры в микрокоде ассемблерных инструкций процессоров x86 / Хабр</title>
  </head>
  <body>
   <div id="app" data-server-rendered="true" data-async-called="true">
@@ -69,19 +69,19 @@
                  <div class="tm-article-snippet tm-article-presenter__snippet tm-article-snippet">
                   <div class="tm-article-snippet__meta-container">
                    <div class="tm-article-snippet__meta">
-                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2021-09-13T09:36:50.000Z" title="2021-09-13, 12:36">13 сен 2021 в 12:36</time></span></span></span>
+                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2018-10-25T14:49:59.000Z" title="2018-10-25, 17:49">25 окт 2018 в 17:49</time></span></span></span>
                    </div><!---->
                   </div>
-                  <h1 lang="ru" class="tm-title tm-title_h1"><span>Производители назвали сроки выпуска планшета на российском чипе «Скиф»</span></h1>
+                  <h1 lang="ru" class="tm-title tm-title_h1"><span>Бэкдоры в микрокоде ассемблерных инструкций процессоров x86</span></h1>
                   <div class="tm-article-snippet__stats">
                    <!---->
                    <div class="tm-article-reading-time">
-                    <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 2 мин </span>
-                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">6.2K</span></span>
+                    <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 6 мин </span>
+                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">68K</span></span>
                   </div>
                   <div class="tm-publication-hubs__container">
                    <div class="tm-publication-hubs">
-                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
+                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
                    </div>
                   </div><!----> <!----> <!---->
                  </div>
@@ -92,39 +92,63 @@
                   <div>
                    <div class="article-formatted-body article-formatted-body article-formatted-body_version-1">
                     <div xmlns="http://www.w3.org/1999/xhtml">
+                     <p>Софту мы не доверяем уже давно, и поэтому осуществляем его аудит, проводим обратную инженерию, прогоняем в пошаговом режиме, запускаем в песочнице. Что же насчёт процессора, на котором выполняется наш софт? – Мы слепо и беззаветно доверяем этому маленькому кусочку кремния. Однако современное железо имеет те же самые проблемы, что и софт: секретную недокументированную функциональность, ошибки, уязвимости, малварь, трояны, руткиты, бэкдоры.</p>
                      <br>
+                     <p></p>
                      <br>
-                      13 сентября 2021 года производители  сроки выпуска планшетов и мобильных устройств на российском чипе «». Разработчик НПЦ «Элвис» недавно получил первые тестовые образцы нового процессора из Тайваня и рассчитывает, что его доработка и массовое производство возможно уже в 2022 году, а мобильные устройства на его основе выйдут в 2023 году. Разработчик процессора оценивает его производительность на уровне чипов, установленных в iPhone 6 и iPad Air первого поколения.
+                     <p>ISA (Instruction Set Architecture) x86 – одна из самых долгих непрерывно изменяющихся «архитектур набора команд» в истории. Начиная с дизайна 8086, разработанного в 1976 году, ISA претерпевает постоянные изменения и обновления; сохраняя при этом обратную совместимость и поддержку исходной спецификации. За 40 лет своего взросления, архитектура ISA обросла и продолжает обрастать множеством новых режимов и наборов инструкций, каждый из которых добавляет к предшествующему дизайну, и без того перегруженному, новый слой. Из-за политики полной обратной совместимости, в современных процессорах x86 присутствуют даже те инструкции и режимы, которые на сегодняшний день уже преданы полному забвению. В результате мы имеем архитектуру процессора, которая представляет собой сложно переплетающийся лабиринт новых и антикварных технологий. Такая чрезвычайно сложная среда – порождает множество проблем с кибербезопасностью процессора. Поэтому процессоры x86 не могут претендовать на роль доверенного корня критической киберинфраструктуры.</p>
                      <br>
+                     <h2 id="vy-vsyo-eschyo-doveryaete-svoemu-processoru">Вы всё ещё доверяете своему процессору?</h2>
                      <br>
-                      НПЦ «Элвис» уже передал отладочные платы со «Скифом» российским производителям электроники для изучения и отработки на его базе своих решений. Их получили ICL, «БайтЭрг», «Информационная внедренческая компания», «Открытая мобильная платформа» («дочка» «Ростелекома», которая разрабатывает российскую операционную систему «»), разработчик систем и средств телекоммуникаций, защиты информации НИИ «Масштаб».
+                     <p>Безопасность программ и операционной системы – зиждется на безопасности железа, на котором они развёрнуты. Как правило разработчики софта не учитывают того факта, что железо, на котором разворачивается их софт – может быть недоверенным, вредоносным. Когда железо ведёт себя ошибочно (независимо оттого, преднамеренно или нет), программные механизмы безопасности – полностью обесцениваются. Уже много лет предлагаются различные модели защищённых процессоров: Intel SGX, AMD Pacifica и др. Тем не менее, завидная регулярность, с которой публикуется информация о критических сбоях (из недавних, например Meltdown и Spectre) и обнаруженных недокументированных «отладочных» функциях – наводит на мысль, что наше беззаветное доверие к процессорам беспочвенно.</p>
                      <br>
+                     <p>Современные процессоры x86 представляют собой очень громоздкое и запутанное переплетение новейших и антикварных технологий. У 8086 было 29 тыс. транзисторов, у Pentium – 3 млн., у Broadwell – 3,2 млрд, у Cannonlake – больше 10 млрд.</p>
                      <br>
-                      НПЦ «Элвис» занимался проектированием и созданием этого процессора в течение четырех лет. Компания не раскрыла объем своих инвестиции в создание «Скифа».
+                     <p></p>
                      <br>
+                     <p>При таком количестве транзисторов неудивительно, что современные процессоры x86 испещрены недокументированными инструкциями и аппаратными уязвимостями. Среди недокументированных, – обнаруженных почти случайно, – инструкций: ICEBP (0xF1), LOADALL (0x0F07), apicall (0x0FFFF0) [1], которые позволяют разблокировать процессор для несанкционированного доступа к защищённым областям памяти.</p>
                      <br>
-                      Производитель уточнил, что микропроцессор «Скиф» (кодовый номер 1892ВА018) представляет собой систему на кристалле с оптимизированной архитектурой для мультимедийных, навигационных и коммуникационных приложений: устройств связи, планшетов, умных камер, одноплатных компьютеров, робототехники, систем искусственного интеллекта.
+                     <p>Что же касается многочисленных аппаратных уязвимостей процессоров (см. два рисунка ниже), то они позволяют киберзлоумышленнику осуществлять эскалацию привилегий [3], извлекать криптографические ключи [4], создавать новые ассемблерные инструкции [2], менять функциональность уже существующих ассемблерных инструкций [2], устанавливать хуки на ассемблерные инструкции [2], брать под контроль «аппаратно ускоренную виртуализацию» [7], вмешиваться в «атомарные криптографические вычисления» [7] и, – сладкое напоследок, – входить в «режим бога»: подчинять себе легальный аппаратный бэкдор Intel ME (который позволяет получать удалённый доступ даже к выключенному компьютеру) [8]. И всё это – не оставляя каких-либо цифровых следов.</p>
                      <br>
+                     <p><br></p>
                      <br>
-                      «Скиф»  в себя:
+                     <h2 id="sovremennye-processory--eto-bolshe-soft-chem-zhelezo">Современные процессоры – это больше софт, чем железо</h2>
                      <br>
+                     <p>Строго говоря, современные процессоры даже нельзя назвать «железом» в полном смысле этого слова. Потому что наиболее критичная их функциональность (в том числе, ISA) – обеспечивается перепрошиваемым микрокодом. Изначально микрокод отвечал в основном за то, чтобы управлять декодированием и выполнением сложных ассемблерных инструкций: операции с плавающей точкой, MMX-примитивы, обработчики строк с префиксом REP и т.п. Однако с течением времени на микрокод возлагается всё больше и больше ответственности за обработку операций внутри процессора. Так например, современные расширения процессоров Intel, такие как AVX (Advanced Vector Extensions) и VT-d (аппаратная виртуализация) – реализованы на микрокоде.</p>
                      <br>
-                     <ul>
-                     </ul>
+                     <p>Кроме того, сегодня микрокод отвечает, в числе прочего, за сохранение состояния процессора, за управление кэшем и также за управление энергосбережением. Для энергосбережения, на микрокоде реализован механизм прерываний, обрабатывающий состояния электропитания: С-состояния (степень энергосберегающего сна: от активного состояния до глубокого сна) и P-состояния (разные комбинации вольтажа и частоты). Так например, за обнуление L2-кэша при входе в состояние C4, а также при выходе из него – отвечает именно микрокод.</p>
                      <br>
-                     <br><i>Структурная схема микросхемы 1892ВА018 «Скиф».</i>
+                     <h2 id="zachem-proizvoditeli-processorov-polzuyutsya-mikrokodom">Зачем производители процессоров пользуются микрокодом?</h2>
                      <br>
+                     <p>Производители процессоров x86 используют микрокод для разложения сложных ассемблерных инструкций (длина которых может достигать 15 байт) в цепочку простых микроинструкций, – в целях упрощения аппаратной архитектуры и облегчения диагностики. По сути, микрокод это интерпретатор между внешней (видимой для пользователя) CISC-архитектурой и внутренней (аппаратной) RISC-архитектурой.</p>
                      <br>
-                      НПЦ «Элвис» учтонил, что система на кристалле «Скиф» предназначена для построения мобильных и встраиваемых интеллектуальных систем для телекоммуникационных, навигационных, мультимедийных приложений, мультисенсорной обработки сигналов, робототехнических систем и других приложений.
+                     <p>При обнаружении ошибок в CISC-архитектуре (в ISA, прежде всего), производители публикуют обновление микрокода, которое можно закачать в процессор через BIOS/UEFI материнской платы или через операционную систему (во время процесса загрузки). Благодаря такой системе обновлений, основанной на микрокодах, производители процессоров обеспечивают себе гибкость и снижение затрат – при исправлении ошибок в своём оборудовании. Нашумевшая ошибка с fdiv, которая сильно подкосила процессоры Intel Pentium в 1994 году – сделала ещё более очевидным тот факт, что высокотехнологичное железо подвержено ошибкам точно также, как и софт. Данный инцидент породил у производителей ещё больше интереса к архитектуре процессоров на основе микрокода. Поэтому Intel и AMD стали строить свои процессоры с применением технологии микрокодов. Intel – начиная с Pentium Pro (P6), выпущенного в 1995 году. AMD – начиная с K7, выпущенного в 1999 году.</p>
                      <br>
+                     <h2 id="vsyo-taynoe-stanovitsya-yavnym">Всё тайное становится явным</h2>
                      <br>
-                      В марте этого года НПЦ «Элвис» , что создал микропроцессор, который скоро можно будет внедрять на российских мобильных устройствах. Разработчик заказал его производство на тайваньской фабрике TSMC. 
+                     <p>Несмотря на то, что производители процессоров стараются держать архитектуру микрокодов и механизм их обновления в строжайшем секрете, – враг не дремлет. Крупицы разрозненной информации (в основном из патентов, вроде AMD RISC86 [5]) и вдумчивый реверсинг официальных обновлений для BIOS (как это было с K8 [6]), – постепенно проливают свет на тайну микрокода (см. например, на рисунке ниже «механизм обновления микрокода процессоров AMD»). А благодаря постоянной эволюции инструментария для реверсинга (как программного, так и аппаратного) [2], перспективным методикам фаззинга [1] и появлению таких OpenSource-инструментов как Microparse [9] и Sandsifter [10] – киберзлоумышленник может узнать о микрокоде всё необходимое для того, чтобы писать на нём микрокодовую малварь.</p>
                      <br>
+                     <p></p>
                      <br>
-                      В настоящее время в России разработками своих процессоров занимаются "" (процессоры серии «Байкал» на архитектуре ARM) и АО "" (процессоры на архитектуре «Эльбрус»). Все современные процессоры серий «Байкал» и «Эльбрус» производятся на тайваньской фабрике TSMC. Российские производители  оборудования и технологии для производства таких систем. 
+                     <p>Так например, в [2] на правах «Hello world!» (первый шаг к троянизации микрокода) разработан «микрохук» (микрокодовая программа, перехватывающая ассемблерную инструкцию), который подсчитывает, сколько раз процессор обращался к команде div. Этот микрохук представляет собой инъекцию в обработчик ассемблерной инструкции div.</p>
                      <br>
+                     <p></p>
                      <br>
-                      В конце ноября прошлого года «Байкал электроникс»  три новых процессора — «Байкал-М/2», «Байкал-М/2+» и серверный процессор «Байкал-S», которые выйдут в 2021 году. «Байкал электроникс»  их первых рабочих образцов из Тайваня этим летом.
+                     <p>Там же [2] представлен более продвинутый микрохук, – который спокойно себе сидит в ассемблерной инструкции div ebx, ничем не выдавая своего присутствия, и активируется только когда при обращении к div ebx выполняются конкретные условия: в регистре ebx содержится значение B, а в регистре eax содержится значение A. Активируясь, этот микрохук увеличивает значение регистра eip (указатель текущей инструкции) на единицу. В результате выполнение программы (которая имела смелость обратиться к инструкции div ebx) продолжается со смещением: ни с первого байта следующей за div ebx команды, а с её второго байта. Если же в регистрах eax и ebx заданы другие значения, то div ebx работает в обычном режиме. Какая в этом практическая ценность? Например, чтобы незаметно активировать скрытую цепочку ассемблерных инструкций, при использовании обфускационной техники с «перекрываемыми инструкциями» [11].</p>
+                     <br>
+                     <p></p>
+                     <br>
+                     <p>Эти два примера демонстрируют, как законные ассемблерные инструкции можно использовать для сокрытия в них произвольного троянского кода.</p>
+                     <br>
+                     <p>При этом, киберзлоумышленник может активировать свою вредоносную полезную нагрузку – в том числе и удалённо. Например, когда необходимое для активации условие выполняется на веб-странице, контролируемой злоумышленником. Это возможно благодаря компиляторам Just-in-Time (JIT) и Ahead-of-Time (AOT), встроенным в современные веб-браузеры. Эти компиляторы позволяют испускать предопределённый поток ассемблерных инструкций машинного кода – даже если вы пишете программу исключительно на высокоуровневом JavaScript (см. последний листинг – чуть выше).</p>
+                     <br>
+                     <div class="spoiler">
+                      <b class="spoiler_title">Библиография</b>
+                      <div class="spoiler_text">
+                       <ol>
+                       </ol>
+                      </div>
+                     </div>
                     </div>
                    </div>
                   </div><!----> <!---->
@@ -143,27 +167,21 @@
                    <!---->
                   </ul>
                  </div>
-                </div>
-                <div class="article-donation-block">
-                 <div class="article-donation-block__message">
-                  Если эта публикация вас вдохновила и вы хотите поддержать автора — не&nbsp;стесняйтесь нажать на кнопку
-                 </div><button type="button" class="article-donation-block__button btn btn_solid btn_small tm-button tm-button_color-horizon"> Задонатить </button>
-                 <div class="v-portal" style="display:none;"></div>
-                </div>
+                </div><!---->
                </article>
               </div><!---->
              </div>
              <div class="tm-article-sticky-panel">
               <div class="tm-data-icons tm-article-sticky-panel__icons">
                <div class="tm-article-rating tm-data-icons__item">
-                <div title="Всего голосов 11: ↑11 и ↓0" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
+                <div title="Всего голосов 147: ↑142 и ↓5" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
                  <button title="Нравится" type="button" class="tm-votes-lever__button"></button>
                  <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-article">
-                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +11 </span></span>
+                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +137 </span></span>
                  </div><button title="Не нравится" type="button" class="tm-votes-lever__button"></button>
                 </div>
                 <div class="v-portal" style="display:none;"></div><!---->
-               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 3 </span></button>
+               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 248 </span></button>
                <div title="Поделиться" class="tm-sharing tm-data-icons__item">
                 <button type="button" class="tm-sharing__button"></button>
                 <div class="v-portal" style="display:none;"></div>
@@ -187,10 +205,10 @@
                    <div class="tm-user-card__header">
                     <div class="tm-user-card__header-data">
                      <div class="tm-user-card__meta">
-                      <div title=" 1456 голосов " class="tm-counter-container tm-karma tm-karma">
+                      <div title=" 124 голоса " class="tm-counter-container tm-karma tm-karma">
                        <div class="tm-counter-container__header">
                         <div class="tm-karma__votes tm-karma__votes_positive">
-                         762
+                         108
                         </div>
                        </div>
                        <div class="tm-counter-container__footer">
@@ -205,7 +223,7 @@
                         <div class="tm-votes-lever tm-votes-lever tm-votes-lever_appearance-rating">
                          <!---->
                          <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-rating">
-                          <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 416.4 </span></span>
+                          <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 0 </span></span>
                          </div><!---->
                         </div>
                        </div>
@@ -218,9 +236,9 @@
                    </div>
                    <div class="tm-user-card__info tm-user-card__info tm-user-card__info_variant-article">
                     <div class="tm-user-card__title tm-user-card__title tm-user-card__title_variant-article">
-                     <span class="tm-user-card__name tm-user-card__name tm-user-card__name_variant-article">Денис</span> <!---->
+                     <span class="tm-user-card__name tm-user-card__name tm-user-card__name_variant-article">Карев Владимир</span> <!---->
                     </div>
-                    <p class="tm-user-card__short-info tm-user-card__short-info tm-user-card__short-info_variant-article">Информационная служба Хабра</p>
+                    <p class="tm-user-card__short-info tm-user-card__short-info tm-user-card__short-info_variant-article">Пишу о вычислительной технике: новой и антикварной</p>
                    </div>
                   </div>
                   <div class="tm-user-card__buttons tm-user-card__buttons tm-user-card__buttons_variant-article">
@@ -244,294 +262,161 @@
               <section class="tm-block tm-block tm-block_spacing-bottom">
                <header class="tm-block__header tm-block__header tm-block__header_variant-borderless">
                 <div class="tm-block__header-container">
-                 <h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Другие новости</h2>
+                 <h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Публикации</h2>
                 </div><!---->
                </header>
                <div class="tm-block__body tm-block__body tm-block__body_variant-condensed-slim">
-                <div class="placeholder-wrapper">
-                 <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-                 <div class="tm-placeholder-article-cards">
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                <div class="tm-tabs tm-tabs">
+                 <div>
+                  <span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_active tm-tabs__tab-link_slim"> Лучшие за сутки </button></span><span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_slim"> Похожие </button></span>
+                 </div><!---->
+                </div>
+                <div class="similar-and-daily__tab-view">
+                 <div class="placeholder-wrapper">
+                  <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+                  <div class="tm-placeholder-article-cards">
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                   </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
                     </div>
                    </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                   </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
                     </div>
                    </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                   </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
                     </div>
                    </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                   </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
                     </div>
                    </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                   </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
                     </div>
                    </div>
-                  </div>
-                 </div><!----> <!----> <!----> <!----> <!---->
+                  </div><!----> <!----> <!----> <!----> <!---->
+                 </div><!---->
                 </div>
                </div><!---->
               </section>
@@ -566,9 +451,9 @@
                 </div><!----> <!----> <!----> <!----> <!----> <!---->
                </div>
               </div>
-              <div class="placeholder-wrapper">
-               <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-               <div class="tm-placeholder-inset tm-placeholder-courses">
+              <div hubs="infosecurity,assembler,hardware,cpu" class="placeholder-wrapper">
+               <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+               <div class="tm-placeholder-inset tm-placeholder-questions">
                 <div class="tm-placeholder-inset__header">
                  <div class="tm-placeholder__line tm-placeholder__line_inset-header loads"></div>
                 </div>
@@ -578,7 +463,7 @@
                 <div class="tm-placeholder-inset__footer">
                  <div class="tm-placeholder__line tm-placeholder__line_inset-footer loads"></div>
                 </div>
-               </div><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+               </div><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
               </div><!---->
              </div>
             </div>
@@ -653,7 +538,22 @@
                </div>
               </div><!---->
              </div><!---->
-            </section><!---->
+            </section>
+            <section data-async-called="true" class="tm-block tm-block tm-block_spacing-around">
+             <header class="tm-block__header tm-block__header">
+              <div class="tm-block__header-container">
+               <h2 class="tm-block__title tm-block__title">Работа</h2>
+              </div><!---->
+             </header>
+             <div class="tm-block__body tm-block__body">
+              <div class="tm-vacancies-block__item">
+               <div class="tm-vacancies-block__vacancies-count">
+                3736 вакансий
+               </div>
+              </div>
+             </div>
+             <footer class="tm-block__footer"></footer>
+            </section>
             <section data-async-called="true" class="tm-block block tm-block tm-block_spacing-around" data-v-cb9bff32>
              <header class="tm-block__header tm-block__header">
               <div class="tm-block__header-container">

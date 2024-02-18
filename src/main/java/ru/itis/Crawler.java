@@ -20,7 +20,7 @@ public class Crawler {
     public void crawl() {
         var links = getLinksFromFile();
 
-        var i = 0;
+        var i = 1;
         for (String link : links) {
             var fileName = String.format("index%s", i);
             writeToFile(rmTags(loadHTML(link)), fileName);
@@ -61,11 +61,16 @@ public class Crawler {
             if (is == null) return null;
             try (InputStreamReader isr = new InputStreamReader(is);
                  BufferedReader reader = new BufferedReader(isr)) {
-                return reader.lines().toList();
+                return reader.lines().map(this::clearRow).toList();
             }
         } catch (IOException e) {
             System.out.println("Error reading links file");
             return Collections.emptyList();
         }
+    }
+
+    private String clearRow(String row) {
+        int start = row.indexOf(")");
+        return row.substring(start + 1).trim();
     }
 }

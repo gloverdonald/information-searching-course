@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru" data-vue-meta="%7B%22lang%22:%7B%22ssr%22:%22ru%22%7D%7D">
  <head>
-  <title>МЦСТ выпустила дистрибутив «Эльбрус Линукс» версии 6.0 / Хабр</title>
+  <title>Создание и обновление списков рассылки в Zimbra Collaboration OSE на основе групп и пользователей Active Directory / Хабр</title>
  </head>
  <body>
   <div id="app" data-server-rendered="true" data-async-called="true">
@@ -69,21 +69,28 @@
                  <div class="tm-article-snippet tm-article-presenter__snippet tm-article-snippet">
                   <div class="tm-article-snippet__meta-container">
                    <div class="tm-article-snippet__meta">
-                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2020-10-04T12:51:04.000Z" title="2020-10-04, 15:51">4 окт 2020 в 15:51</time></span></span></span>
+                    <span class="tm-user-info tm-article-snippet__author"> <span class="tm-user-info__user tm-user-info__user_appearance-default"> <span class="tm-article-datetime-published"><time datetime="2019-03-10T14:41:36.000Z" title="2019-03-10, 17:41">10 мар 2019 в 17:41</time></span></span></span>
                    </div><!---->
                   </div>
-                  <h1 lang="ru" class="tm-title tm-title_h1"><span>МЦСТ выпустила дистрибутив «Эльбрус Линукс» версии 6.0</span></h1>
+                  <h1 lang="ru" class="tm-title tm-title_h1"><span>Создание и обновление списков рассылки в Zimbra Collaboration OSE на основе групп и пользователей Active Directory</span></h1>
                   <div class="tm-article-snippet__stats">
                    <!---->
                    <div class="tm-article-reading-time">
-                    <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 2 мин </span>
-                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">18K</span></span>
+                    <span class="tm-svg-icon__wrapper tm-article-reading-time__icon"></span> <span class="tm-article-reading-time__label"> 10 мин </span>
+                   </div><span class="tm-icon-counter tm-data-icons__item"> <span class="tm-icon-counter__value">10K</span></span>
                   </div>
                   <div class="tm-publication-hubs__container">
                    <div class="tm-publication-hubs">
-                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
+                    <span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span><span class="tm-publication-hub__link-container"></span>
                    </div>
-                  </div><!----> <!----> <!---->
+                  </div>
+                  <div class="tm-article-labels">
+                   <div class="tm-article-labels__container">
+                    <div class="tm-publication-label tm-publication-label_variant-tutorial">
+                     <span> Туториал </span>
+                    </div>
+                   </div>
+                  </div><!----> <!---->
                  </div>
                 </div><!---->
                 <div data-gallery-root="" lang="ru" class="tm-article-body">
@@ -92,41 +99,436 @@
                   <div>
                    <div class="article-formatted-body article-formatted-body article-formatted-body_version-1">
                     <div xmlns="http://www.w3.org/1999/xhtml">
-                     <div style="text-align:center;"></div>
-                     <br>
-                      В начале октября 2020 года разработчик архитектуры Эльбрус компания АО «МЦСТ» новую версию дистрибутива «Эльбрус Линукс» — операционной системы общего назначения семейства GNU/Linux для компьютеров на архитектуре Эльбрус, SPARC и x86. Шестая версия «Эльбрус Линукс» основана на модифицированном ядре Linux 5.4 и включает в себя технические решения Debian GNU/Linux и проекта LFS. 
                      <br>
                      <br>
-                      «Эльбрус Линукс» 6.0, благодаря использованию ядра Linux 5.4, обеспечивает поддержку современной аппаратуры, в том числе мощных видеокарт, что расширяет возможности использования техники «Эльбрус» в системах трехмерного моделирования и симуляторах виртуальной реальности, а также геоинформационных системах и ситуационных центрах. Это стало возможным еще и благодаря существенному обновлению всего графического стека ОС — в нем используются новые версии X.Org, Mesa и DRM.
+                     <h3>1. Пара слов от автора</h3>
+                     <br><b>Статья обновлена. Скрипты изменены. Добавлен скрипт для обновления одного списка рассылки.</b>
                      <br>
                      <br>
-                      В новой ОС поддерживаются системы с процессорами Эльбрус (Эльбрус-16С, Эльбрус-12С, Эльбрус-2С3, Эльбрус-8СВ, Эльбрус-8С, Эльбрус-1С+, Эльбрус-1СК и Эльбрус-4С), SPARC V9 (R2000, R2000+, R1000) и x86_64. 
+                      В комментариях к прошлой статье мне задали интересный вопрос об автоматическом формировании списков рассылки на основе групп безопасности AD. Есть задача – есть решение. Итак, поехали.
                      <br>
                      <br>
-                      «Эльбрус Линукс» 6.0 собрана с помощью новой версии оптимизирующего компилятора . Это ПО генерирует более эффективный машинный код за меньшее время. Компилятор поддерживает самый новый стандарт языка C++ 20 в экспериментальном режиме и обеспечивает более высокий уровень совместимости с популярным компилятором GCC. 
+                     <h3>2. Исходные данные</h3>
+                     <br><i>ОС сервера</i>: CentOS 7
                      <br>
                      <br>
-                      В «Эльбрус Линукс» 6.0 обновлены и добавлены средства разработки: интерпретаторы и трансляторы, отладчики и профилировщики, системы сборки, системы контроля версий, программные библиотеки, интегрированные среды разработки. Комплект исходных текстов с необходимыми корректурами, инструментами и сценариями сборки доступен в виде Набора разработчика платформы —  по запросу.
+                     <div class="spoiler">
+                      <b class="spoiler_title">По поводу ОС</b>
+                      <div class="spoiler_text">
+                       На самом деле разница между CentOS7 и любой другой системой будет заключаться исключительно в командах серверу на установку пакетов, и, возможно, расположении некоторых файлов. Работа ведется в основном с командлетами Zimbra, так что отличия настройки будут минимальны.
+                       <br>
+                      </div>
+                     </div>
+                     <br><i>Домен Zimbra</i>: zimbramail.home.local
+                     <br><i>Путь монтирования шары на хосте Zimbra</i>: /mnt/ZM/
                      <br>
                      <br>
-                      Всего в «Эльбрус Линукс» 6.0 насчитывается свыше 2100 пакетов, из них около 200 новых. В дистрибутиве обновлены несколько приложений по сравнению с версией 5.0. В его состав включены офисные программы, графические редакторы, средства мультимедиа и интернет-коммуникаций, средства защиты информации, инструменты администрирования и удаленного доступа, серверные компоненты (файлы, почта, мессенджеры и телефония, домены, веб-серверы и серверы приложений, системы управления базами данных, системы хранения данных и резервного копирования, средства создания кластеров высокой доступности). 
+                     <h3>3. Настройка</h3>
+                     <br>
+                     <ol>
+                     </ol>
                      <br>
                      <br>
-                      Разработчик заявляет, что новая версия дистрибутива находится в активной фазе развития и может быть дополнена или обновлена по запросу. Дистрибутив «Эльбрус Линукс» 6.0 для архитектуры SPARC МЦСТ планирует выпустить позже.
+                     <h4>3.1. По поводу OU</h4>
+                     <br>
+                      Я создал OU “ZimbraDL” в корне домена и запретил ему наследование групповых политик, чтобы эти группы оставались обособленными. Они не будут участвовать в жизни домена никак, помимо формирования Distribution Lists в Zimbra Collaboration OSE.
                      <br>
                      <br>
-                      Дистрибутив «Эльбрус Линукс» 6.0 (64-битный) для ПК с архитектурой процессора x86  для скачивания всем пользователям свободно и бесплатно.  «Эльбрус Линукс» 6.0.
+                     <h3>4. Скрипт на PowerShell для сбора данных из AD</h3>
+                     <br>
+                     <div class="spoiler">
+                      <b class="spoiler_title">Скрипт PowerShell</b>
+                      <div class="spoiler_text">
+                       <pre><code class="bash">$Path = "C:\ZM\ZimbraDL"
+$enc = [system.text.encoding]
+function ReCode ( $f, $t, $line ) 
+{
+    $cp1          = $enc::getencoding( $f )
+    $cp2          = $enc::getencoding( $t )
+    $inputbytes   = $enc::convert( $cp1, $cp2, $cp2.getbytes( $line ))
+    $outputstring = $cp2.getstring( $inputbytes )
+    $outputstring | add-content $OutputFile
+}
+
+#Очистка каталога
+if(test-path $Path)
+{ 
+    Remove-Item $Path -Recurse -Force 
+}
+
+#Создание рабочих директорий
+if(!(Test-Path $Path))
+{
+    New-Item -ItemType Directory -Force -Path $Path
+}
+if(!(Test-Path $Path\Groups))
+{
+   New-Item -ItemType Directory -Force -Path $Path\Groups
+}
+if(!(Test-Path $Path\Users))
+{
+   New-Item -ItemType Directory -Force -Path $Path\Users
+}
+if(!(Test-Path $Path\UsersTemp))
+{
+    New-Item -ItemType Directory -Force -Path $Path\UsersTemp
+}
+
+#Создание списка групп
+Import-Module ActiveDirectory
+Get-AdGroup -filter * -SearchBase "OU=ZimbraDL,DC=home,DC=local" | select samaccountname | Out-File $Path\Groups\GetGroupsAD.txt
+
+#Форматирование списка групп
+(Get-Content "$Path\Groups\GetGroupsAD.txt") -notmatch "samaccountname" | where {$_ -ne ""} | where {$_ -ne "--"} | Where-Object {$_ -notmatch '-'} | out-file "$Path\Groups\GetGroupsAD.txt"
+$File = @(Get-Content $Path\Groups\GetGroupsAD.txt)
+foreach ($File1 in $File) 
+{
+    $string=$File1.TrimStart('"')
+    $string=$string.TrimEnd('"')
+    $string=$string.TrimStart(' ')
+    $string=$string.TrimEnd(' ') | Out-File $Path\Groups\GroupsListTemp.txt -Append
+}
+
+#Удаление временного файла
+Remove-Item $Path\Groups\GetGroupsAD.txt -Force
+
+$InputFile = gc $Path\Groups\GroupsListTemp.txt
+$OutputFile = "$Path\Groups\GroupsList.txt"
+
+#Исправление кодировки
+foreach ($line in $InputFile) 
+{
+    ReCode -f "windows-1251" -t "utf-8" $line
+}
+
+#Удаление временного файла
+Remove-Item $Path\Groups\GroupsListTemp.txt -Force
+ 
+#Создание файлов со списком пользователей для каждой группы
+$GroupName = @(Get-Content $Path\Groups\GroupsList.txt)
+Foreach ($Group in $GroupName)
+{
+    Get-ADGroupMember $Group -recursive | ft SamAccountName | out-file "$Path\UsersTemp\$Group.txt" -Append
+    (get-content "$Path\UsersTemp\$Group.txt")  -notmatch "Name" | where {$_ -ne ""} | where {$_ -ne "--"} | Where-Object {$_ -notmatch '-'} | out-file "$Path\UsersTemp\$Group.txt"
+    $File=@(Get-Content $Path\UsersTemp\$Group.txt)
+    foreach ($File1 in $File) 
+    {
+        $string=$File1.TrimStart('"')
+        $string=$string.TrimEnd('"')
+        $string=$string.TrimStart(' ')
+        $string=$String.TrimEnd(' ') | Out-File "$Path\UsersTemp\$Group" -Append
+    }
+    $InputFile = gc $Path\UsersTemp\$Group
+    $OutputFile = "$Path\Users\$Group"
+
+    #Исправление кодировки
+    foreach ($line in $InputFile) 
+    {
+        ReCode -f "windows-1251" -t "utf-8" $line
+    }
+}
+
+#Очистка лишних временных директорий
+Remove-Item "$Path\UsersTemp\" -Recurse -Force
+Remove-Item "$Path\Groups" -Recurse -Force</code></pre>
+                       <br>
+                      </div>
+                     </div>
+                     <br>
+                     <h4>4.1. Как работает скрипт</h4>
+                     <br>
+                     <ol>
+                     </ol>
                      <br>
                      <br>
-                      Тестирование «Эльбрус Линукс» 6.0 на компьютерах архитектуры Эльбрус возможно провести  по запросу. Также рабочие станции и северное демонстрационное оборудование Эльбрус можно  в аренду. 
+                     <h4>4.2. Скрипт для считывания информации с отдельно взятой группы</h4>
                      <br>
-                     <blockquote>
-                      См. также:
-                      <br>
-                      <br>
-                      <ul>
-                      </ul>
-                     </blockquote>
+                      Скрипт с возможностью считать данные только одной группы безопасности мало чем отличается от предыдущего, в основм тем, что в нем есть блок с предложением пользователю ввести имя группы, на основе которой нужно будет обновить список рассылки.
+                     <br>
+                     <br>
+                     <div class="spoiler">
+                      <b class="spoiler_title">Скрипт PowerShell для запуска руками с возможностью считать данные только одной группы</b>
+                      <div class="spoiler_text">
+                       <pre><code class="bash">$Path = "C:\ZM\ZimbraDL"
+$enc = [system.text.encoding]
+function ReCode ( $f, $t, $line ) 
+{
+    $cp1          = $enc::getencoding( $f )
+    $cp2          = $enc::getencoding( $t )
+    $inputbytes   = $enc::convert( $cp1, $cp2, $cp2.getbytes( $line ))
+    $outputstring = $cp2.getstring( $inputbytes )
+    $outputstring | add-content $OutputFile
+}
+
+#Очистка каталога
+if(test-path $Path)
+{ 
+    Remove-Item $Path -Recurse -Force 
+}
+
+#Создание рабочих директорий
+if(!(test-path $Path))
+{
+    New-Item -ItemType Directory -Force -Path $Path
+}
+if(!(Test-Path $Path\Groups))
+{
+   New-Item -ItemType Directory -Force -Path $Path\Groups
+}
+if(!(Test-Path $Path\Users))
+{
+   New-Item -ItemType Directory -Force -Path $Path\Users
+}
+if(!(Test-Path $Path\UsersTemp))
+{
+    New-Item -ItemType Directory -Force -Path $Path\UsersTemp
+}
+
+#Создание списка групп
+Import-Module ActiveDirectory
+$Groupname = Read-Host 'Введите имя группы, которую нужно обновить, или ALL для обновления всех списков рассылки'
+If ($Groupname -eq "ALL")
+{
+    Get-AdGroup -filter * -SearchBase "OU=ZimbraDL,DC=home,DC=local" | select samaccountname | Out-File $path\Groups\GetGroupsAD.txt
+}
+Else
+{
+    $Groupname &gt; "$Path\Groups\GetGroupsAD.txt"
+}    
+
+#Форматирование списка групп
+(Get-Content "$Path\Groups\GetGroupsAD.txt") -notmatch "samaccountname" | where {$_ -ne ""} | where {$_ -ne "--"} | Where-Object {$_ -notmatch '-'} | out-file "$Path\Groups\GetGroupsAD.txt"
+$File = @(Get-Content $Path\Groups\GetGroupsAD.txt)
+foreach ($File1 in $File) 
+{
+    $string=$File1.TrimStart('"')
+    $string=$string.TrimEnd('"')
+    $string=$string.TrimStart(' ')
+    $string=$string.TrimEnd(' ') | Out-File $Path\Groups\GroupsListTemp.txt -Append
+}
+Remove-Item $Path\Groups\GetGroupsAD.txt -Force
+$InputFile = gc $Path\Groups\GroupsListTemp.txt
+$OutputFile = "$Path\Groups\GroupsList.txt"
+foreach ($line in $InputFile) 
+{
+    ReCode -f "windows-1251" -t "utf-8" $line
+}
+Remove-Item $Path\Groups\GroupsListTemp.txt -Force
+ 
+#Создание файлов со списком пользователей для каждой группы
+$GroupName = @(Get-Content $Path\Groups\GroupsList.txt)
+Foreach ($Group in $GroupName)
+{
+    Get-ADGroupMember $Group -recursive | ft SamAccountName | out-file "$Path\UsersTemp\$Group.txt" -Append
+    (get-content "$Path\UsersTemp\$Group.txt")  -notmatch "Name" | where {$_ -ne ""} | where {$_ -ne "--"} | Where-Object {$_ -notmatch '-'} | out-file "$Path\UsersTemp\$Group.txt"
+    $File=@(Get-Content $Path\UsersTemp\$Group.txt)
+    foreach ($File1 in $File) 
+    {
+        $string=$File1.TrimStart('"')
+        $string=$string.TrimEnd('"')
+        $string=$string.TrimStart(' ')
+        $string=$String.TrimEnd(' ') | Out-File "$Path\UsersTemp\$Group" -Append
+    }
+    $InputFile = gc $Path\UsersTemp\$Group
+    $OutputFile = "$Path\Users\$Group"
+    foreach ($line in $InputFile) 
+    {
+        ReCode -f "windows-1251" -t "utf-8" $line
+    }
+}
+Remove-Item "$Path\UsersTemp\" -Recurse -Force
+Remove-Item "$Path\Groups" -Recurse -Force</code></pre>
+                       <br>
+                      </div>
+                     </div>
+                     <br>
+                     <br>
+                     <h3>5. Скрипт на Bash для создания списков рассылки</h3>
+                     <br>
+                     <div class="spoiler">
+                      <b class="spoiler_title">Оговорюсь по поводу копирования файлов-скриптов, созданных под Windows</b>
+                      <div class="spoiler_text">
+                       В прошлой статье был описан метод форматирования файлов с помощью команды cat, которая, будучи запущенная с определенным ключом, убирает все лишние нечитаемые символы. Ссылка на статью в конце статьи.
+                       <br>
+                      </div>
+                     </div>
+                     <br>
+                     <div class="spoiler">
+                      <b class="spoiler_title">Скрипт Bash</b>
+                      <div class="spoiler_text">
+                       <pre><code class="bash">#!/bin/bash
+#Определение переменных
+#Путь к рабочему каталогу
+Path="/mnt/ZM/ZimbraDL"
+#имя домена Zimbra
+Domain="zimbramail.home.local"
+#путь к командлету zmprov
+zmprov="/opt/zimbra/bin/zmprov"
+#путь к лог-файлу
+log="/mnt/ZM/DLlog.txt"
+#путь ко временному файлу со списком групп
+DLnames="/mnt/ZM/DLnames"
+#путь ко временному файлу со списком пользователей
+UserNames="/mnt/ZM/Usernames"
+#конец блока переменных
+
+echo "Запись списка групп..."
+ls $Path/Users &gt; $DLnames
+if [ $? -eq 0 ]; then
+	echo -n "$(tput hpa $(tput cols))$(tput cub 6) [OK]"
+	echo
+	echo -en "ls directory for Groups correct $(date +%T)\n" &gt;&gt; $log
+else
+	echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
+	echo
+	echo -en "ls directory for Groups INcorrect $(date +%T)\n" &gt;&gt; $log
+fi
+#Удаление списков рассылки
+echo "Удаление обновляемых списков рассылки"
+for DLname in $( cat $DLnames); do
+	#Проверка существования списка рассылки
+	echo "Проверка существования списка рассылки $DLname..."
+	Result=$($zmprov gdl $DLname@$Domain)
+	if [ $? -eq 0 ]; then
+		echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
+		echo
+		echo -en "DL $DLname exist $(date +%T)\n" &gt;&gt; $log
+		#Удаление списка рассылки
+		echo -en "Start deleting DL for group $DLname $(date +%T)\n" &gt;&gt; $log
+		echo "Удаление списка рассылки $DLname..."
+		$zmprov ddl $DLname@$Domain
+		if [ $? -eq 0 ]; then
+			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [OK]"
+			echo
+			echo -en "DL for group $DLname is deleted in $(date +%T)\n" &gt;&gt; $log
+		else
+			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
+			echo
+			echo -en "DL for group $DLname is NOT deleted in $(date +%T)\n" &gt;&gt; $log
+		fi
+	else
+		echo -n "$(tput hpa $(tput cols))$(tput cub 6)[FAIL]"
+		echo
+		echo -en "DL $DLname not exist! $(date +%T)\n" &gt;&gt; $log
+	fi	
+done
+for DLname in $( cat $DLnames); do
+	#Создание списка рассылки
+	echo -en "Start create DL for group $DLname $(date +%T)\n" &gt;&gt; $log
+	echo "Создание списка рассылки для группы AD $DLname..."
+	$zmprov cdl $DLname@$Domain
+	if [ $? -eq 0 ]; then
+		echo -n "$(tput hpa $(tput cols))$(tput cub 6) [OK]"
+		echo
+		echo -en "DL for group $DLname is created in $(date +%T)\n" &gt;&gt; $log
+	else
+		echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
+		echo
+		echo -en "DL for group $DLname is NOT created in $(date +%T)\n" &gt;&gt; $log
+	fi
+	#Наполнение списка рассылки
+	echo "Наполнение списка рассылки"
+	for UserName in $( cat $Path/Users/$DLname); do
+		echo "Проверка существования ящика для пользователя $UserName..."
+		Result=$($zmprov gmi $UserName@$Domain)
+		if [ $? -eq 0 ]; then
+			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [OK]"
+			echo
+			echo -en "MilBox for user $UserName exist $(date +%T)\n" &gt;&gt; $log
+			echo "Добавление пользователя $UserName в список рассылки $DLname@$Domain..."
+			$zmprov adlm $DLname@$Domain $UserName@$Domain
+			if [ $? -eq 0 ]; then
+				echo -n "$(tput hpa $(tput cols))$(tput cub 6) [OK]"
+				echo
+				echo -en "User $UserName added in $DLname@$Domain correctly in $(date +%T)\n" &gt;&gt; $log
+			else
+				echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
+				echo
+				echo -en "DL for group $DLname is NOT created in $(date +%T)\n" &gt;&gt; $log
+			fi
+		else
+			echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
+			echo
+			echo -en "MilBox for user $UserName is NOT exist $(date +%T)\n" &gt;&gt; $log
+		fi
+	done
+done
+#Очистка временных файлов
+echo "Очистка временных файлов"
+echo "Очистка файла со списком групп..."
+echo -n &gt; $DLnames
+if [ $? -eq 0 ]; then
+	echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
+	echo
+	echo -en "File $DLnames was successfull cleared in $(date +%T)\n" &gt;&gt; $log
+else
+	echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
+	echo
+	echo -en "File $DLnames was NOT cleared in $(date +%T)\n" &gt;&gt; $log
+fi
+#Удаление директорий, содержащих структуру групп и пользователей
+echo "Удаление рабочего каталога $Path для очистки свободного пространства..."
+rm -rf $Path
+if [ $? -eq 0 ]; then
+	echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
+	echo
+	echo -en "Directory $Path was seccessfull deleted in $(date +%T)\n" &gt;&gt; $log
+else
+	echo -n "$(tput hpa $(tput cols))$(tput cub 6) [FAIL]"
+	echo
+	echo -en "Directory $Path was NOT deleted in $(date +%T)\n" &gt;&gt; $log
+fi
+#запись в лог-файл времени окончания обновления списков рассылки
+echo -en "Job complete in $(date +%T)\n" &gt;&gt; $log
+echo -en "____________________________________\n" &gt;&gt; $log
+</code></pre>
+                       <br>
+                      </div>
+                     </div>
+                     <br>
+                     <h3>5.1. Как работает скрипт</h3>
+                     <br>
+                     <ol>
+                     </ol>
+                     <br>
+                     <h3>6. Заключение</h3>
+                     <br>
+                      В целом, задача не сложная, проблема была лишь в передаче данных из PowerShell в Bash. Я довольно долго пытался найти инструмент для рекодирования текстовых файлов с выводом PoSh в удобоваримый для Bash вид. Результатом многодневных поисков стала функция:
+                     <br>
+                     <br>
+                     <div class="spoiler">
+                      <b class="spoiler_title">Функция рекодирования</b>
+                      <div class="spoiler_text">
+                       <pre><code class="bash">$InputFile = gc File1.txt
+$OutputFile = "File2.txt"
+$enc = [system.text.encoding]
+function ReCode ( $f, $t, $line ) 
+{
+    $cp1          = $enc::getencoding( $f )
+    $cp2          = $enc::getencoding( $t )
+    $inputbytes   = $enc::convert( $cp1, $cp2, $cp2.getbytes( $line ))
+    $outputstring = $cp2.getstring( $inputbytes )
+    $outputstring | add-content $OutputFile
+}
+foreach ($line in $InputFile) 
+{
+    ReCode -f "windows-1251" -t "utf-8" $line
+}</code></pre>
+                       <br>
+                      </div>
+                     </div>
+                     <br>
+                      Может, кому-то будет полезно.
+                     <br>
+                     <br>
+                     <h3>7. P.S.:</h3>
+                     <br>
+                      Это третья статья из серии «как я «Zimbra» внедрял». Первая, про внедрение, LDAP-авторизацию и автоматическое создание ящиков для пользователей AD, . Вторая, про настройку резервного копирования и восстановления Zimbra целиком и отдельными ящиками – .
+                     <br>
+                     <br>
+                     <h3>8. P.S.S.:</h3>
+                     <br>
+                      Есть более простой способ, описанный  товарищем
                     </div>
                    </div>
                   </div><!----> <!---->
@@ -158,14 +560,14 @@
              <div class="tm-article-sticky-panel">
               <div class="tm-data-icons tm-article-sticky-panel__icons">
                <div class="tm-article-rating tm-data-icons__item">
-                <div title="Всего голосов 23: ↑22 и ↓1" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
+                <div title="Всего голосов 11: ↑11 и ↓0" class="tm-votes-lever tm-article-rating__votes-switcher tm-votes-lever tm-votes-lever_appearance-article">
                  <button title="Нравится" type="button" class="tm-votes-lever__button"></button>
                  <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-article">
-                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +21 </span></span>
+                  <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_positive"> +11 </span></span>
                  </div><button title="Не нравится" type="button" class="tm-votes-lever__button"></button>
                 </div>
                 <div class="v-portal" style="display:none;"></div><!---->
-               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 14 </span></button>
+               </div><!----> <!----> <button title="Добавить в закладки" type="button" class="bookmarks-button tm-data-icons__item"><span class="tm-svg-icon__wrapper bookmarks-button__icon"></span> <span title="Количество пользователей, добавивших публикацию в закладки" class="bookmarks-button__counter"> 31 </span></button>
                <div title="Поделиться" class="tm-sharing tm-data-icons__item">
                 <button type="button" class="tm-sharing__button"></button>
                 <div class="v-portal" style="display:none;"></div>
@@ -189,10 +591,10 @@
                    <div class="tm-user-card__header">
                     <div class="tm-user-card__header-data">
                      <div class="tm-user-card__meta">
-                      <div title=" 1456 голосов " class="tm-counter-container tm-karma tm-karma">
+                      <div title=" 102 голоса " class="tm-counter-container tm-karma tm-karma">
                        <div class="tm-counter-container__header">
                         <div class="tm-karma__votes tm-karma__votes_positive">
-                         762
+                         78
                         </div>
                        </div>
                        <div class="tm-counter-container__footer">
@@ -207,7 +609,7 @@
                         <div class="tm-votes-lever tm-votes-lever tm-votes-lever_appearance-rating">
                          <!---->
                          <div class="tm-votes-lever__score tm-votes-lever__score tm-votes-lever__score_appearance-rating">
-                          <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 416.4 </span></span>
+                          <span><span class="tm-votes-lever__score-counter tm-votes-lever__score-counter tm-votes-lever__score-counter_rating"> 0 </span></span>
                          </div><!---->
                         </div>
                        </div>
@@ -220,15 +622,16 @@
                    </div>
                    <div class="tm-user-card__info tm-user-card__info tm-user-card__info_variant-article">
                     <div class="tm-user-card__title tm-user-card__title tm-user-card__title_variant-article">
-                     <span class="tm-user-card__name tm-user-card__name tm-user-card__name_variant-article">Денис</span> <!---->
+                     <span class="tm-user-card__name tm-user-card__name tm-user-card__name_variant-article">Сысоев Андрей</span> <!---->
                     </div>
-                    <p class="tm-user-card__short-info tm-user-card__short-info tm-user-card__short-info_variant-article">Информационная служба Хабра</p>
+                    <p class="tm-user-card__short-info tm-user-card__short-info tm-user-card__short-info_variant-article">Системный администратор, системный архитектор</p>
                    </div>
                   </div>
                   <div class="tm-user-card__buttons tm-user-card__buttons tm-user-card__buttons_variant-article">
                    <!----> <!----> <!----> <!---->
                   </div>
-                 </div><!---->
+                 </div>
+                 <div class="tm-article-author__user-contacts"></div>
                 </div>
                </div><!---->
               </section>
@@ -246,294 +649,161 @@
               <section class="tm-block tm-block tm-block_spacing-bottom">
                <header class="tm-block__header tm-block__header tm-block__header_variant-borderless">
                 <div class="tm-block__header-container">
-                 <h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Другие новости</h2>
+                 <h2 class="tm-block__title tm-block__title tm-block__title_variant-large">Публикации</h2>
                 </div><!---->
                </header>
                <div class="tm-block__body tm-block__body tm-block__body_variant-condensed-slim">
-                <div class="placeholder-wrapper">
-                 <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-                 <div class="tm-placeholder-article-cards">
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                <div class="tm-tabs tm-tabs">
+                 <div>
+                  <span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_active tm-tabs__tab-link_slim"> Лучшие за сутки </button></span><span class="tm-tabs__tab-item"><button class="tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_slim"> Похожие </button></span>
+                 </div><!---->
+                </div>
+                <div class="similar-and-daily__tab-view">
+                 <div class="placeholder-wrapper">
+                  <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+                  <div class="tm-placeholder-article-cards">
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                   </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
                     </div>
                    </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                   </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
                     </div>
                    </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                   </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
                     </div>
                    </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                   </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
                     </div>
                    </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                   <div class="tm-placeholder-article-card">
+                    <div class="tm-placeholder__user">
+                     <div class="tm-placeholder__user-pic loads"></div>
+                     <div class="tm-placeholder__user-date loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__title">
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
+                     <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
                     </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                   </div>
-                  </div>
-                  <div class="tm-placeholder-article-card">
-                   <div class="tm-placeholder__user">
-                    <div class="tm-placeholder__user-pic loads"></div>
-                    <div class="tm-placeholder__user-date loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__title">
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                    <div class="tm-placeholder__line tm-placeholder-article-card__title-line loads"></div>
-                   </div>
-                   <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
-                    </div>
-                    <div class="tm-placeholder-data-icon">
-                     <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
-                     <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                    <div class="tm-placeholder-article-card__icons tm-placeholder__counters">
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
+                     <div class="tm-placeholder-data-icon">
+                      <div class="tm-placeholder__icon tm-placeholder__icon_large loads"></div>
+                      <div class="tm-placeholder__line tm-placeholder__line_icon-text"></div>
+                     </div>
                     </div>
                    </div>
-                  </div>
-                 </div><!----> <!----> <!----> <!----> <!---->
+                  </div><!----> <!----> <!----> <!----> <!---->
+                 </div><!---->
                 </div>
                </div><!---->
               </section>
@@ -569,8 +839,8 @@
                </div>
               </div>
               <div class="placeholder-wrapper">
-               <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-               <div class="tm-placeholder-inset tm-placeholder-vacancies">
+               <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+               <div class="tm-placeholder-inset tm-placeholder-courses">
                 <div class="tm-placeholder-inset__header">
                  <div class="tm-placeholder__line tm-placeholder__line_inset-header loads"></div>
                 </div>
@@ -580,7 +850,7 @@
                 <div class="tm-placeholder-inset__footer">
                  <div class="tm-placeholder__line tm-placeholder__line_inset-footer loads"></div>
                 </div>
-               </div><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+               </div><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
               </div><!---->
              </div>
             </div>
@@ -655,7 +925,27 @@
                </div>
               </div><!---->
              </div><!---->
-            </section><!---->
+            </section>
+            <section data-async-called="true" class="tm-block tm-block tm-block_spacing-around">
+             <header class="tm-block__header tm-block__header">
+              <div class="tm-block__header-container">
+               <h2 class="tm-block__title tm-block__title">Работа</h2>
+              </div><!---->
+             </header>
+             <div class="tm-block__body tm-block__body">
+              <div class="tm-vacancies-block__item">
+               <div class="tm-vacancies-block__vacancies-count">
+                38 вакансий
+               </div>
+              </div>
+              <div class="tm-vacancies-block__item">
+               <div class="tm-vacancies-block__vacancies-count">
+                110 вакансий
+               </div>
+              </div>
+             </div>
+             <footer class="tm-block__footer"></footer>
+            </section>
             <section data-async-called="true" class="tm-block block tm-block tm-block_spacing-around" data-v-cb9bff32>
              <header class="tm-block__header tm-block__header">
               <div class="tm-block__header-container">

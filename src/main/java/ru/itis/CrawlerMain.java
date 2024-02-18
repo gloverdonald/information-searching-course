@@ -2,7 +2,7 @@ package ru.itis;
 
 public class CrawlerMain {
     public static void main(String[] args) {
-        var crawler = new Crawler("links.txt");
+        var crawler = new Crawler("index.txt");
         crawler.crawl();
     }
 }
