@@ -1,7 +1,8 @@
-package ru.itis;
+package ru.itis.task1.crawler;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import ru.itis.Util;
 
 import java.io.*;
 import java.util.*;
@@ -23,7 +24,8 @@ public class Crawler {
         var i = 1;
         for (String link : links) {
             var fileName = String.format("index%s", i);
-            writeToFile(rmTags(loadHTML(link)), fileName);
+            String path = String.format("src/main/resources/pages/%s.html", fileName);
+            Util.writeToFile(rmTags(loadHTML(link)), path);
             i++;
         }
 
@@ -43,16 +45,6 @@ public class Crawler {
         return doc.html();
     }
 
-
-    // запись html в файл
-    private void writeToFile(String html, String fileName) {
-        String path = String.format("src/main/resources/pages/%s.html", fileName);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
-            writer.write(html);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     // загрузка ссылок из файла
     private List<String> getLinksFromFile() {

@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.task1.linksloader;
 
 import org.htmlparser.Parser;
 import org.htmlparser.filters.NodeClassFilter;

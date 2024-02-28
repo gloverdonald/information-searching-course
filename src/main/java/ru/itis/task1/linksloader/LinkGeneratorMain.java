@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.task1.linksloader;
 
 public class LinkGeneratorMain {
     public static void main(String[] args){

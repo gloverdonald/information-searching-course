@@ -12,6 +12,7 @@ repositories {
 dependencies {
     implementation 'org.htmlparser:htmlparser:2.1'
     implementation 'org.jsoup:jsoup:1.17.2'
+    implementation 'net.sourceforge.htmlcleaner:htmlcleaner:2.6.1'
 
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
@@ -23,12 +24,12 @@ test {
 
 tasks.register('crawle', JavaExec) {
     dependsOn 'classes'
-    mainClass = 'ru.itis.CrawlerMain'
+    mainClass = 'ru.itis.task1.crawler.CrawlerMain'
     classpath = sourceSets.main.runtimeClasspath
 }
 
 tasks.register('linkGenerate', JavaExec) {
     dependsOn 'classes'
-    mainClass = 'ru.itis.LinkGeneratorMain'
+    mainClass = 'ru.itis.task1.linksloader.LinkGeneratorMain'
     classpath = sourceSets.main.runtimeClasspath
 }

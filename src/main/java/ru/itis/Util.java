@@ -1,11 +1,42 @@
 package ru.itis;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Util {
+    public static String loadTextFromFile(String filePath) {
+        try {
+            Path path = Paths.get(filePath);
+            return String.join("\n", Files.readAllLines(path));
+        } catch (IOException e) {
+            System.out.println("Error reading links file");
+            return "";
+        }
+    }
+
+    // запись html в файл
+    public static void writeToFile(String content, String path) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+            writer.write(content);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static List<String> listFilesUsingJavaIO(String dir) {
+        return Stream.of(Objects.requireNonNull(new File(dir).listFiles()))
+                .filter(file -> !file.isDirectory())
+                .map(File::getName)
+                .toList();
+    }
+
     public static String loadHTML(String stringUrl) throws RuntimeException {
         try {
             URL url = new URL(stringUrl);
