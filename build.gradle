@@ -35,3 +35,9 @@ tasks.register('linkGenerate', JavaExec) {
     mainClass = 'ru.itis.task1.linksloader.LinkGeneratorMain'
     classpath = sourceSets.main.runtimeClasspath
 }
+
+tasks.register('tokensAndLemmas', JavaExec) {
+    dependsOn 'classes'
+    mainClass = 'ru.itis.task2.HTMLPagesCleanerMain'
+    classpath = sourceSets.main.runtimeClasspath
+}
