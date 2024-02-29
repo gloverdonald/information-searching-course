@@ -1,10 +1,11 @@
 package ru.itis.task2;
 
-import com.github.demidko.aot.MorphologyTag;
 import org.jsoup.Jsoup;
 import ru.itis.Util;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,23 +35,23 @@ public class HTMLPagesCleaner {
                 tokenizedRes.append(st.nextToken()).append("\n");
             }
 
-            String regex = "[А-ЯЁ]*[а-яё]+";
+            String regex = "[А-ЯЁ]*[а-яё]{2,}";
             String text = tokenizedRes.toString();
             Pattern pattern = Pattern.compile(regex, Pattern.UNICODE_CASE);
             Matcher matcher = pattern.matcher(text);
             while (matcher.find()) {
                 String word = text.substring(matcher.start(), matcher.end()).toLowerCase();
                 var meanings = lookupForMeanings(word);
-                System.out.println(lookupForMeanings("не").get(0).getMorphology());
                 try {
-                    String meaning = meanings.get(0).getMorphology().get(0).toString();
-                    if (!(meaning.equals("СОЮЗ")) & !(meaning.equals("ПРЕДЛ")) &
-                            !(meaning.equals("МЕЖД")) & !(meaning.equals("ЧАСТ"))) {
-                        tokens.add(word);
+                    if (meanings.get(0).getTransformations().size() > 1) {
+                        String meaning = meanings.get(0).getPartOfSpeech().toString();
+                        if (!(meaning.equals("Предлог")) & !(meaning.equals("Союз")) &
+                                !(meaning.equals("Некая часть речи")) & !(meaning.equals("Частица")) & !(meaning.equals("Междометие"))) {
+                            tokens.add(word);
+                        }
                     }
                 } catch (IndexOutOfBoundsException ignored) {
                 }
-
             }
         }
         Util.writeToFile(String.join("\n", tokens), pathToResultFilesDirectory.concat("/")
