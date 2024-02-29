@@ -19,3 +19,8 @@ gradle linkGenerate
 ```
 gradle crawle
 ```
+
+#### Чтобы запустить второе задание нужно выполнить команду:
+```
+gradle tokensAndLemmas
+```
