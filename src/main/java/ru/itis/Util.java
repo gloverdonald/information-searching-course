@@ -6,18 +6,22 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
 public class Util {
     public static String loadTextFromFile(String filePath) {
+        return String.join("\n", loadTextLinesFromFile(filePath));
+    }
+    public static List<String> loadTextLinesFromFile(String filePath) {
         try {
             Path path = Paths.get(filePath);
-            return String.join("\n", Files.readAllLines(path));
+            return Files.readAllLines(path);
         } catch (IOException e) {
             System.out.println("Error reading links file");
-            return "";
+            return Collections.emptyList();
         }
     }
 

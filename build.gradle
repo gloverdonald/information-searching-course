@@ -15,6 +15,9 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.17.2'
     implementation 'net.sourceforge.htmlcleaner:htmlcleaner:2.6.1'
     implementation 'com.github.demidko:aot:2022.11.28'
+    implementation 'edu.stanford.nlp:stanford-corenlp:4.5.6'
+    implementation 'org.apache.opennlp:opennlp-tools:2.3.2'
+
 
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
