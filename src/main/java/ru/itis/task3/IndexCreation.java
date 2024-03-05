@@ -54,7 +54,6 @@ public class IndexCreation {
             String htmlFile = "src/main/resources/pages/index" + i + ".html";
             String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFile)), StandardCharsets.UTF_8);
             Set<String> text = generateCleanText(htmlContent);
-            System.out.println(text);
             for (String term : termsList) {
                 var lemma = term.split(": ")[0];
                 var words = Arrays.stream(term.split(": ")[1].split(" ")).toList();
