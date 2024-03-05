@@ -3,7 +3,6 @@ package ru.itis.task3;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import ru.itis.Util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,6 +12,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+
+import static ru.itis.Util.generateCleanText;
 
 public class IndexCreation {
     private final String lemmasFile;
@@ -52,34 +53,18 @@ public class IndexCreation {
         for (int i = 1; i <= 150; i++) {
             String htmlFile = "src/main/resources/pages/index" + i + ".html";
             String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFile)), StandardCharsets.UTF_8);
-            List<String> text = extractTextFromHtml(htmlContent);
-
-            for (String word : text) {
-                for (String term : termsList) {
-                    String lemma = term.split(" ")[0];
-                    String number = Integer.toString(i);
-                    if (term.contains(word)) {
-                        invertedIndex.computeIfAbsent(lemma, k -> new HashSet<>()).add(number);
+            Set<String> text = generateCleanText(htmlContent);
+            System.out.println(text);
+            for (String term : termsList) {
+                var lemma = term.split(": ")[0];
+                var words = Arrays.stream(term.split(": ")[1].split(" ")).toList();
+                for (int j = 0; j < words.size(); j++) {
+                    if (text.contains(words.get(j))) {
+                        invertedIndex.computeIfAbsent(lemma, k -> new HashSet<>()).add(String.valueOf(i));
                     }
                 }
             }
         }
-
         return invertedIndex;
-    }
-
-    public static List<String> extractTextFromHtml(String htmlContent) {
-        Document doc = Jsoup.parse(htmlContent);
-        Elements body = doc.select("body");
-
-        body.select("script, style, a, span, button, label, footer, article").remove();
-
-        String text = body.text().replaceAll("\\s+", " ");
-
-        List<String> tokensPage = new ArrayList<>(Arrays.asList(text.split(" ")));
-        tokensPage.replaceAll(String::toLowerCase);
-        tokensPage.removeIf(word -> !word.matches("[а-яА-ЯёЁ]+"));
-
-        return tokensPage;
     }
 }
