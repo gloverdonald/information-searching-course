@@ -6,8 +6,8 @@ import java.util.Set;
 public class BooleanSearchMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        BooleanSearch bs = new BooleanSearch();
         while (true) {
+            BooleanSearch bs = new BooleanSearch();
             String query;
             System.out.print("Запрос: ");
             query = sc.nextLine();

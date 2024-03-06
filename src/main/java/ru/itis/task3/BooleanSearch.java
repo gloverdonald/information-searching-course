@@ -64,10 +64,10 @@ public class BooleanSearch {
         Set<String> set = new HashSet<>();
         boolean shouldUnion = false;
         boolean shouldIntersect = false;
+        boolean shouldIndex = false;
 
         while (!tokens.isEmpty()) {
             String token = tokens.remove();
-            System.out.println(token);
             switch (token) {
                 case AND: {
                     shouldUnion = false;
@@ -77,10 +77,23 @@ public class BooleanSearch {
                 case OR: {
                     shouldUnion = true;
                     shouldIntersect = false;
+                    if(tokens.peek().equals(NOT)){
+                        shouldIndex = true;
+                    }
                     break;
                 }
                 case NOT: {
                     Set<String> set2 = parse(tokens);
+                    if(shouldIndex){
+                        Set<String> set3 = new HashSet<>();
+                        for (int i = 1; i <= 150; i++) {
+                            set3.add("" + i);
+                        }
+                        set3.removeAll(set2);
+                        set.addAll(set3);
+                        shouldIndex = false;
+                        break;
+                    }
                     if (set.isEmpty()){
                         for (int i = 1; i <= 150; i++) {
                             set.add("" + i);
@@ -122,6 +135,5 @@ public class BooleanSearch {
     private Set<String> getInputSet(String token) {
         return invertedIndex.getOrDefault(token, Collections.emptySet());
     }
-
 }
 
