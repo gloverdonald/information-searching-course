@@ -30,11 +30,13 @@ gradle tokensAndLemmas
 ## Задание №3
 #### Чтобы сгенерировать инвертированный список нужно выполнить команду:
 ```
-gradle tokensAndLemmas
+gradle сreateIndex
 ```
 
 #### Чтобы запустить поиск выполнить команду:
 ```
-gradle tokensAndLemmas
+gradle search
 ```
 чтобы завершить поиск нужно написать команду `!exit`
+
+![search.gif](search.gif)
