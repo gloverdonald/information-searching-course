@@ -44,3 +44,17 @@ tasks.register('tokensAndLemmas', JavaExec) {
     mainClass = 'ru.itis.task2.HTMLPagesCleanerMain'
     classpath = sourceSets.main.runtimeClasspath
 }
+
+
+tasks.register('сreateIndex', JavaExec) {
+    dependsOn 'classes'
+    mainClass = 'ru.itis.task3.IndexCreationMain'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+tasks.register('search', JavaExec) {
+    standardInput = System.in
+    dependsOn 'classes'
+    mainClass = 'ru.itis.task3.BooleanSearchMain'
+    classpath = sourceSets.main.runtimeClasspath
+}

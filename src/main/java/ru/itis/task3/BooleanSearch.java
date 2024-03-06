@@ -14,33 +14,33 @@ public class BooleanSearch {
     private static final String OR = "OR";
     private static final String NOT = "NOT";
     private static final String INVERTED_INDEX_PATH = "src/main/resources/inverted_index.txt";
-    private static final Map<String, Set<String>> invertedIndex = new HashMap<>();
+    private final Map<String, Set<String>> invertedIndex;
 
-    public static void main(String[] args) {
-        loadInvertedIndex();
-        String query = "изменилось AND времена";
-        try {
-            Set<String> result = search(query);
-            System.out.println("Found " + result.size() + " files: " + result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public BooleanSearch() {
+        invertedIndex = loadInvertedIndex();
     }
 
-    private static void loadInvertedIndex() {
+    public Set<String> search(String query) {
+        return searchPages(query);
+    }
+
+
+    private Map<String, Set<String>> loadInvertedIndex() {
+        Map<String, Set<String>> index = new HashMap<>();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(INVERTED_INDEX_PATH), "UTF8"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(" ", 2);
                 Set<String> newSet = new HashSet<>(Arrays.asList(parts[1].split(" *, *")));
-                invertedIndex.put(parts[0], newSet);
+                index.put(parts[0], newSet);
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+        return index;
     }
 
-    public static Set<String> search(String query) {
+    public Set<String> searchPages(String query) {
         var tokens = query.split("(?<=\\()|(?=\\()|(?<=\\))|(?=\\))|\s+");
         var text = new LinkedList<String>();
         for (String token : tokens) {
@@ -60,7 +60,7 @@ public class BooleanSearch {
         return new HashSet<>(parse(text));
     }
 
-    private static Set<String> parse(Queue<String> tokens) {
+    private Set<String> parse(Queue<String> tokens) {
         Set<String> set = new HashSet<>();
         boolean shouldUnion = false;
         boolean shouldIntersect = false;
@@ -114,7 +114,7 @@ public class BooleanSearch {
         return set;
     }
 
-    private static Set<String> getInputSet(String token) {
+    private Set<String> getInputSet(String token) {
         return invertedIndex.getOrDefault(token, Collections.emptySet());
     }
 
