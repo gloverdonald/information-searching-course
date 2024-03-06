@@ -12,7 +12,7 @@ public class BooleanSearchMain {
             System.out.print("Запрос: ");
             query = sc.nextLine();
             if (query.equals("!exit")) break;
-            Set<String> result = bs.search(query);
+            Set<Integer> result = bs.search(query);
             System.out.println("Found " + result.size() + " files: " + result);
         }
     }

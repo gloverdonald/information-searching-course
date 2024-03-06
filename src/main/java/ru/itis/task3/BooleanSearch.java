@@ -20,7 +20,7 @@ public class BooleanSearch {
         invertedIndex = loadInvertedIndex();
     }
 
-    public Set<String> search(String query) {
+    public Set<Integer> search(String query) {
         return searchPages(query);
     }
 
@@ -40,7 +40,7 @@ public class BooleanSearch {
         return index;
     }
 
-    public Set<String> searchPages(String query) {
+    public Set<Integer> searchPages(String query) {
         var tokens = query.split("(?<=\\()|(?=\\()|(?<=\\))|(?=\\))|\s+");
         var text = new LinkedList<String>();
         for (String token : tokens) {
@@ -57,7 +57,7 @@ public class BooleanSearch {
             }
         }
 
-        return new HashSet<>(parse(text));
+        return new TreeSet<>(parse(text).stream().map(Integer::parseInt).toList());
     }
 
     private Set<String> parse(Queue<String> tokens) {
@@ -81,6 +81,11 @@ public class BooleanSearch {
                 }
                 case NOT: {
                     Set<String> set2 = parse(tokens);
+                    if (set.isEmpty()){
+                        for (int i = 1; i <= 150; i++) {
+                            set.add("" + i);
+                        }
+                    }
                     set.removeAll(set2);
                     break;
                 }
