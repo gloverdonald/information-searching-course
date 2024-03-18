@@ -1,7 +1,5 @@
 package ru.itis;
 
-import org.jsoup.Jsoup;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -75,8 +73,8 @@ public class Util {
         }
     }
 
-    public static Set<String> generateCleanText(String fileText) {
-        Set<String> tokens = new HashSet<>();
+    public static List<String> generateCleanText(String fileText) {
+        List<String> tokens = new ArrayList<>();
 
         var res = fileText;
         StringTokenizer st = new StringTokenizer(res, " .,!:;\'\"\\@#$%&*()<>?`~{}[]0123456789");
@@ -104,7 +102,6 @@ public class Util {
             } catch (IndexOutOfBoundsException ignored) {
             }
         }
-
         return tokens;
     }
 }
