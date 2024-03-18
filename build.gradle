@@ -45,7 +45,6 @@ tasks.register('tokensAndLemmas', JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
-
 tasks.register('сreateIndex', JavaExec) {
     dependsOn 'classes'
     mainClass = 'ru.itis.task3.IndexCreationMain'
@@ -56,5 +55,11 @@ tasks.register('search', JavaExec) {
     standardInput = System.in
     dependsOn 'classes'
     mainClass = 'ru.itis.task3.BooleanSearchMain'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+tasks.register('createTfIdf', JavaExec) {
+    dependsOn 'classes'
+    mainClass = 'ru.itis.task4.TfIdfMain'
     classpath = sourceSets.main.runtimeClasspath
 }
