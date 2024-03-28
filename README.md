@@ -47,3 +47,9 @@ gradle search
 ```
 gradle createTfIdf
 ```
+
+## Задание №5
+#### Чтобы запустить поиск выполнить команду:
+```
+gradle vectorSearch
+```

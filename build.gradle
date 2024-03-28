@@ -1,3 +1,5 @@
+import org.gradle.api.internal.artifacts.JavaEcosystemSupport
+
 plugins {
     id 'java'
 }
@@ -61,5 +63,12 @@ tasks.register('search', JavaExec) {
 tasks.register('createTfIdf', JavaExec) {
     dependsOn 'classes'
     mainClass = 'ru.itis.task4.TfIdfMain'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+tasks.register('vectorSearch', JavaExec) {
+    standardInput = System.in
+    dependsOn 'classes'
+    mainClass = 'ru.itis.task5.VectorSearchMain'
     classpath = sourceSets.main.runtimeClasspath
 }

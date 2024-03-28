@@ -14,6 +14,5 @@ public class VectorSearchMain {
             if (query.equals("!exit")) break;
             vectorSearch.searchPages(query);
         }
-
     }
 }
