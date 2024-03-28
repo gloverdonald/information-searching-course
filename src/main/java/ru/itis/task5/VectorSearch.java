@@ -40,7 +40,6 @@ public class VectorSearch {
 
     private List<String> loadLemmas() {
         List<String> lemmaList = lemmasDocumentCount.keySet().stream().toList();
-        System.out.println(lemmaList.toString());
         return lemmaList;
     }
 
@@ -65,11 +64,12 @@ public class VectorSearch {
                 curDocTfIdf.add(lemmasDocList.getOrDefault(curLemma, 0.0));
             }
             vectors.put(i, curDocTfIdf);
+
         }
-        System.out.println(vectors.size());
         return vectors;
     }
 
+    //Подсчет tf для запроса
     public Map<String, Double> calculateTf(List<String> text) {
         Map<String, Double> tfList = new TreeMap<>();
         Map<String, Integer> countTokens = new TreeMap<>();
@@ -88,6 +88,7 @@ public class VectorSearch {
         return tfList;
     }
 
+    //Подсчет idf для запроса
     public Map<String, Double> calculateIdf(List<String> text) {
         Map<String, Double> idfList = new TreeMap<>();
         var totalTokens = text.size();
@@ -101,6 +102,7 @@ public class VectorSearch {
         return idfList;
     }
 
+    //Подсчет tf-idf для запроса
     public Map<String, Double> calculateTfIdf(Map<String, Double> tfList, Map<String, Double> idfList) {
         Map<String, Double> tfIdfList = new TreeMap<>();
         for (Map.Entry<String, Double> entry : tfList.entrySet()) {
@@ -120,23 +122,25 @@ public class VectorSearch {
             if (!token.isEmpty()) {
                 token = token.trim();
                 var meanings = lookupForMeanings(token);
+                try {
                 if (meanings.get(0).getTransformations().size() > 1) {
                     String meaning = meanings.get(0).getPartOfSpeech().toString();
                     if (!(meaning.equals("Предлог")) & !(meaning.equals("Союз")) &
                             !(meaning.equals("Некая часть речи")) & !(meaning.equals("Частица")) & !(meaning.equals("Междометие"))) {
-                        try {
+
                             String lemma = meanings.get(0).getLemma().toString();
                             text.add(lemma);
-                        } catch (IndexOutOfBoundsException ignored) {
-                        }
+
                     }
+                }
+                } catch (IndexOutOfBoundsException ignored) {
                 }
             }
         }
         return text;
     }
 
-
+    //Cоздание вектора запроса
     public List<Double> createVector(Map<String, Double> tfIdfList) {
         List<Double> curTfIdf = new ArrayList<>();
         for (int j = 0; j < lemmaList.size(); j++) {
@@ -150,14 +154,16 @@ public class VectorSearch {
         var tokens = getTokensFromQuery(query);
         var queryVector = createVector(calculateTfIdf(calculateTf(tokens), calculateIdf(tokens)));
         List<Double> vectorSimilarity = new ArrayList<>();
+
         for (int i = 1; i <= 150; i++) {
             var similarity = cosineSimilarity.calculateCosineSimilarity(queryVector, vectors.get(i));
             vectorSimilarity.add(similarity);
         }
+
         List<Map.Entry<Double, Integer>> pairList = new ArrayList<>();
         for (int i = 0; i < vectorSimilarity.size(); i++) {
             Double value = vectorSimilarity.get(i);
-            if (!value.equals(0.0)) { // Фильтрация нулевых значений
+            if (!value.equals(0.0)) {
                 pairList.add(new SimpleEntry<>(value, i + 1));
             }
         }

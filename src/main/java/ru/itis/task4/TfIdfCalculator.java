@@ -114,7 +114,7 @@ public class TfIdfCalculator {
         for (Map.Entry<String, Integer> word : currentDocumentWords.entrySet()) {
             double currentDocCount = word.getValue();
             double allDocCount = allDocumentsWords.get(word.getKey());
-            var idf = Math.log(allDocCount / currentDocCount);
+            var idf = Math.log(150 / allDocCount);
             idfList.put(word.getKey(), idf);
         }
         return idfList;
