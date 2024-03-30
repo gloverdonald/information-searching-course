@@ -1,7 +1,8 @@
-import org.gradle.api.internal.artifacts.JavaEcosystemSupport
 
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '3.2.4'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'ru.itis'
@@ -19,6 +20,10 @@ dependencies {
     implementation 'com.github.demidko:aot:2022.11.28'
     implementation 'edu.stanford.nlp:stanford-corenlp:4.5.6'
     implementation 'org.apache.opennlp:opennlp-tools:2.3.2'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '3.2.1'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.2.0'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
 
 
     testImplementation platform('org.junit:junit-bom:5.9.1')

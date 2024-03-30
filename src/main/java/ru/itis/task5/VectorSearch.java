@@ -133,7 +133,8 @@ public class VectorSearch {
 
                     }
                 }
-                } catch (IndexOutOfBoundsException ignored) {
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println(e.getMessage());
                 }
             }
         }
@@ -150,7 +151,7 @@ public class VectorSearch {
         return curTfIdf;
     }
 
-    public void searchPages(String query) {
+    public List<String> searchPages(String query) {
         var tokens = getTokensFromQuery(query);
         var queryVector = createVector(calculateTfIdf(calculateTf(tokens), calculateIdf(tokens)));
         List<Double> vectorSimilarity = new ArrayList<>();
@@ -174,8 +175,20 @@ public class VectorSearch {
         // Выводим отсортированные значения и номера документов
         pairList.forEach(entry ->
                 System.out.println("Документ номер: " + entry.getValue() + " Сходство: " + entry.getKey() + " Ссылка: " + getPageURL(entry.getValue())));
-    }
 
+        List<String> firstTenPages = new ArrayList<>();
+        if (pairList.size() >= 10) {
+            for (int i = 0; i < 10; i++) {
+                firstTenPages.add(getPageURL(pairList.get(i).getValue()));
+            }
+            return firstTenPages;
+        } else {
+            for (int i = 0; i < pairList.size(); i++) {
+                firstTenPages.add(getPageURL(pairList.get(i).getValue()));
+            }
+            return firstTenPages;
+        }
+    }
 
     public List<String> getAllPagesURL() {
         List<String> pages = new ArrayList<>();

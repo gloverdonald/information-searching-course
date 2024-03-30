@@ -1,5 +1,6 @@
 package ru.itis.task5;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class VectorSearchMain {

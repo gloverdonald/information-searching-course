@@ -25,7 +25,7 @@ public class CosineSimilarity {
         var v1Norm = getNorm(v1);
         var v2Norm = getNorm(v2);
         if (v1Norm == 0.0 || v2Norm == 0.0) {
-            return null;
+            return 0.0;
         }
         return multiplication / (v1Norm * v2Norm);
     }
